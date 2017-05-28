@@ -1,0 +1,90 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+<%@ Register TagPrefix="controles" TagName="ElementoMenuControl" Src="Controles/ElementoMenuControl.ascx" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link rel="stylesheet" type="text/css" href="Estilos.css" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    
+</head>
+<body>
+<form id="form1" runat="server">
+    <link rel="stylesheet" type="text/css" href="<%= BaseURL %>/Estilos.css" />
+	<div id="bannerTop">
+		<div id="bannerTopLeft">
+			<a href="<%= BaseURL %>/default.aspx">
+				<asp:Image runat="server" alt="MSDN Video" ImageUrl="~/resources/TopL.jpg" width="200" height="93"/>
+			</a>
+		</div>
+		<div id="bannerTopCenter">
+		</div>
+		<div id="bannerTopRight">
+			<a href="http://www.desarrollaconmsdn.com">
+			<asp:Image runat="server" alt="Desarrolla con MSDN" ImageUrl="~/resources/TopR.jpg" width="298" height="93"/></a>
+		</div>
+	</div>
+	<div id="pageContainer">
+		<div id="colMenu">
+			<div id="menuUsuario">
+                <asp:LoginName CssClass="lnkUsuario" ID="LoginName2" runat="server" />
+                <asp:LoginStatus CssClass="lnkUsuario" ID="LoginStatus1" runat="server" 
+                    LogoutPageUrl="~/Default.aspx" LoginText="Acceso socios" LogoutText="Cerrar sesión" />
+			</div>
+			
+			<div id="menuContent">
+				&nbsp;			
+				<controles:ElementoMenuControl ID="ElementoMenuControl1" MenuText="Estrenos" MenuURL='<%# BaseURL + "/Estrenos.aspx" %>' runat="server"/>
+				<controles:ElementoMenuControl ID="ElementoMenuControl2" MenuText="Top alquiler" MenuURL='<%# BaseURL + "/TopPeliculas.aspx?top=alquiler"%>' runat="server"/>
+				<controles:ElementoMenuControl ID="ElementoMenuControl3" MenuText="Top ventas" MenuURL='<%# BaseURL + "/TopPeliculas.aspx?top=ventas"%>' runat="server"/>
+				<controles:ElementoMenuControl ID="ElementoMenuControl4" MenuText="Preferidas del público" MenuURL='<%# BaseURL + "/TopPeliculas.aspx?top=preferidas"%>' runat="server"/>
+				<asp:Image runat="server" alt="finMenu" ImageUrl="~/resources/MenuSep.jpg" width="186" height="9"/>
+				
+				<p class="labelMenu">Título<br/>
+				<asp:TextBox CssClass="controlMenu" id="Titulo" runat="server"></asp:TextBox></p>
+				
+				<p class="labelMenu">Género<br/>				
+				<asp:DropDownList CssClass="controlMenu" id="Genero" runat="server">
+					<asp:ListItem Value="Romántica">Romántica</asp:ListItem>
+					<asp:ListItem>Drama</asp:ListItem>
+                    <asp:ListItem Value="Comedia">Comedia</asp:ListItem>
+                    <asp:ListItem>Thriller</asp:ListItem>
+                    <asp:ListItem>Terror</asp:ListItem>
+                    <asp:ListItem>Acción</asp:ListItem>
+					<asp:ListItem Value="&lt;&lt; Cualquiera &gt;&gt;" Selected="True">&lt;&lt; Cualquiera &gt;&gt;</asp:ListItem>
+				</asp:DropDownList>
+				</p>
+
+				<p class="labelMenu">Clasificación<br/>
+				<asp:DropDownList CssClass="controlMenu" id="Clasificacion" runat="server">
+					<asp:ListItem Value="Apta">Apta</asp:ListItem>
+					<asp:ListItem Value="NR -7">NR -7</asp:ListItem>
+					<asp:ListItem Value="NR -13">NR -13</asp:ListItem>
+					<asp:ListItem Value="NR -18">NR -18</asp:ListItem>
+					<asp:ListItem Value="&lt;&lt; Cualquiera &gt;&gt;" Selected="True">&lt;&lt; Cualquiera &gt;&gt;</asp:ListItem>
+				</asp:DropDownList>
+				</p>
+				
+				<p class="labelMenu">Estreno<br/>
+				<asp:DropDownList CssClass="controlMenu" id="Estreno" runat="server">
+					<asp:ListItem Value="Sí">Sí</asp:ListItem>
+					<asp:ListItem Value="No">No</asp:ListItem>
+					<asp:ListItem Value="&lt;&lt; Cualquiera &gt;&gt;" Selected="True">&lt;&lt; Cualquiera &gt;&gt;</asp:ListItem>
+				</asp:DropDownList>
+				</p>
+
+				<p class="labelMenu">
+					<asp:Button CssClass="controlMenuSubmit" id="BuscarPelicula" runat="server"
+					Text="Buscar película" onclick="BuscarPelicula_Click"></asp:Button>
+				</p>
+			</div>
+		</div>
+		<div id="pageContent">		
+				<asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+				</asp:ContentPlaceHolder>
+		</div>
+	</div>
+</form>
+</body>
+</html>

@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:52442/MSDNVideo.Servicios/MSDNVideoServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:52442/MSDNVideo.Servicios/MSDNVideoServices.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ArrayOfPelicula">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Pelicula" nillable="true" type="tns:Pelicula" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPelicula" nillable="true" type="tns:ArrayOfPelicula" />
+  <xs:complexType name="Pelicula">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PuntuacionMedia" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PeliculaID" type="xs:int" />
+      <xs:element minOccurs="0" name="CodBarras" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Titulo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sinopsis" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Duracion" type="xs:int" />
+      <xs:element minOccurs="0" name="Novedad" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Clasificacion" type="tns:Clasificaciones" />
+      <xs:element minOccurs="0" name="Genero" type="tns:Generos" />
+      <xs:element minOccurs="0" name="URLTrailer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnidadesVenta" type="xs:int" />
+      <xs:element minOccurs="0" name="UnidadesAlquiler" type="xs:int" />
+      <xs:element minOccurs="0" name="UnidadesVentaAlquiler" type="xs:int" />
+      <xs:element minOccurs="0" name="UnidadesAlquiladas" type="xs:int" />
+      <xs:element minOccurs="0" name="ActoresPeliculas" nillable="true" type="tns:ArrayOfActoresPelicula">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Alquileres" nillable="true" type="tns:ArrayOfAlquiler">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Notificaciones" nillable="true" type="tns:ArrayOfNotificacion">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Historicos" nillable="true" type="tns:ArrayOfHistorico">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Puntuaciones" nillable="true" type="tns:ArrayOfPuntuacion">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Pelicula" nillable="true" type="tns:Pelicula" />
+  <xs:simpleType name="Clasificaciones">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Apta" />
+      <xs:enumeration value="NR7" />
+      <xs:enumeration value="NR13" />
+      <xs:enumeration value="NR18" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Clasificaciones" nillable="true" type="tns:Clasificaciones" />
+  <xs:simpleType name="Generos">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Romantica" />
+      <xs:enumeration value="Drama" />
+      <xs:enumeration value="Comedia" />
+      <xs:enumeration value="Thriller" />
+      <xs:enumeration value="Terror" />
+      <xs:enumeration value="Accion" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Generos" nillable="true" type="tns:Generos" />
+  <xs:complexType name="ArrayOfActoresPelicula">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ActoresPelicula" nillable="true" type="tns:ActoresPelicula" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfActoresPelicula" nillable="true" type="tns:ArrayOfActoresPelicula" />
+  <xs:complexType name="ActoresPelicula">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActorParent" nillable="true" type="tns:Actor" />
+      <xs:element minOccurs="0" name="PeliculaParent" nillable="true" type="tns:Pelicula" />
+      <xs:element minOccurs="0" name="ActorPeliculaID" type="xs:int" />
+      <xs:element minOccurs="0" name="PeliculaID" type="xs:int" />
+      <xs:element minOccurs="0" name="ActorID" type="xs:int" />
+      <xs:element minOccurs="0" name="Papel" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ActoresPelicula" nillable="true" type="tns:ActoresPelicula" />
+  <xs:complexType name="Actor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActorID" type="xs:int" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UrlPersonal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ActoresPeliculas" nillable="true" type="tns:ArrayOfActoresPelicula">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Actor" nillable="true" type="tns:Actor" />
+  <xs:complexType name="ArrayOfAlquiler">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Alquiler" nillable="true" type="tns:Alquiler" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAlquiler" nillable="true" type="tns:ArrayOfAlquiler" />
+  <xs:complexType name="Alquiler">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PeliculaParent" nillable="true" type="tns:Pelicula" />
+      <xs:element minOccurs="0" name="UsuarioParent" nillable="true" type="tns:Usuario" />
+      <xs:element minOccurs="0" name="AlquilerID" type="xs:int" />
+      <xs:element minOccurs="0" name="SocioID" type="xs:int" />
+      <xs:element minOccurs="0" name="PeliculaID" type="xs:int" />
+      <xs:element minOccurs="0" name="FechaAlquiler" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaRecogida" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Alquiler" nillable="true" type="tns:Alquiler" />
+  <xs:complexType name="Usuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UsuarioID" type="xs:int" />
+      <xs:element minOccurs="0" name="NIF" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rol" type="tns:Rol" />
+      <xs:element minOccurs="0" name="Alquileres" nillable="true" type="tns:ArrayOfAlquiler">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Notificaciones" nillable="true" type="tns:ArrayOfNotificacion">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Puntuaciones" nillable="true" type="tns:ArrayOfPuntuacion">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Usuario" nillable="true" type="tns:Usuario" />
+  <xs:simpleType name="Rol">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Socio" />
+      <xs:enumeration value="Admin" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Rol" nillable="true" type="tns:Rol" />
+  <xs:complexType name="ArrayOfNotificacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Notificacion" nillable="true" type="tns:Notificacion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNotificacion" nillable="true" type="tns:ArrayOfNotificacion" />
+  <xs:complexType name="Notificacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PeliculaParent" nillable="true" type="tns:Pelicula" />
+      <xs:element minOccurs="0" name="UsuarioParent" nillable="true" type="tns:Usuario" />
+      <xs:element minOccurs="0" name="NotificacionID" type="xs:int" />
+      <xs:element minOccurs="0" name="PeliculaID" type="xs:int" />
+      <xs:element minOccurs="0" name="SocioID" type="xs:int" />
+      <xs:element minOccurs="0" name="TipoNotificacion" type="tns:TipoNotificacion" />
+      <xs:element minOccurs="0" name="FechaAlta" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Notificacion" nillable="true" type="tns:Notificacion" />
+  <xs:simpleType name="TipoNotificacion">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Email" />
+      <xs:enumeration value="SMS" />
+      <xs:enumeration value="Messenger" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TipoNotificacion" nillable="true" type="tns:TipoNotificacion" />
+  <xs:complexType name="Socio">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Usuario">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Ciudad" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Provincia" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CodigoPostal" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Saldo" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Socio" nillable="true" type="tns:Socio" />
+  <xs:complexType name="Admin">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Usuario">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Admin" nillable="true" type="tns:Admin" />
+  <xs:complexType name="ArrayOfPuntuacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Puntuacion" nillable="true" type="tns:Puntuacion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPuntuacion" nillable="true" type="tns:ArrayOfPuntuacion" />
+  <xs:complexType name="Puntuacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PeliculaParent" nillable="true" type="tns:Pelicula" />
+      <xs:element minOccurs="0" name="UsuarioParent" nillable="true" type="tns:Usuario" />
+      <xs:element minOccurs="0" name="PuntuacionID" type="xs:int" />
+      <xs:element minOccurs="0" name="SocioID" type="xs:int" />
+      <xs:element minOccurs="0" name="PeliculaID" type="xs:int" />
+      <xs:element minOccurs="0" name="ValorPuntuacion" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Puntuacion" nillable="true" type="tns:Puntuacion" />
+  <xs:complexType name="ArrayOfHistorico">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Historico" nillable="true" type="tns:Historico" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHistorico" nillable="true" type="tns:ArrayOfHistorico" />
+  <xs:complexType name="Historico">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PeliculaParent" nillable="true" type="tns:Pelicula" />
+      <xs:element minOccurs="0" name="HistoricoID" type="xs:int" />
+      <xs:element minOccurs="0" name="SocioID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PeliculaID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Fecha" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaRecogida" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaDevolucion" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Precio" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TipoOperacion" type="tns:TipoOperacion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Historico" nillable="true" type="tns:Historico" />
+  <xs:simpleType name="TipoOperacion">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Alquiler" />
+      <xs:enumeration value="Venta" />
+      <xs:enumeration value="Recarga" />
+      <xs:enumeration value="Recogida" />
+      <xs:enumeration value="Devolucion" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TipoOperacion" nillable="true" type="tns:TipoOperacion" />
+  <xs:complexType name="FiltroPeliculas">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CamposFiltrado" type="xs:int" />
+      <xs:element minOccurs="0" name="Clasificacion" type="tns:Clasificaciones" />
+      <xs:element minOccurs="0" name="CodBarras" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Genero" type="tns:Generos" />
+      <xs:element minOccurs="0" name="IncluirTotal" type="xs:boolean" />
+      <xs:element minOccurs="0" name="InicioPagina" type="xs:int" />
+      <xs:element minOccurs="0" name="Novedad" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PeliculasPagina" type="xs:int" />
+      <xs:element minOccurs="0" name="Titulo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FiltroPeliculas" nillable="true" type="tns:FiltroPeliculas" />
+  <xs:simpleType name="CamposFiltro">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CodBarras">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Titulo">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Novedad">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Clasificacion">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Genero">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CamposFiltro" nillable="true" type="tns:CamposFiltro" />
+  <xs:complexType name="DisconnectedChangeSet">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Agregados" nillable="true" type="q1:ArrayOfanyType" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Eliminados" nillable="true" type="q2:ArrayOfanyType" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Modificados" nillable="true" type="q3:ArrayOfanyType" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ModificadosOriginal" nillable="true" type="q4:ArrayOfanyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DisconnectedChangeSet" nillable="true" type="tns:DisconnectedChangeSet" />
+  <xs:complexType name="ArrayOfUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Usuario" nillable="true" type="tns:Usuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUsuario" nillable="true" type="tns:ArrayOfUsuario" />
+  <xs:complexType name="ArrayOfSocio">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Socio" nillable="true" type="tns:Socio" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSocio" nillable="true" type="tns:ArrayOfSocio" />
+  <xs:complexType name="ArrayOfActor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Actor" nillable="true" type="tns:Actor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfActor" nillable="true" type="tns:ArrayOfActor" />
+  <xs:simpleType name="EstadoPedido">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Realizado" />
+      <xs:enumeration value="StockInsuficiente" />
+      <xs:enumeration value="ModalidadNoDisponible" />
+      <xs:enumeration value="SaldoInsuficiente" />
+      <xs:enumeration value="ErrorConcurrencia" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EstadoPedido" nillable="true" type="tns:EstadoPedido" />
+  <xs:complexType name="ArrayOfInformeSaldos">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InformeSaldos" nillable="true" type="tns:InformeSaldos" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInformeSaldos" nillable="true" type="tns:ArrayOfInformeSaldos" />
+  <xs:complexType name="InformeSaldos">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NumSocios" type="xs:int" />
+      <xs:element minOccurs="0" name="Saldo" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InformeSaldos" nillable="true" type="tns:InformeSaldos" />
+  <xs:simpleType name="SaludInforme">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Positivo" />
+      <xs:enumeration value="Neutro" />
+      <xs:enumeration value="Negativo" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SaludInforme" nillable="true" type="tns:SaludInforme" />
+  <xs:complexType name="ArrayOfInformeVentas">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InformeVentas" nillable="true" type="tns:InformeVentas" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInformeVentas" nillable="true" type="tns:ArrayOfInformeVentas" />
+  <xs:complexType name="InformeVentas">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alquileres" type="xs:decimal" />
+      <xs:element minOccurs="0" name="DiaSemana" type="xs:int" />
+      <xs:element minOccurs="0" name="Ventas" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InformeVentas" nillable="true" type="tns:InformeVentas" />
+  <xs:complexType name="ArrayOfInformeStock">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InformeStock" nillable="true" type="tns:InformeStock" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInformeStock" nillable="true" type="tns:ArrayOfInformeStock" />
+  <xs:complexType name="InformeStock">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NumPeliculas" type="xs:int" />
+      <xs:element minOccurs="0" name="Unidades" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InformeStock" nillable="true" type="tns:InformeStock" />
+</xs:schema>

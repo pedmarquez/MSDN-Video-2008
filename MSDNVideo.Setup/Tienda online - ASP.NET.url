@@ -1,0 +1,9 @@
+[DEFAULT]
+BASEURL=http://localhost/ClienteWeb/default.aspx
+[InternetShortcut]
+URL=http://localhost:52444/MSDNVideo.Web/Default.aspx
+Modified=70FDBA8C6CE5C401C9
+HotKey=0
+IDList=
+[{000214A0-0000-0000-C000-000000000046}]
+Prop3=19,2

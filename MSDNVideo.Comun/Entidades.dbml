@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="MSDNVIDEOBD" Class="EntidadesDataContext" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=MSDNVideoDB;Integrated Security=True;Connect Timeout=30" SettingsObjectName="MSDNVideo.Comun.Properties.Settings" SettingsPropertyName="MSDNVideoConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Actores" Member="Actors">
+    <Type Name="Actor">
+      <Column Name="ActorID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="UrlPersonal" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Association Name="Actor_ActoresPelicula" Member="ActoresPeliculas" OtherKey="ActorID" Type="ActoresPelicula" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ActoresPeliculas" Member="ActoresPeliculas">
+    <Type Name="ActoresPelicula">
+      <Column Name="ActorPeliculaID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PeliculaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ActorID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Papel" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Association Name="Actor_ActoresPelicula" Member="Actor" ThisKey="ActorID" Type="Actor" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Pelicula_ActoresPelicula" Member="Pelicula" ThisKey="PeliculaID" Type="Pelicula" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Alquileres" Member="Alquilers">
+    <Type Name="Alquiler">
+      <Column Name="AlquilerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SocioID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PeliculaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FechaAlquiler" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaRecogida" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Pelicula_Alquiler" Member="Pelicula" ThisKey="PeliculaID" Type="Pelicula" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Usuario_Alquiler" Member="Usuario" ThisKey="SocioID" Type="Usuario" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Notificaciones" Member="Notificacions">
+    <Type Name="Notificacion">
+      <Column Name="NotificacionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PeliculaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SocioID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TipoNotificacion" Type="TipoNotificacion" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="FechaAlta" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Direccion" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Pelicula_Notificacion" Member="Pelicula" ThisKey="PeliculaID" Type="Pelicula" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Usuario_Notificacion" Member="Usuario" ThisKey="SocioID" Type="Usuario" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Peliculas" Member="Peliculas">
+    <Type Name="Pelicula">
+      <Column Name="PeliculaID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CodBarras" Type="System.String" DbType="NChar(13) NOT NULL" CanBeNull="false" />
+      <Column Name="Titulo" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Sinopsis" Type="System.String" DbType="NVarChar(2000) NOT NULL" CanBeNull="false" />
+      <Column Name="Duracion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Novedad" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Clasificacion" Type="Clasificaciones" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="Genero" Type="Generos" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="URLTrailer" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="UnidadesVenta" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UnidadesAlquiler" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UnidadesVentaAlquiler" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UnidadesAlquiladas" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Pelicula_ActoresPelicula" Member="ActoresPeliculas" OtherKey="PeliculaID" Type="ActoresPelicula" />
+      <Association Name="Pelicula_Alquiler" Member="Alquileres" Storage="_Alquilers" OtherKey="PeliculaID" Type="Alquiler" />
+      <Association Name="Pelicula_Notificacion" Member="Notificaciones" OtherKey="PeliculaID" Type="Notificacion" />
+      <Association Name="Pelicula_Historico" Member="Historicos" OtherKey="PeliculaID" Type="Historico" />
+      <Association Name="Pelicula_Puntuacion" Member="Puntuaciones" OtherKey="PeliculaID" Type="Puntuacion" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuarios" Member="Usuarios">
+    <Type Name="Usuario" InheritanceCode="2" IsInheritanceDefault="true">
+      <Column Name="UsuarioID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NIF" Type="System.String" DbType="NChar(9) NOT NULL" CanBeNull="false" />
+      <Column Name="Rol" Type="Rol" DbType="SmallInt NOT NULL" CanBeNull="false" IsDiscriminator="true" />
+      <Association Name="Usuario_Alquiler" Member="Alquileres" OtherKey="SocioID" Type="Alquiler" />
+      <Association Name="Usuario_Notificacion" Member="Notificaciones" OtherKey="SocioID" Type="Notificacion" />
+      <Association Name="Usuario_Puntuacion" Member="Puntuaciones" OtherKey="SocioID" Type="Puntuacion" />
+      <Type Name="Admin" InheritanceCode="1" />
+      <Type Name="Socio" InheritanceCode="0">
+        <Column Name="Nombre" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+        <Column Name="Telefono" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+        <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+        <Column Name="Direccion" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+        <Column Name="Ciudad" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+        <Column Name="Provincia" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+        <Column Name="CodigoPostal" Type="System.Decimal" DbType="Decimal(5,0)" CanBeNull="true" />
+        <Column Name="Saldo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      </Type>
+    </Type>
+  </Table>
+  <Table Name="dbo.Historico" Member="Historicos">
+    <Type Name="Historico">
+      <Column Name="HistoricoID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SocioID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PeliculaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaRecogida" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FechaDevolucion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Precio" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="TipoOperacion" Type="TipoOperacion" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Association Name="Pelicula_Historico" Member="Pelicula" ThisKey="PeliculaID" Type="Pelicula" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Puntuaciones" Member="Puntuacions">
+    <Type Name="Puntuacion">
+      <Column Name="PuntuacionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SocioID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PeliculaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Puntuacion" Member="ValorPuntuacion" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Association Name="Pelicula_Puntuacion" Member="Pelicula" ThisKey="PeliculaID" Type="Pelicula" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Usuario_Puntuacion" Member="Usuario" ThisKey="SocioID" Type="Usuario" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+</Database>

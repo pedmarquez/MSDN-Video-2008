@@ -1,0 +1,58 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2006" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+    x:Class="MSDNVideo.Cajero.MenuPrincipal"
+    Title="Menú principal" Width="Auto" Height="Auto" MinHeight="400" MinWidth="550"
+    Loaded="Page_Loaded">
+    <Grid>
+        <GroupBox HorizontalAlignment="Stretch" Margin="112,60.533,23.931,0" Style="{DynamicResource FrameStyle}" Header="Opciones" VerticalAlignment="Top" Height="289.069">
+        	<StackPanel>
+        		<Button Click="btnAlquilar_Click" Width="236.714" Template="{StaticResource BotonMenuTemplate}" x:Name="btnAlquilar" Margin="0,6,0,0" Height="Auto" Grid.RowSpan="1" ClipToBounds="False">
+        			<StackPanel x:Name="stackPanel" Height="Auto" Orientation="Horizontal">
+        				<Image Margin="0,4,0,1" Width="60" Height="57.341" Source="Images\IconoAlquilar.png"/>
+        				<TextBlock Width="Auto" Height="Auto" FontSize="18" FontWeight="Bold" Foreground="#FFFFFFFF" Text="Alquilar película" TextAlignment="Center" TextWrapping="Wrap" Margin="28,0,0,0" VerticalAlignment="Center">
+        					<TextBlock.BitmapEffect>
+        						<DropShadowBitmapEffect Color="#FF000000" Direction="327" Opacity="0.665" ShadowDepth="1" Softness="0.07"/>
+        					</TextBlock.BitmapEffect>
+        				</TextBlock>
+        			</StackPanel>
+        		</Button>
+            
+        		<Button Click="btnComprar_Click" Width="236.714" Template="{StaticResource BotonMenuTemplate}" x:Name="btnComprar" Margin="0,0,0,0" Grid.Row="1" Grid.RowSpan="1" ClipToBounds="False">
+        			<StackPanel x:Name="stackPanel1" Height="Auto" Orientation="Horizontal">
+        				<Image Margin="0,4,0,1" Width="60" Height="57.341" Source="Images\IconoComprar.png"/>
+        				<TextBlock Width="Auto" Height="Auto" FontSize="18" FontWeight="Bold" Foreground="#FFFFFFFF" Text="Comprar película" TextAlignment="Center" TextWrapping="Wrap" Margin="28,0,0,0" VerticalAlignment="Center">
+        					<TextBlock.BitmapEffect>
+        						<DropShadowBitmapEffect Color="#FF000000" Direction="327" Opacity="0.665" ShadowDepth="1" Softness="0.07"/>
+        					</TextBlock.BitmapEffect>
+        				</TextBlock>
+        			</StackPanel>
+        		</Button>
+            
+        		<Button Click="btnRecoger_Click" Width="236.714" Template="{StaticResource BotonMenuTemplate}" x:Name="btnRecoger" Margin="0,0,0,0" Grid.Row="2" Grid.RowSpan="1" ClipToBounds="False">
+        			<StackPanel x:Name="stackPanel2" Height="Auto" Orientation="Horizontal">
+        				<Image Margin="0,4,0,1" Width="60" Height="57.341" Source="Images\IconoRecoger.png"/>
+        				<TextBlock Width="Auto" Height="Auto" FontSize="18" FontWeight="Bold" Foreground="#FFFFFFFF" Text="Recoger reserva" TextAlignment="Center" TextWrapping="Wrap" Margin="28,0,0,0" VerticalAlignment="Center">
+        					<TextBlock.BitmapEffect>
+        						<DropShadowBitmapEffect Color="#FF000000" Direction="327" Opacity="0.665" ShadowDepth="1" Softness="0.07"/>
+        					</TextBlock.BitmapEffect>
+        				</TextBlock>
+        			</StackPanel>
+        		</Button>
+            
+        		<Button Click="btnDevolver_Click" Width="236.714" Template="{StaticResource BotonMenuTemplate}" x:Name="btnDevolver" Margin="0,0,0,0" Grid.Row="3" Grid.RowSpan="1" ClipToBounds="False">
+        			<StackPanel x:Name="stackPanel3" Height="Auto" Orientation="Horizontal">
+        				<Image Margin="0,4,0,1" Width="60" Height="57.341" Source="Images\IconoDevolver.png"/>
+        				<TextBlock Width="Auto" Height="Auto" FontSize="18" FontWeight="Bold" Foreground="#FFFFFFFF" Text="Devolver alquiler" TextAlignment="Center" TextWrapping="Wrap" Margin="28,0,0,0" VerticalAlignment="Center">
+        					<TextBlock.BitmapEffect>
+        						<DropShadowBitmapEffect Color="#FF000000" Direction="327" Opacity="0.665" ShadowDepth="1" Softness="0.07"/>
+        					</TextBlock.BitmapEffect>
+        				</TextBlock>
+        			</StackPanel>
+        		</Button>
+            
+        	</StackPanel>
+        </GroupBox>
+    </Grid>
+</Page>

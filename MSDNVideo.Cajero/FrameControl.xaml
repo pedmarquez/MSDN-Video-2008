@@ -1,0 +1,11 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="MSDNVideo.Cajero.FrameControl"
+    Height="212" Width="386" Background="#FFCEDEF7">
+    <Grid>
+            
+    	<Rectangle Fill="#FFFFFFFF" Stroke="#FF000000" VerticalAlignment="Top" Height="15.095"/>
+            
+    </Grid>
+</UserControl>

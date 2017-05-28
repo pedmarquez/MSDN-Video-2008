@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestLists xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestList name="Seguridad" id="1ea20337-6faf-4593-a74e-73733aee7311" parentListId="3da1f700-3e96-4c97-9d59-0d6f33647447">
+    <TestLinks>
+      <TestLink id="5fe9a378-d176-fd22-2d06-c63b80b6fddd" name="AccesoClaveIncorrectaTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="9ca7f299-f6da-91d5-d963-e050a0a31207" name="AccesoOperacionConPermisoTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="48438401-fb62-bd95-a061-5aa1a7776537" name="AccesoSocioTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="aef13ed1-a4a8-1569-8117-f249c498a778" name="AccesoAdminTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="ed3bf34a-81e8-b65e-0fe1-abb814e06412" name="AccesoInvitadoTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="4e0b2f89-83a3-c654-f149-b7158db611b0" name="AccesoSocioNoExisteTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="8274968c-1d92-4318-ad7e-0131663c8494" name="AccesoOperacionSinPermisoTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+    </TestLinks>
+  </TestList>
+  <TestList name="ActoresAD" id="212db826-14c3-431f-8a07-9c490be3e85a" parentListId="9784c875-c824-4dd7-9758-51667725542a">
+    <TestLinks>
+      <TestLink id="daa096f9-0a50-5d1c-18b4-e8acc30589c8" name="ObtenerActoresPorNombreTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="20c753bd-2030-b7e9-d040-12be990ec123" name="EliminarActorTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="ac40053c-8263-04a6-54e8-bf421fcf8731" name="ModificarActorTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="c4a71690-99b7-f296-85b0-0f27f8938dfe" name="AgregarActorTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+    </TestLinks>
+  </TestList>
+  <TestList name="Servicios" id="3da1f700-3e96-4c97-9d59-0d6f33647447" parentListId="8c43106b-9dc1-4907-a29f-aa66a61bf5b6" />
+  <TestList name="ServiciosChangeset" id="556fa764-5c5f-4cc9-b504-b50bf4046d59" parentListId="3da1f700-3e96-4c97-9d59-0d6f33647447">
+    <TestLinks>
+      <TestLink id="8698bd21-2c49-6dce-f7a6-554822ae3dff" name="ChangeSetModificacionBorradoTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="5e0f6677-e9ca-51b5-c05a-1e0ef674f206" name="ChangeSetModificacionTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+    </TestLinks>
+  </TestList>
+  <TestList name="ServiciosOperacionesBasicas" id="87d74029-2618-4469-8434-835be14e7722" parentListId="3da1f700-3e96-4c97-9d59-0d6f33647447">
+    <TestLinks>
+      <TestLink id="dbc78cbf-a573-76da-777e-46a675f13dd2" name="ObtenerPeliculaTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="ea504dfb-7fbc-a8ed-c3ef-4c6fb4e4c466" name="ObtenerPeliculaYActoresTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+    </TestLinks>
+  </TestList>
+  <TestList name="Lists of Tests" id="8c43106b-9dc1-4907-a29f-aa66a61bf5b6">
+    <RunConfiguration id="89fc793f-c94f-4e0f-b8b8-4412fdf58ad3" name="Local Test Run" storage="localtestrun.testrunconfig" type="Microsoft.VisualStudio.TestTools.Common.TestRunConfiguration, Microsoft.VisualStudio.QualityTools.Common,   PublicKeyToken=b03f5f7f11d50a3a" />
+  </TestList>
+  <TestList name="AccesoDatos" id="9784c875-c824-4dd7-9758-51667725542a" parentListId="8c43106b-9dc1-4907-a29f-aa66a61bf5b6" />
+  <TestList name="Compras" id="a74b4ea7-4463-42bf-923f-ce7e4dca0ffa" parentListId="a75bef57-1309-4c04-b745-5d64e0aed4df">
+    <TestLinks>
+      <TestLink id="4ae31636-8ba4-9b98-574e-37e3ca532b6d" name="ComprarPeliculaTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="1871e15b-b5e4-b6dc-8266-7bfbc39d8160" name="ComprarPeliculaSinSaldoTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="04dcb7c3-b8b0-25ae-82bf-97c9a9cbe700" name="ComprarPeliculaSinStockTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="73121858-a315-0710-5013-1917421cba5a" name="ComprarPeliculaSinModalidadTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+    </TestLinks>
+  </TestList>
+  <TestList name="Operaciones de negocio" id="a75bef57-1309-4c04-b745-5d64e0aed4df" parentListId="8c43106b-9dc1-4907-a29f-aa66a61bf5b6" />
+  <TestList name="PeliculasAD" id="d832b049-3915-470d-8d58-676f32f95cfd" parentListId="9784c875-c824-4dd7-9758-51667725542a">
+    <TestLinks>
+      <TestLink id="f6c22d6f-1bc7-80c4-fc32-3997c8b8abd4" name="AgregarPeliculaTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="413b2307-8173-1fbc-c5d0-74945523f1ee" name="ObtenerPeliculaConPuntuacionPorCodBarrasTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="48590f05-5a3f-73d4-0b9a-820ae21f4204" name="EliminarPeliculaTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="e5e89e88-88ac-eaef-bb2c-3ae2ef6a1e48" name="ObtenerPeliculaPorCodBarrasTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="8f15b5b9-b6f7-7236-d318-5c179759138d" name="ObtenerPeliculaConActoresPorCodBarrasTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="d4422a7e-041f-d4e0-fe3a-69ebc8126c2b" name="ObtenerPeliculaPorFiltro1Test" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="51a3b2f0-66bd-720f-4226-6b9eabf52b63" name="ObtenerPeliculaPorFiltro3Test" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="c16bd152-7cac-0110-64bd-1030ef2270f7" name="ObtenerPeliculaPorFiltro2Test" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="4e5e5909-4a22-9470-b509-30411243c6ae" name="ModificarPeliculaTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="78787a32-cabc-53cf-cb36-3a8274db1df3" name="ObtenerPeliculaNoExistenteTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+    </TestLinks>
+  </TestList>
+  <TestList name="Alquileres" id="e5c51c9c-ea83-438a-9f54-cb38e3399819" parentListId="a75bef57-1309-4c04-b745-5d64e0aed4df">
+    <TestLinks>
+      <TestLink id="3eb404c5-5b99-9f8a-6668-df1f69382213" name="AlquilarPeliculaTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="a3c89def-51ed-42c4-ff95-57d9f3e9e222" name="AlquilarPeliculaSinStockTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="515e7f00-416b-ac2b-18db-be1869214b15" name="AlquilarPeliculaSinModalidadTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="92e6cd08-04b8-6462-f91e-3e2ad81e1293" name="RecogerPeliculaTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="61725d1f-0106-2d6d-2f87-c400989c0792" name="AlquilarPeliculaSinSaldoTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="aa7af637-e42a-f978-ccd5-bab7c40e0b95" name="DevolverPeliculaTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+    </TestLinks>
+  </TestList>
+  <TestList name="ServiciosInterop" id="e7c8b4e9-d7e5-4809-9d25-2216c061ed7e" parentListId="3da1f700-3e96-4c97-9d59-0d6f33647447">
+    <TestLinks>
+      <TestLink id="413c47df-1832-74f2-13f0-551a492b40bd" name="ObtenerPeliculaActoresTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="eea9b68e-db65-0cba-0c69-800b3bef0b65" name="ObtenerPeliculaTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+    </TestLinks>
+  </TestList>
+  <TestList name="ChangesetAD" id="fdc52837-be6e-46e1-83fa-a060028ebe5f" parentListId="9784c875-c824-4dd7-9758-51667725542a">
+    <TestLinks>
+      <TestLink id="7abac8cd-3a94-332e-23c5-3dc1f7cb5d15" name="ModificarPeliculaYEliminarActorTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="95078918-da83-fc54-eb02-8141f82f91b0" name="ModificarPeliculaTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="6d381147-ca14-8b42-dce9-aa54517fad83" name="ModificarPeliculaYEliminarModificarAgregarActorTest" storage="msdnvideo.pruebas\bin\debug\msdnvideo.pruebas.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+    </TestLinks>
+  </TestList>
+</TestLists>

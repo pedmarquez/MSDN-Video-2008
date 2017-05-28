@@ -1,0 +1,86 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="MSDNVideo.Cajero.CabeceraControl"
+    Height="110" Width="813">
+
+    <Grid>
+            
+    	<Grid.Background>
+    		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+    			<GradientStop Color="#FF728BB5" Offset="0"/>
+    			<GradientStop Color="#FFA0C3FF" Offset="1"/>
+    		</LinearGradientBrush>
+    	</Grid.Background>
+            
+    	<Rectangle VerticalAlignment="Bottom" Height="10">
+    		<Rectangle.Fill>
+    			<LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+    				<GradientStop Color="#FFB5C9EB" Offset="0"/>
+    				<GradientStop Color="#FFBFCFEA" Offset="1"/>
+    			</LinearGradientBrush>
+    		</Rectangle.Fill>
+    	</Rectangle>
+            
+    	<Rectangle HorizontalAlignment="Left" Width="239">
+    		<Rectangle.Fill>
+    			<RadialGradientBrush>
+    				<RadialGradientBrush.RelativeTransform>
+    					<TransformGroup>
+    						<ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.884" ScaleY="3.08"/>
+    						<SkewTransform AngleX="0" AngleY="0" CenterX="0.5" CenterY="0.5"/>
+    						<RotateTransform Angle="0" CenterX="0.5" CenterY="0.5"/>
+    						<TranslateTransform X="-0.482" Y="-0.475"/>
+    					</TransformGroup>
+    				</RadialGradientBrush.RelativeTransform>
+    				<GradientStop Color="#FFE2F5F9" Offset="0"/>
+    				<GradientStop Color="#007D99C7" Offset="1"/>
+    			</RadialGradientBrush>
+    		</Rectangle.Fill>
+    	</Rectangle>
+    	<Button Click="btnRetroceder_Click" HorizontalAlignment="Left" Margin="195.34,8,0,14" Width="104.018" Template="{DynamicResource BotonCabeceraTemplate}" x:Name="btnRetroceder">
+    		<StackPanel x:Name="stackPanel" Height="90.667">
+    			<Image Margin="0,4,0,1" Width="60" Height="57.341" Source="Images\Retroceder.png"/>
+    			<TextBlock Width="Auto" Height="Auto" FontSize="18" FontWeight="Bold" Foreground="#FFFFFFFF" Text="Retroceder" TextAlignment="Center" TextWrapping="Wrap">
+    				<TextBlock.BitmapEffect>
+    					<DropShadowBitmapEffect Color="#FF000000" Direction="327" Opacity="0.665" ShadowDepth="1" Softness="0.07"/>
+    				</TextBlock.BitmapEffect>
+    			</TextBlock>
+    		</StackPanel>
+    	</Button>
+            
+    	<Button Click="btnAvanzar_Click" Template="{DynamicResource BotonCabeceraTemplate}" x:Name="btnAvanzar" HorizontalAlignment="Left" Margin="335.872,8,0,14" Width="104.018">
+    		<StackPanel x:Name="stackPanel1" Height="90.667">
+    			<Image Margin="0,4,0,1" Width="60" Height="57.341" Source="Images\Avanzar.png"/>
+    			<TextBlock Width="Auto" Height="Auto" FontSize="18" FontWeight="Bold" Foreground="#FFFFFFFF" Text="Avanzar" TextAlignment="Center" TextWrapping="Wrap">
+    				<TextBlock.BitmapEffect>
+    					<DropShadowBitmapEffect Color="#FF000000" Direction="327" Opacity="0.665" ShadowDepth="1" Softness="0.07"/>
+    				</TextBlock.BitmapEffect>
+    			</TextBlock>
+    		</StackPanel>
+    	</Button>
+            
+    	<Button Click="btnInicio_Click" Template="{DynamicResource BotonCabeceraTemplate}" x:Name="btnInicio" HorizontalAlignment="Left" Margin="472.73,8,0,14" Width="104.018">
+    		<StackPanel x:Name="stackPanel2" Height="90.667">
+    			<Image Margin="0,4,0,1" Width="60" Height="57.341" Source="Images\Inicio.png"/>
+    			<TextBlock Width="Auto" Height="Auto" FontSize="18" FontWeight="Bold" Foreground="#FFFFFFFF" Text="Inicio" TextAlignment="Center" TextWrapping="Wrap">
+    				<TextBlock.BitmapEffect>
+    					<DropShadowBitmapEffect Color="#FF000000" Direction="327" Opacity="0.665" ShadowDepth="1" Softness="0.07"/>
+    				</TextBlock.BitmapEffect>
+    			</TextBlock>
+    		</StackPanel>
+    	</Button>
+            
+    	<Button Click="btnSalir_Click" Template="{DynamicResource BotonCabeceraTemplate}" x:Name="btnSalir" Width="104.018" HorizontalAlignment="Right" Margin="0,8,31.862,14">
+    		<StackPanel x:Name="stackPanel3" Height="90.667">
+    			<Image Margin="0,4,0,1" Width="60" Height="57.341" Source="Images\Salir.png"/>
+    			<TextBlock Width="Auto" Height="Auto" FontSize="18" FontWeight="Bold" Foreground="#FFFFFFFF" Text="Salir" TextAlignment="Center" TextWrapping="Wrap">
+    				<TextBlock.BitmapEffect>
+    					<DropShadowBitmapEffect Color="#FF000000" Direction="327" Opacity="0.665" ShadowDepth="1" Softness="0.07"/>
+    				</TextBlock.BitmapEffect>
+    			</TextBlock>
+    		</StackPanel>
+    	</Button>
+            
+    </Grid>
+</UserControl>

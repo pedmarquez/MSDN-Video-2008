@@ -1,0 +1,235 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DC7604B1-2B07-4998-9B89-A5894BBD1DE2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MSDNVideo.Pruebas</RootNamespace>
+    <AssemblyName>MSDNVideo.Pruebas</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccesoDatos\PeliculasADTest.cs" />
+    <Compile Include="AccesoDatos\ChangesetTest.cs" />
+    <Compile Include="AccesoDatos\ActoresADTest.cs" />
+    <Compile Include="Operaciones de negocio\ComprasTest.cs" />
+    <Compile Include="Operaciones de negocio\AlquileresTest.cs" />
+    <Compile Include="Servicios\SeguridadTest.cs" />
+    <Compile Include="Servicios\OperacionesBasicasServicesTest.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ConnectionHelper.cs" />
+    <Compile Include="Service References\MSDNVideoServices\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\InteropServicesTest.cs" />
+    <Compile Include="Servicios\ChangeSetServicesTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Web References\MSDNVideoServicesInterop\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MSDNVideo.AccesoDatos\MSDNVideo.AccesoDatos.csproj">
+      <Project>{E3A04548-661F-42B8-88CE-40D080C446F4}</Project>
+      <Name>MSDNVideo.AccesoDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MSDNVideo.Comun\MSDNVideo.Comun.csproj">
+      <Project>{F045EEEF-01A0-4F1F-B16D-6A9F89C4F917}</Project>
+      <Name>MSDNVideo.Comun</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MSDNVideo.LogicaNegocio\MSDNVideo.LogicaNegocio.csproj">
+      <Project>{F687EB5E-279E-45E3-A04D-A6551B88C793}</Project>
+      <Name>MSDNVideo.LogicaNegocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\MSDNVideo.Comun.Actor1.datasource" />
+    <None Include="Properties\DataSources\MSDNVideo.Comun.Alquiler1.datasource" />
+    <None Include="Properties\DataSources\MSDNVideo.Comun.Historico1.datasource" />
+    <None Include="Properties\DataSources\MSDNVideo.Comun.InformeSaldos1.datasource" />
+    <None Include="Properties\DataSources\MSDNVideo.Comun.InformeStock1.datasource" />
+    <None Include="Properties\DataSources\MSDNVideo.Comun.InformeVentas1.datasource" />
+    <None Include="Properties\DataSources\MSDNVideo.Comun.Notificacion1.datasource" />
+    <None Include="Properties\DataSources\MSDNVideo.Comun.Pelicula.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\MSDNVideo.Comun.Pelicula1.datasource" />
+    <None Include="Properties\DataSources\MSDNVideo.Comun.Socio1.datasource" />
+    <None Include="Properties\DataSources\MSDNVideo.Comun.Usuario1.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\MSDNVideo.Comun.Actor.datasource" />
+    <None Include="Properties\DataSources\MSDNVideo.Comun.Alquiler.datasource" />
+    <None Include="Properties\DataSources\MSDNVideo.Comun.Historico.datasource" />
+    <None Include="Properties\DataSources\MSDNVideo.Comun.InformeSaldos.datasource" />
+    <None Include="Properties\DataSources\MSDNVideo.Comun.InformeStock.datasource" />
+    <None Include="Properties\DataSources\MSDNVideo.Comun.InformeVentas.datasource" />
+    <None Include="Properties\DataSources\MSDNVideo.Comun.Notificacion.datasource" />
+    <None Include="Properties\DataSources\MSDNVideo.Comun.Socio.datasource" />
+    <None Include="Properties\DataSources\MSDNVideo.Comun.Usuario.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:52442/MSDNVideo.Servicios/MSDNVideoServices.svc">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\MSDNVideoServicesInterop\</RelPath>
+      <UpdateFromURL>http://localhost:52442/MSDNVideo.Servicios/MSDNVideoServices.svc</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>MSDNVideo_Pruebas_MSDNVideoServicesInterop_MSDNVideoServices</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\MSDNVideoServicesInterop\Actor.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MSDNVideoServicesInterop\Alquiler.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MSDNVideoServicesInterop\EstadoPedido.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MSDNVideoServicesInterop\Historico.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MSDNVideoServicesInterop\InformeSaldos.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MSDNVideoServicesInterop\InformeStock.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MSDNVideoServicesInterop\InformeVentas.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MSDNVideoServicesInterop\MSDNVideoServices.disco" />
+    <None Include="Web References\MSDNVideoServicesInterop\MSDNVideoServices.wsdl" />
+    <None Include="Web References\MSDNVideoServicesInterop\MSDNVideoServices.xsd" />
+    <None Include="Web References\MSDNVideoServicesInterop\MSDNVideoServices0.xsd" />
+    <None Include="Web References\MSDNVideoServicesInterop\MSDNVideoServices1.xsd" />
+    <None Include="Web References\MSDNVideoServicesInterop\MSDNVideoServices2.xsd" />
+    <None Include="Web References\MSDNVideoServicesInterop\Notificacion.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MSDNVideoServicesInterop\Pelicula.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MSDNVideoServicesInterop\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\MSDNVideoServicesInterop\SaludInforme.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MSDNVideoServicesInterop\Socio.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MSDNVideoServicesInterop\Usuario.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\MSDNVideoServices\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MSDNVideoServices\MSDNVideoServices.disco" />
+    <None Include="Service References\MSDNVideoServices\MSDNVideoServices.wsdl" />
+    <None Include="Service References\MSDNVideoServices\MSDNVideoServices.xsd" />
+    <None Include="Service References\MSDNVideoServices\MSDNVideoServices1.xsd" />
+    <None Include="Service References\MSDNVideoServices\MSDNVideoServices2.xsd" />
+    <None Include="Service References\MSDNVideoServices\MSDNVideoServices3.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MSDNVideoServices\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MSDNVideoServices\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,110 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2006" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" xmlns:System="clr-namespace:System;assembly=mscorlib"
+    x:Class="MSDNVideo.Cajero.ControlPaginacion"
+    Height="35" Width="342.12"
+    Loaded="UserControl_Loaded">
+	<UserControl.Resources>
+		<ObjectDataProvider x:Key="Paginas" d:IsDataSource="True" ObjectType="{x:Type System:Int32[]}"/>
+		<Style x:Key="BotonesPaginacionStyle" TargetType="{x:Type Path}">
+			<Style.Resources>
+				<Storyboard x:Key="OnMouseEnter1">
+					<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="{x:Null}" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+						<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="2"/>
+					</DoubleAnimationUsingKeyFrames>
+					<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="{x:Null}" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+						<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="2"/>
+					</DoubleAnimationUsingKeyFrames>
+				</Storyboard>
+				<Storyboard x:Key="OnMouseLeave1">
+					<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="{x:Null}" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+						<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1"/>
+					</DoubleAnimationUsingKeyFrames>
+					<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="{x:Null}" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+						<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1"/>
+					</DoubleAnimationUsingKeyFrames>
+				</Storyboard>
+			</Style.Resources>
+			<Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+			<Setter Property="RenderTransform">
+				<Setter.Value>
+					<TransformGroup>
+						<ScaleTransform ScaleX="1" ScaleY="1"/>
+						<SkewTransform AngleX="0" AngleY="0"/>
+						<RotateTransform Angle="0"/>
+						<TranslateTransform X="0" Y="0"/>
+					</TransformGroup>
+				</Setter.Value>
+			</Setter>
+			<Style.Triggers>
+				<EventTrigger RoutedEvent="Mouse.MouseLeave">
+					<BeginStoryboard x:Name="OnMouseLeave1_BeginStoryboard" Storyboard="{StaticResource OnMouseLeave1}"/>
+				</EventTrigger>
+				<EventTrigger RoutedEvent="Mouse.MouseEnter">
+					<BeginStoryboard Storyboard="{StaticResource OnMouseEnter1}"/>
+				</EventTrigger>
+			</Style.Triggers>
+		</Style>
+	</UserControl.Resources>
+	<Grid Width="Auto" Height="35">
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+	    
+			<Path MouseLeftButtonDown="pthAnterior_MouseLeftButtonDown"  Stretch="Fill" Margin="0,0,5,0" Width="16.766" Height="20" Data="M19.5,0.5 L19.5,19.5 3.7369845,10.460376 z" x:Name="pthAnterior" Style="{DynamicResource BotonesPaginacionStyle}" Cursor="Hand">
+				<Path.Fill>
+					<RadialGradientBrush>
+						<RadialGradientBrush.RelativeTransform>
+							<TransformGroup>
+								<ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.224" ScaleY="1.224"/>
+								<SkewTransform AngleX="0" AngleY="0" CenterX="0.5" CenterY="0.5"/>
+								<RotateTransform Angle="0" CenterX="0.5" CenterY="0.5"/>
+								<TranslateTransform X="-0.19" Y="-0.155"/>
+							</TransformGroup>
+						</RadialGradientBrush.RelativeTransform>
+						<GradientStop Color="#FFAAC5EF" Offset="0"/>
+						<GradientStop Color="#FF8AAADD" Offset="1"/>
+					</RadialGradientBrush>
+				</Path.Fill>
+				<Path.Stroke>
+					<LinearGradientBrush EndPoint="0.855,0.852" StartPoint="0.145,0.148">
+						<GradientStop Color="#FF28487B" Offset="0"/>
+						<GradientStop Color="#FF4C6792" Offset="1"/>
+					</LinearGradientBrush>
+				</Path.Stroke>
+			</Path>
+	    
+			<ListBox SelectionChanged="lstPaginas_SelectionChanged" x:Name="lstPaginas" IsSynchronizedWithCurrentItem="True" Style="{DynamicResource ListaPaginacion}" ItemsPanel="{DynamicResource ListaPaginacionLayout}" d:UseSampleData="True" ItemTemplate="{DynamicResource ListaPaginacionItemTemplate}" ItemsSource="{Binding Mode=OneWay, Source={StaticResource Paginas}}" ItemContainerStyle="{DynamicResource ListaPaginacionItemStyle}" Cursor="Hand"/>
+        
+			<Path MouseLeftButtonDown="pthSiguiente_MouseLeftButtonDown"  Stretch="Fill" Width="16.834" Height="20" Data="M19.5,0.5 L19.5,19.5 35.448185,10.460376 z" RenderTransformOrigin="0.5,0.5" x:Name="pthSiguiente" Style="{DynamicResource BotonesPaginacionStyle}" Cursor="Hand">
+				<Path.Fill>
+					<RadialGradientBrush>
+						<RadialGradientBrush.RelativeTransform>
+							<TransformGroup>
+								<ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.224" ScaleY="1.224"/>
+								<SkewTransform AngleX="0" AngleY="0" CenterX="0.5" CenterY="0.5"/>
+								<RotateTransform Angle="0" CenterX="0.5" CenterY="0.5"/>
+								<TranslateTransform X="-0.19" Y="-0.155"/>
+							</TransformGroup>
+						</RadialGradientBrush.RelativeTransform>
+						<GradientStop Color="#FFAAC5EF" Offset="0"/>
+						<GradientStop Color="#FF8AAADD" Offset="1"/>
+					</RadialGradientBrush>
+				</Path.Fill>
+				<Path.Stroke>
+					<LinearGradientBrush EndPoint="0.855,0.852" StartPoint="0.145,0.148">
+						<GradientStop Color="#FF28487B" Offset="0"/>
+						<GradientStop Color="#FF4C6792" Offset="1"/>
+					</LinearGradientBrush>
+				</Path.Stroke>
+				<Path.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform ScaleX="1" ScaleY="1"/>
+						<SkewTransform AngleX="0" AngleY="0"/>
+						<RotateTransform Angle="0"/>
+						<TranslateTransform X="0" Y="0"/>
+					</TransformGroup>
+				</Path.RenderTransform>
+			</Path>
+		</StackPanel>
+	</Grid>
+</UserControl>

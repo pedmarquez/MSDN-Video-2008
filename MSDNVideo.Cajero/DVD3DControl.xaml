@@ -1,0 +1,357 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="MSDNVideo.Cajero.DVD3DControl"
+    Height="Auto" Width="Auto" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <MeshGeometry3D x:Key="PlaneMesh"
+					Positions="-1 -1 0  1 -1 0  -1 1 0  1 1 0"
+					Normals="0 0 1  0 0 1  0 0 1  0 0 1"
+					TextureCoordinates="0 1  1 1  0 0  1 0   "
+					TriangleIndices="0 1 2  1 3 2" />
+        
+        <Storyboard x:Key="DVDAnimStoryboard" RepeatBehavior="Forever">
+            
+            <!-- DVD Entrando -->
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="_MainViewport3D" Storyboard.TargetProperty="Children[0].Content.Children[6].Transform.Children[2].Rotation.Angle" AccelerationRatio="1" >
+                <SplineDoubleKeyFrame  Value="-180" KeyTime="00:00:00"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames  Storyboard.TargetName="_MainViewport3D" Storyboard.TargetProperty="Children[0].Content.Children[6].Transform.Children[1].OffsetX" AccelerationRatio="1">
+                <SplineDoubleKeyFrame  Value="1.0" KeyTime="00:00:00"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames  Storyboard.TargetName="_MainViewport3D" Storyboard.TargetProperty="Children[0].Content.Children[6].Transform.Children[1].OffsetY" AccelerationRatio="1" >
+                <SplineDoubleKeyFrame  Value="2.5" KeyTime="00:00:00"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames  Storyboard.TargetName="_MainViewport3D" Storyboard.TargetProperty="Children[0].Content.Children[6].Transform.Children[1].OffsetZ" AccelerationRatio="1" >
+                <SplineDoubleKeyFrame  Value="1" KeyTime="00:00:00"/>
+            </DoubleAnimationUsingKeyFrames>
+            
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="_MainViewport3D" Storyboard.TargetProperty="Children[0].Content.Children[6].Transform.Children[2].Rotation.Angle" AccelerationRatio=".3" DecelerationRatio=".3" >
+                <SplineDoubleKeyFrame  Value="0" KeyTime="00:00:01.05"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames  Storyboard.TargetName="_MainViewport3D" Storyboard.TargetProperty="Children[0].Content.Children[6].Transform.Children[1].OffsetX" AccelerationRatio=".3" DecelerationRatio=".3">
+                <SplineDoubleKeyFrame  Value="0.07" KeyTime="00:00:01.75"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames  Storyboard.TargetName="_MainViewport3D" Storyboard.TargetProperty="Children[0].Content.Children[6].Transform.Children[1].OffsetY" AccelerationRatio=".3" DecelerationRatio=".3" >
+                <SplineDoubleKeyFrame  Value="0.02" KeyTime="00:00:01.75"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames  Storyboard.TargetName="_MainViewport3D" Storyboard.TargetProperty="Children[0].Content.Children[6].Transform.Children[1].OffsetZ" AccelerationRatio=".3" DecelerationRatio=".3" >
+                <SplineDoubleKeyFrame  Value="0.02" KeyTime="00:00:01.75"/>
+            </DoubleAnimationUsingKeyFrames>
+            
+            <!-- Rotacion de carátula -->
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="_MainViewport3D" Storyboard.TargetProperty="Children[0].Content.Children[7].Transform.Children[2].Rotation.Angle" DecelerationRatio=".5">
+                <SplineDoubleKeyFrame Value="-100" KeyTime="00:00:00.5"/>
+                <SplineDoubleKeyFrame Value="0" KeyTime="00:00:02.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            
+            <!-- Rotación DVD antes de salir -->
+        	<Rotation3DAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="CDModel3DGroup" Storyboard.TargetProperty="(Model3D.Transform).(Transform3DGroup.Children)[2].(RotateTransform3D.Rotation)">
+        		<SplineRotation3DKeyFrame KeyTime="00:00:01.2000000">
+        			<SplineRotation3DKeyFrame.Value>
+        				<AxisAngleRotation3D Angle="1.3310000000000002" Axis="0,0,1"/>
+        			</SplineRotation3DKeyFrame.Value>
+        		</SplineRotation3DKeyFrame>
+        		<SplineRotation3DKeyFrame KeySpline="0.5,0,0.75,1" KeyTime="00:00:02.6000000">
+        			<SplineRotation3DKeyFrame.Value>
+        				<AxisAngleRotation3D Angle="53.586816601437967" Axis="-0.114696276215197,0.305588884376495,0.94523023542833"/>
+        			</SplineRotation3DKeyFrame.Value>
+        		</SplineRotation3DKeyFrame>
+        	</Rotation3DAnimationUsingKeyFrames>
+            
+            <!-- Movimiento DVD saliendo -->
+        	<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="CDModel3DGroup" Storyboard.TargetProperty="(Model3D.Transform).(Transform3DGroup.Children)[4].(TranslateTransform3D.OffsetX)">
+        		<SplineDoubleKeyFrame KeyTime="00:00:02.6000000" Value="0"/>
+        		<SplineDoubleKeyFrame KeySpline="0.25,0,0.5,0.5" KeyTime="00:00:04.2000000" Value="-2.02"/>
+        	</DoubleAnimationUsingKeyFrames>
+        	<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="CDModel3DGroup" Storyboard.TargetProperty="(Model3D.Transform).(Transform3DGroup.Children)[4].(TranslateTransform3D.OffsetY)">
+        		<SplineDoubleKeyFrame KeyTime="00:00:02.6000000" Value="0"/>
+        		<SplineDoubleKeyFrame KeySpline="0.25,0,0.5,0.5" KeyTime="00:00:04.2000000" Value="1.665"/>
+        	</DoubleAnimationUsingKeyFrames>
+        	<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="CDModel3DGroup" Storyboard.TargetProperty="(Model3D.Transform).(Transform3DGroup.Children)[4].(TranslateTransform3D.OffsetZ)">
+        		<SplineDoubleKeyFrame KeyTime="00:00:02.6000000" Value="0"/>
+        		<SplineDoubleKeyFrame KeySpline="0.25,0,0.5,0.5" KeyTime="00:00:04.2000000" Value="0.059"/>
+        	</DoubleAnimationUsingKeyFrames>
+
+        	<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="viewbox" Storyboard.TargetProperty="(UIElement.Opacity)">
+        		<SplineDoubleKeyFrame KeyTime="00:00:03.6000000" Value="1"/>
+        		<SplineDoubleKeyFrame KeyTime="00:00:04.1000000" Value="0"/>
+        		<SplineDoubleKeyFrame KeyTime="00:00:05.1000000" Value="0"/>
+        	</DoubleAnimationUsingKeyFrames>
+
+        </Storyboard>
+        
+    </UserControl.Resources>
+	<UserControl.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+			<BeginStoryboard x:Name="DVDAnimStoryboard_BeginStoryboard" Storyboard="{StaticResource DVDAnimStoryboard}"/>
+		</EventTrigger>
+	</UserControl.Triggers>
+    <Grid Background="{x:Null}">
+        <Viewbox Margin="0,68,0,-68" x:Name="viewbox" IsHitTestVisible="False">
+            <Grid Width="800" Height="600">
+
+                <Viewport3D ClipToBounds="False"  x:Name="_MainViewport3D" >
+                    <Viewport3D.Camera>
+                        <PerspectiveCamera  x:Name="Camera"
+											  Position="0,0,5" 
+											  LookDirection="0,0,-1"
+											  UpDirection="0,1,0"
+											  NearPlaneDistance="0.25"
+											  FarPlaneDistance="20"
+											  FieldOfView="60" />
+                    </Viewport3D.Camera>
+                    <ModelVisual3D x:Name="CDModelVisual3D" >
+                        <ModelVisual3D.Transform>
+                            <Transform3DGroup  >
+                                <ScaleTransform3D ScaleX="1" ScaleY="1"  ScaleZ="1" />
+                                <RotateTransform3D  >
+                                    <RotateTransform3D.Rotation>
+                                        <AxisAngleRotation3D Axis="1 1 1" Angle="-70" />
+                                    </RotateTransform3D.Rotation>
+                                </RotateTransform3D>
+                                <TranslateTransform3D OffsetX="0" OffsetY="0" OffsetZ="0" />
+                            </Transform3DGroup>
+                        </ModelVisual3D.Transform>
+                        <ModelVisual3D.Content>
+                            <Model3DGroup x:Name="CDModel3DGroup">
+                                <Model3DGroup.Transform>
+                                    <Transform3DGroup>
+                                        <TranslateTransform3D OffsetX="0" OffsetY="0" OffsetZ="0"/>
+                                        <ScaleTransform3D ScaleX="1" ScaleY="1" ScaleZ="1"/>
+                                        <RotateTransform3D />
+                                        <TranslateTransform3D OffsetX="0" OffsetY="0" OffsetZ="0"/>
+                                        <TranslateTransform3D OffsetX="0" OffsetY="0" OffsetZ="0"/>
+                                    </Transform3DGroup>
+                                </Model3DGroup.Transform>
+                                <AmbientLight Color="White"/>
+                                <GeometryModel3D Geometry="{StaticResource PlaneMesh}" x:Name="BackFace" >
+                                    <GeometryModel3D.Material>
+                                        <DiffuseMaterial>
+                                            <DiffuseMaterial.Brush>
+                                                <ImageBrush  ImageSource="Images/cd_case.jpg"  />
+                                            </DiffuseMaterial.Brush>
+                                        </DiffuseMaterial>
+                                    </GeometryModel3D.Material>
+                                    <GeometryModel3D.Transform>
+                                        <Transform3DGroup >
+                                            <ScaleTransform3D ScaleX="1.1" ScaleY="1"  ScaleZ="1" />
+                                            <TranslateTransform3D OffsetX="0" OffsetY="0" OffsetZ="0" />
+                                            <RotateTransform3D >
+                                                <RotateTransform3D.Rotation>
+                                                    <AxisAngleRotation3D Axis="0 1 0" Angle="0"  />
+                                                </RotateTransform3D.Rotation>
+                                            </RotateTransform3D>
+                                        </Transform3DGroup>
+                                    </GeometryModel3D.Transform>
+                                </GeometryModel3D>
+                                <GeometryModel3D Geometry="{StaticResource PlaneMesh}" >
+                                    <GeometryModel3D.Material>
+                                        <DiffuseMaterial>
+                                            <DiffuseMaterial.Brush>
+                                                <SolidColorBrush Color="black"/>
+                                            </DiffuseMaterial.Brush>
+                                        </DiffuseMaterial>
+                                    </GeometryModel3D.Material>
+                                    <GeometryModel3D.Transform>
+                                        <Transform3DGroup >
+                                            <ScaleTransform3D ScaleX="1.1" ScaleY="1"  ScaleZ="1"  />
+                                            <TranslateTransform3D OffsetX="0" OffsetY="0" OffsetZ="0.1"  />
+                                            <RotateTransform3D >
+                                                <RotateTransform3D.Rotation>
+                                                    <AxisAngleRotation3D Axis="0 1 0" Angle="180"  />
+                                                </RotateTransform3D.Rotation>
+                                            </RotateTransform3D>
+                                        </Transform3DGroup>
+                                    </GeometryModel3D.Transform>
+                                </GeometryModel3D>
+                                <GeometryModel3D Geometry="{StaticResource PlaneMesh}" x:Name="BottomEdge" >
+                                    <GeometryModel3D.Material>
+                                        <DiffuseMaterial>
+                                            <DiffuseMaterial.Brush>
+                                                <SolidColorBrush Color="black"/>
+                                            </DiffuseMaterial.Brush>
+                                        </DiffuseMaterial>
+                                    </GeometryModel3D.Material>
+                                    <GeometryModel3D.Transform>
+                                        <Transform3DGroup>
+                                            <ScaleTransform3D ScaleX="1.1" ScaleY="0.06"  ScaleZ="1" />
+                                            <TranslateTransform3D OffsetX="0" OffsetY="-0.04" OffsetZ="1"  />
+                                            <RotateTransform3D>
+                                                <RotateTransform3D.Rotation>
+                                                    <AxisAngleRotation3D Axis="1 0 0" Angle="90" />
+                                                </RotateTransform3D.Rotation>
+                                            </RotateTransform3D>
+                                        </Transform3DGroup>
+                                    </GeometryModel3D.Transform>
+                                </GeometryModel3D>
+                                <GeometryModel3D Geometry="{StaticResource PlaneMesh}" x:Name="TopEdge">
+                                    <GeometryModel3D.Material>
+                                        <DiffuseMaterial>
+                                            <DiffuseMaterial.Brush>
+                                                <SolidColorBrush Color="black"/>
+                                            </DiffuseMaterial.Brush>
+                                        </DiffuseMaterial>
+                                    </GeometryModel3D.Material>
+                                    <GeometryModel3D.Transform>
+                                        <Transform3DGroup>
+                                            <ScaleTransform3D ScaleX="1.1" ScaleY="0.06"  ScaleZ="1" />
+                                            <TranslateTransform3D OffsetX="0" OffsetY="-0.04" OffsetZ="-1"  />
+                                            <RotateTransform3D>
+                                                <RotateTransform3D.Rotation>
+                                                    <AxisAngleRotation3D Axis="1 0 0" Angle="90" />
+                                                </RotateTransform3D.Rotation>
+                                            </RotateTransform3D>
+                                        </Transform3DGroup>
+                                    </GeometryModel3D.Transform>
+                                </GeometryModel3D>
+                                <GeometryModel3D Geometry="{StaticResource PlaneMesh}" x:Name="LeftEdge">
+                                    <GeometryModel3D.Material>
+                                        <DiffuseMaterial>
+                                            <DiffuseMaterial.Brush>
+                                                <SolidColorBrush Color="black"/>
+                                            </DiffuseMaterial.Brush>
+                                        </DiffuseMaterial>
+                                    </GeometryModel3D.Material>
+                                    <GeometryModel3D.Transform>
+                                        <Transform3DGroup>
+                                            <ScaleTransform3D ScaleX="0.06" ScaleY="1"  ScaleZ="1"  />
+                                            <TranslateTransform3D OffsetX="0.0335" OffsetY="0" OffsetZ="-1.1" />
+                                            <RotateTransform3D>
+                                                <RotateTransform3D.Rotation>
+                                                    <AxisAngleRotation3D Axis="0 1 0" Angle="90" />
+                                                </RotateTransform3D.Rotation>
+                                            </RotateTransform3D>
+                                        </Transform3DGroup>
+                                    </GeometryModel3D.Transform>
+                                </GeometryModel3D>
+                                <Model3DGroup x:Name="CDModelGroup" >
+                                    <Model3DGroup.Transform>
+                                        <Transform3DGroup >
+                                            <ScaleTransform3D ScaleX="0.95" ScaleY="0.95"  ScaleZ="0.95"  />
+                                            <TranslateTransform3D OffsetX="0.07" OffsetY="0.02" OffsetZ="0.02"  />
+                                            <RotateTransform3D  CenterX="1" CenterY="1" CenterZ="1">
+                                                <RotateTransform3D.Rotation>
+                                                    <AxisAngleRotation3D Axis="0 1 0" Angle="0"  />
+                                                </RotateTransform3D.Rotation>
+                                            </RotateTransform3D>
+                                        </Transform3DGroup>
+                                    </Model3DGroup.Transform>
+                                    <GeometryModel3D Geometry="{StaticResource PlaneMesh}" x:Name="CDModel">
+                                        <GeometryModel3D.Material>
+                                            <DiffuseMaterial >
+                                                <DiffuseMaterial.Brush>
+                                                    <ImageBrush ImageSource="Images/cd2.png"  />
+                                                </DiffuseMaterial.Brush>
+                                            </DiffuseMaterial>
+                                        </GeometryModel3D.Material>
+                                        <GeometryModel3D.Transform>
+                                            <Transform3DGroup>
+                                                <Transform3DGroup.Children>
+                                                    <Transform3DCollection >
+                                                        <ScaleTransform3D ScaleX="1" ScaleY="1"  ScaleZ="1"  />
+                                                        <RotateTransform3D>
+                                                            <RotateTransform3D.Rotation>
+                                                                <AxisAngleRotation3D Axis="0 0 1" Angle="0"/>
+                                                            </RotateTransform3D.Rotation>
+                                                        </RotateTransform3D>
+                                                        <RotateTransform3D>
+                                                            <RotateTransform3D.Rotation>
+                                                                <AxisAngleRotation3D Axis="0 1 0" Angle="0"/>
+                                                            </RotateTransform3D.Rotation>
+                                                        </RotateTransform3D>
+                                                        <TranslateTransform3D OffsetX="0" OffsetY="0" OffsetZ="-0.0001"   />
+                                                    </Transform3DCollection>
+                                                </Transform3DGroup.Children>
+                                            </Transform3DGroup>
+                                        </GeometryModel3D.Transform>
+                                        <GeometryModel3D.BackMaterial>
+                                            <DiffuseMaterial>
+                                                <DiffuseMaterial.Brush>
+                                                    <ImageBrush ImageSource="Images/cd2.png"  />
+                                                </DiffuseMaterial.Brush>
+                                            </DiffuseMaterial>
+                                        </GeometryModel3D.BackMaterial>
+                                    </GeometryModel3D>
+                                </Model3DGroup>
+                                <Model3DGroup x:Name="TransparentPlasticGroup" >
+                                    <Model3DGroup.Transform>
+                                        <Transform3DGroup >
+                                            <ScaleTransform3D ScaleX="0.97" ScaleY="0.97"  ScaleZ="0.97"  />
+                                            <TranslateTransform3D OffsetX=".07" OffsetY="0" OffsetZ="0.04"  />
+                                            <RotateTransform3D CenterX="-1" CenterY="0" CenterZ="0" >
+                                                <RotateTransform3D.Rotation>
+                                                    <AxisAngleRotation3D Axis="0 1 0" Angle="-100" /><!-- Ángulo carátula -->
+                                                </RotateTransform3D.Rotation>
+                                            </RotateTransform3D>
+                                        </Transform3DGroup>
+                                    </Model3DGroup.Transform>
+                                    <GeometryModel3D  Geometry="{StaticResource PlaneMesh}" x:Name="AlbumArtModel" >
+                                        <GeometryModel3D.Material>
+                                            <DiffuseMaterial>
+                                                <DiffuseMaterial.Brush>
+                                                    <ImageBrush x:Name="BrushFront"/>
+                                                </DiffuseMaterial.Brush>
+                                            </DiffuseMaterial>
+                                        </GeometryModel3D.Material>
+                                        <GeometryModel3D.BackMaterial>
+                                            <DiffuseMaterial>
+                                                <DiffuseMaterial.Brush>
+                                                    <SolidColorBrush Color="Gray"/>
+                                                </DiffuseMaterial.Brush>
+                                            </DiffuseMaterial>
+                                        </GeometryModel3D.BackMaterial>
+                                        <GeometryModel3D.Transform>
+                                            <Transform3DGroup >
+                                            </Transform3DGroup>
+                                        </GeometryModel3D.Transform>
+                                    </GeometryModel3D>
+                                    <GeometryModel3D  Geometry="{StaticResource PlaneMesh}" x:Name="TransparentPlasticModel" >
+                                        <GeometryModel3D.Material>
+                                            <DiffuseMaterial>
+                                                <DiffuseMaterial.Brush>
+                                                    <ImageBrush  ImageSource="Images/defaultplastic.png"  />
+                                                </DiffuseMaterial.Brush>
+                                            </DiffuseMaterial>
+                                        </GeometryModel3D.Material>
+                                        <GeometryModel3D.BackMaterial>
+                                            <DiffuseMaterial>
+                                                <DiffuseMaterial.Brush>
+                                                    <ImageBrush  ImageSource="Images/defaultplastic.png"  />
+                                                </DiffuseMaterial.Brush>
+                                            </DiffuseMaterial>
+                                        </GeometryModel3D.BackMaterial>
+                                        <GeometryModel3D.Transform>
+                                            <Transform3DGroup >
+                                            </Transform3DGroup>
+                                        </GeometryModel3D.Transform>
+                                    </GeometryModel3D>
+                                </Model3DGroup>
+                                <GeometryModel3D Geometry="{StaticResource PlaneMesh}" x:Name="RightEdge">
+                                    <GeometryModel3D.Material>
+                                        <DiffuseMaterial>
+                                            <DiffuseMaterial.Brush>
+                                                <SolidColorBrush Color="black"/>
+                                            </DiffuseMaterial.Brush>
+                                        </DiffuseMaterial>
+                                    </GeometryModel3D.Material>
+                                    <GeometryModel3D.Transform>
+                                        <Transform3DGroup>
+                                            <ScaleTransform3D ScaleX="0.06" ScaleY="1"  ScaleZ="1" />
+                                            <TranslateTransform3D OffsetX="0.0335" OffsetY="0" OffsetZ="1.1" />
+                                            <RotateTransform3D>
+                                                <RotateTransform3D.Rotation>
+                                                    <AxisAngleRotation3D Axis="0 1 0" Angle="90" />
+                                                </RotateTransform3D.Rotation>
+                                            </RotateTransform3D>
+                                        </Transform3DGroup>
+                                    </GeometryModel3D.Transform>
+                                </GeometryModel3D>
+                            </Model3DGroup>
+                        </ModelVisual3D.Content>
+                    </ModelVisual3D>
+                </Viewport3D>
+            </Grid>
+        </Viewbox>
+    </Grid>
+</UserControl>

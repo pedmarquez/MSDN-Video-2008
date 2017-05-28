@@ -1,0 +1,3339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MSDNVideoServices" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="ws_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:ProtectionToken>
+              <wsp:Policy>
+                <sp:SecureConversationToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                  <wsp:Policy>
+                    <sp:RequireDerivedKeys />
+                    <sp:BootstrapPolicy>
+                      <wsp:Policy>
+                        <sp:SignedParts>
+                          <sp:Body />
+                          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+                        </sp:SignedParts>
+                        <sp:EncryptedParts>
+                          <sp:Body />
+                        </sp:EncryptedParts>
+                        <sp:SymmetricBinding>
+                          <wsp:Policy>
+                            <sp:ProtectionToken>
+                              <wsp:Policy>
+                                <mssp:SslContextToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient" xmlns:mssp="http://schemas.microsoft.com/ws/2005/07/securitypolicy">
+                                  <wsp:Policy>
+                                    <sp:RequireDerivedKeys />
+                                  </wsp:Policy>
+                                </mssp:SslContextToken>
+                              </wsp:Policy>
+                            </sp:ProtectionToken>
+                            <sp:AlgorithmSuite>
+                              <wsp:Policy>
+                                <sp:Basic256 />
+                              </wsp:Policy>
+                            </sp:AlgorithmSuite>
+                            <sp:Layout>
+                              <wsp:Policy>
+                                <sp:Strict />
+                              </wsp:Policy>
+                            </sp:Layout>
+                            <sp:IncludeTimestamp />
+                            <sp:EncryptSignature />
+                            <sp:OnlySignEntireHeadersAndBody />
+                          </wsp:Policy>
+                        </sp:SymmetricBinding>
+                        <sp:SignedSupportingTokens>
+                          <wsp:Policy>
+                            <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                              <wsp:Policy>
+                                <sp:WssUsernameToken10 />
+                              </wsp:Policy>
+                            </sp:UsernameToken>
+                          </wsp:Policy>
+                        </sp:SignedSupportingTokens>
+                        <sp:Wss11>
+                          <wsp:Policy />
+                        </sp:Wss11>
+                        <sp:Trust10>
+                          <wsp:Policy>
+                            <sp:MustSupportIssuedTokens />
+                            <sp:RequireClientEntropy />
+                            <sp:RequireServerEntropy />
+                          </wsp:Policy>
+                        </sp:Trust10>
+                      </wsp:Policy>
+                    </sp:BootstrapPolicy>
+                  </wsp:Policy>
+                </sp:SecureConversationToken>
+              </wsp:Policy>
+            </sp:ProtectionToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+            <sp:EncryptSignature />
+            <sp:OnlySignEntireHeadersAndBody />
+          </wsp:Policy>
+        </sp:SymmetricBinding>
+        <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy />
+        </sp:Wss11>
+        <sp:Trust10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:MustSupportIssuedTokens />
+            <sp:RequireClientEntropy />
+            <sp:RequireServerEntropy />
+          </wsp:Policy>
+        </sp:Trust10>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ObtenerPeliculas_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ObtenerPeliculas_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ObtenerPeliculasPorFiltro_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ObtenerPeliculasPorFiltro_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ObtenerPeliculaPorCodBarras_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ObtenerPeliculaPorCodBarras_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ObtenerPeliculasPendienteDevolver_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ObtenerPeliculasPendienteDevolver_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ObtenerMisPeliculasPendienteDevolver_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ObtenerMisPeliculasPendienteDevolver_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ObtenerPeliculasPendienteRecoger_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ObtenerPeliculasPendienteRecoger_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ObtenerMisPeliculasPendienteRecoger_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ObtenerMisPeliculasPendienteRecoger_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ObtenerTopPeliculasAlquiler_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ObtenerTopPeliculasAlquiler_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ObtenerTopPeliculasVentas_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ObtenerTopPeliculasVentas_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ObtenerTopPeliculasPuntuacion_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ObtenerTopPeliculasPuntuacion_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ActualizarPelicula_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ActualizarPelicula_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_EliminarPelicula_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_EliminarPelicula_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_AgregarPelicula_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_AgregarPelicula_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ObtenerCaratula_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ObtenerCaratula_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ModificarCaratula_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ModificarCaratula_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_ChangeSet_ActualizarChangeSet_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_ChangeSet_ActualizarChangeSet_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Usuarios_ObtenerUsuarios_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Usuarios_ObtenerUsuarios_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Usuarios_ObtenerSocios_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Usuarios_ObtenerSocios_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Usuarios_ObtenerSociosPorNombre_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Usuarios_ObtenerSociosPorNombre_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Usuarios_ObtenerUsuarioPorNIF_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Usuarios_ObtenerUsuarioPorNIF_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Usuarios_ObtenerMiUsuario_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Usuarios_ObtenerMiUsuario_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Usuarios_ObtenerSocioPorNIF_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Usuarios_ObtenerSocioPorNIF_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Usuarios_ActualizarUsuario_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Usuarios_ActualizarUsuario_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Usuarios_EliminarUsuario_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Usuarios_EliminarUsuario_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Usuarios_AgregarUsuario_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Usuarios_AgregarUsuario_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Usuarios_EstablecerClave_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Usuarios_EstablecerClave_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Usuarios_ValidarUsuario_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Usuarios_ValidarUsuario_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Actores_ObtenerActores_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Actores_ObtenerActores_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Actores_ObtenerActoresPorNombre_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Actores_ObtenerActoresPorNombre_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_ComprarPelicula_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_ComprarPelicula_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_ComprarMiPelicula_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_ComprarMiPelicula_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_AlquilarPelicula_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_AlquilarPelicula_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_AlquilarMiPelicula_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_AlquilarMiPelicula_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_AlquilarPeliculaYRecoger_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_AlquilarPeliculaYRecoger_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_AlquilarMiPeliculaYRecoger_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_AlquilarMiPeliculaYRecoger_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_CalcularPrecioAlquiler_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_CalcularPrecioAlquiler_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_CalcularMiPrecioAlquiler_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_CalcularMiPrecioAlquiler_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_RecogerPelicula_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_RecogerPelicula_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_RecogerMiPelicula_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_RecogerMiPelicula_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_DevolverPelicula_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_DevolverPelicula_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_DevolverMiPelicula_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_DevolverMiPelicula_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_ObtenerAlquileresSinDevolver_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_ObtenerAlquileresSinDevolver_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_ObtenerAlquileresSinRecoger_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_ObtenerAlquileresSinRecoger_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Notificaciones_ObtenerNotificaciones_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Notificaciones_ObtenerNotificaciones_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Informes_ObtenerInformeSaldos_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Informes_ObtenerInformeSaldos_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Informes_ObtenerInformeVentas_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Informes_ObtenerInformeVentas_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Informes_ObtenerInformeStock_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Informes_ObtenerInformeStock_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:52442/MSDNVideoServices.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:52442/MSDNVideoServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:52442/MSDNVideoServices.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" />
+      <xsd:import schemaLocation="http://localhost:52442/MSDNVideoServices.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerPeliculas_InputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ObtenerPeliculas" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerPeliculas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ObtenerPeliculasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerPeliculasPorFiltro_InputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ObtenerPeliculasPorFiltro" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerPeliculasPorFiltro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ObtenerPeliculasPorFiltroResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerPeliculaPorCodBarras_InputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ObtenerPeliculaPorCodBarras" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerPeliculaPorCodBarras_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ObtenerPeliculaPorCodBarrasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerPeliculasPendienteDevolver_InputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ObtenerPeliculasPendienteDevolver" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerPeliculasPendienteDevolver_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ObtenerPeliculasPendienteDevolverResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerMisPeliculasPendienteDevolver_InputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ObtenerMisPeliculasPendienteDevolver" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerMisPeliculasPendienteDevolver_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ObtenerMisPeliculasPendienteDevolverResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerPeliculasPendienteRecoger_InputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ObtenerPeliculasPendienteRecoger" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerPeliculasPendienteRecoger_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ObtenerPeliculasPendienteRecogerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerMisPeliculasPendienteRecoger_InputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ObtenerMisPeliculasPendienteRecoger" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerMisPeliculasPendienteRecoger_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ObtenerMisPeliculasPendienteRecogerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerTopPeliculasAlquiler_InputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ObtenerTopPeliculasAlquiler" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerTopPeliculasAlquiler_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ObtenerTopPeliculasAlquilerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerTopPeliculasVentas_InputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ObtenerTopPeliculasVentas" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerTopPeliculasVentas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ObtenerTopPeliculasVentasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerTopPeliculasPuntuacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ObtenerTopPeliculasPuntuacion" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerTopPeliculasPuntuacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ObtenerTopPeliculasPuntuacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ActualizarPelicula_InputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ActualizarPelicula" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ActualizarPelicula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ActualizarPeliculaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_EliminarPelicula_InputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_EliminarPelicula" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_EliminarPelicula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_EliminarPeliculaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_AgregarPelicula_InputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_AgregarPelicula" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_AgregarPelicula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_AgregarPeliculaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerCaratula_InputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ObtenerCaratula" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerCaratula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ObtenerCaratulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ModificarCaratula_InputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ModificarCaratula" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ModificarCaratula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ModificarCaratulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_ChangeSet_ActualizarChangeSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeSet_ActualizarChangeSet" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_ChangeSet_ActualizarChangeSet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeSet_ActualizarChangeSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Usuarios_ObtenerUsuarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:Usuarios_ObtenerUsuarios" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Usuarios_ObtenerUsuarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Usuarios_ObtenerUsuariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Usuarios_ObtenerSocios_InputMessage">
+    <wsdl:part name="parameters" element="tns:Usuarios_ObtenerSocios" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Usuarios_ObtenerSocios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Usuarios_ObtenerSociosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Usuarios_ObtenerSociosPorNombre_InputMessage">
+    <wsdl:part name="parameters" element="tns:Usuarios_ObtenerSociosPorNombre" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Usuarios_ObtenerSociosPorNombre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Usuarios_ObtenerSociosPorNombreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Usuarios_ObtenerUsuarioPorNIF_InputMessage">
+    <wsdl:part name="parameters" element="tns:Usuarios_ObtenerUsuarioPorNIF" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Usuarios_ObtenerUsuarioPorNIF_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Usuarios_ObtenerUsuarioPorNIFResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Usuarios_ObtenerMiUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:Usuarios_ObtenerMiUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Usuarios_ObtenerMiUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Usuarios_ObtenerMiUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Usuarios_ObtenerSocioPorNIF_InputMessage">
+    <wsdl:part name="parameters" element="tns:Usuarios_ObtenerSocioPorNIF" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Usuarios_ObtenerSocioPorNIF_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Usuarios_ObtenerSocioPorNIFResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Usuarios_ActualizarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:Usuarios_ActualizarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Usuarios_ActualizarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Usuarios_ActualizarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Usuarios_EliminarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:Usuarios_EliminarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Usuarios_EliminarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Usuarios_EliminarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Usuarios_AgregarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:Usuarios_AgregarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Usuarios_AgregarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Usuarios_AgregarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Usuarios_EstablecerClave_InputMessage">
+    <wsdl:part name="parameters" element="tns:Usuarios_EstablecerClave" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Usuarios_EstablecerClave_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Usuarios_EstablecerClaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Usuarios_ValidarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:Usuarios_ValidarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Usuarios_ValidarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Usuarios_ValidarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Actores_ObtenerActores_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actores_ObtenerActores" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Actores_ObtenerActores_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actores_ObtenerActoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Actores_ObtenerActoresPorNombre_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actores_ObtenerActoresPorNombre" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Actores_ObtenerActoresPorNombre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actores_ObtenerActoresPorNombreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_ComprarPelicula_InputMessage">
+    <wsdl:part name="parameters" element="tns:ComprarPelicula" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_ComprarPelicula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ComprarPeliculaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_ComprarMiPelicula_InputMessage">
+    <wsdl:part name="parameters" element="tns:ComprarMiPelicula" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_ComprarMiPelicula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ComprarMiPeliculaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_AlquilarPelicula_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlquilarPelicula" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_AlquilarPelicula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlquilarPeliculaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_AlquilarMiPelicula_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlquilarMiPelicula" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_AlquilarMiPelicula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlquilarMiPeliculaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_AlquilarPeliculaYRecoger_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlquilarPeliculaYRecoger" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_AlquilarPeliculaYRecoger_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlquilarPeliculaYRecogerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_AlquilarMiPeliculaYRecoger_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlquilarMiPeliculaYRecoger" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_AlquilarMiPeliculaYRecoger_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlquilarMiPeliculaYRecogerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_CalcularPrecioAlquiler_InputMessage">
+    <wsdl:part name="parameters" element="tns:CalcularPrecioAlquiler" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_CalcularPrecioAlquiler_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CalcularPrecioAlquilerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_CalcularMiPrecioAlquiler_InputMessage">
+    <wsdl:part name="parameters" element="tns:CalcularMiPrecioAlquiler" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_CalcularMiPrecioAlquiler_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CalcularMiPrecioAlquilerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_RecogerPelicula_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecogerPelicula" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_RecogerPelicula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecogerPeliculaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_RecogerMiPelicula_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecogerMiPelicula" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_RecogerMiPelicula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecogerMiPeliculaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_DevolverPelicula_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverPelicula" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_DevolverPelicula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverPeliculaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_DevolverMiPelicula_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverMiPelicula" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_DevolverMiPelicula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverMiPeliculaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_ObtenerAlquileresSinDevolver_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerAlquileresSinDevolver" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_ObtenerAlquileresSinDevolver_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerAlquileresSinDevolverResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_ObtenerAlquileresSinRecoger_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerAlquileresSinRecoger" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_ObtenerAlquileresSinRecoger_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerAlquileresSinRecogerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Notificaciones_ObtenerNotificaciones_InputMessage">
+    <wsdl:part name="parameters" element="tns:Notificaciones_ObtenerNotificaciones" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Notificaciones_ObtenerNotificaciones_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Notificaciones_ObtenerNotificacionesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Informes_ObtenerInformeSaldos_InputMessage">
+    <wsdl:part name="parameters" element="tns:Informes_ObtenerInformeSaldos" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Informes_ObtenerInformeSaldos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Informes_ObtenerInformeSaldosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Informes_ObtenerInformeVentas_InputMessage">
+    <wsdl:part name="parameters" element="tns:Informes_ObtenerInformeVentas" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Informes_ObtenerInformeVentas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Informes_ObtenerInformeVentasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Informes_ObtenerInformeStock_InputMessage">
+    <wsdl:part name="parameters" element="tns:Informes_ObtenerInformeStock" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Informes_ObtenerInformeStock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Informes_ObtenerInformeStockResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMSDNVideoServices">
+    <wsdl:operation name="Peliculas_ObtenerPeliculas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerPeliculas" message="tns:IMSDNVideoServices_Peliculas_ObtenerPeliculas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerPeliculasResponse" message="tns:IMSDNVideoServices_Peliculas_ObtenerPeliculas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerPeliculasPorFiltro">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerPeliculasPorFiltro" message="tns:IMSDNVideoServices_Peliculas_ObtenerPeliculasPorFiltro_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerPeliculasPorFiltroResponse" message="tns:IMSDNVideoServices_Peliculas_ObtenerPeliculasPorFiltro_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerPeliculaPorCodBarras">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerPeliculaPorCodBarras" message="tns:IMSDNVideoServices_Peliculas_ObtenerPeliculaPorCodBarras_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerPeliculaPorCodBarrasResponse" message="tns:IMSDNVideoServices_Peliculas_ObtenerPeliculaPorCodBarras_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerPeliculasPendienteDevolver">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerPeliculasPendienteDevolver" message="tns:IMSDNVideoServices_Peliculas_ObtenerPeliculasPendienteDevolver_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerPeliculasPendienteDevolverResponse" message="tns:IMSDNVideoServices_Peliculas_ObtenerPeliculasPendienteDevolver_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerMisPeliculasPendienteDevolver">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerMisPeliculasPendienteDevolver" message="tns:IMSDNVideoServices_Peliculas_ObtenerMisPeliculasPendienteDevolver_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerMisPeliculasPendienteDevolverResponse" message="tns:IMSDNVideoServices_Peliculas_ObtenerMisPeliculasPendienteDevolver_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerPeliculasPendienteRecoger">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerPeliculasPendienteRecoger" message="tns:IMSDNVideoServices_Peliculas_ObtenerPeliculasPendienteRecoger_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerPeliculasPendienteRecogerResponse" message="tns:IMSDNVideoServices_Peliculas_ObtenerPeliculasPendienteRecoger_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerMisPeliculasPendienteRecoger">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerMisPeliculasPendienteRecoger" message="tns:IMSDNVideoServices_Peliculas_ObtenerMisPeliculasPendienteRecoger_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerMisPeliculasPendienteRecogerResponse" message="tns:IMSDNVideoServices_Peliculas_ObtenerMisPeliculasPendienteRecoger_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerTopPeliculasAlquiler">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerTopPeliculasAlquiler" message="tns:IMSDNVideoServices_Peliculas_ObtenerTopPeliculasAlquiler_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerTopPeliculasAlquilerResponse" message="tns:IMSDNVideoServices_Peliculas_ObtenerTopPeliculasAlquiler_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerTopPeliculasVentas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerTopPeliculasVentas" message="tns:IMSDNVideoServices_Peliculas_ObtenerTopPeliculasVentas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerTopPeliculasVentasResponse" message="tns:IMSDNVideoServices_Peliculas_ObtenerTopPeliculasVentas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerTopPeliculasPuntuacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerTopPeliculasPuntuacion" message="tns:IMSDNVideoServices_Peliculas_ObtenerTopPeliculasPuntuacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerTopPeliculasPuntuacionResponse" message="tns:IMSDNVideoServices_Peliculas_ObtenerTopPeliculasPuntuacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ActualizarPelicula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ActualizarPelicula" message="tns:IMSDNVideoServices_Peliculas_ActualizarPelicula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ActualizarPeliculaResponse" message="tns:IMSDNVideoServices_Peliculas_ActualizarPelicula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_EliminarPelicula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_EliminarPelicula" message="tns:IMSDNVideoServices_Peliculas_EliminarPelicula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_EliminarPeliculaResponse" message="tns:IMSDNVideoServices_Peliculas_EliminarPelicula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_AgregarPelicula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_AgregarPelicula" message="tns:IMSDNVideoServices_Peliculas_AgregarPelicula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_AgregarPeliculaResponse" message="tns:IMSDNVideoServices_Peliculas_AgregarPelicula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerCaratula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerCaratula" message="tns:IMSDNVideoServices_Peliculas_ObtenerCaratula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerCaratulaResponse" message="tns:IMSDNVideoServices_Peliculas_ObtenerCaratula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ModificarCaratula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ModificarCaratula" message="tns:IMSDNVideoServices_Peliculas_ModificarCaratula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ModificarCaratulaResponse" message="tns:IMSDNVideoServices_Peliculas_ModificarCaratula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeSet_ActualizarChangeSet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/ChangeSet_ActualizarChangeSet" message="tns:IMSDNVideoServices_ChangeSet_ActualizarChangeSet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/ChangeSet_ActualizarChangeSetResponse" message="tns:IMSDNVideoServices_ChangeSet_ActualizarChangeSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_ObtenerUsuarios">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Usuarios_ObtenerUsuarios" message="tns:IMSDNVideoServices_Usuarios_ObtenerUsuarios_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Usuarios_ObtenerUsuariosResponse" message="tns:IMSDNVideoServices_Usuarios_ObtenerUsuarios_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_ObtenerSocios">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Usuarios_ObtenerSocios" message="tns:IMSDNVideoServices_Usuarios_ObtenerSocios_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Usuarios_ObtenerSociosResponse" message="tns:IMSDNVideoServices_Usuarios_ObtenerSocios_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_ObtenerSociosPorNombre">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Usuarios_ObtenerSociosPorNombre" message="tns:IMSDNVideoServices_Usuarios_ObtenerSociosPorNombre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Usuarios_ObtenerSociosPorNombreResponse" message="tns:IMSDNVideoServices_Usuarios_ObtenerSociosPorNombre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_ObtenerUsuarioPorNIF">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Usuarios_ObtenerUsuarioPorNIF" message="tns:IMSDNVideoServices_Usuarios_ObtenerUsuarioPorNIF_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Usuarios_ObtenerUsuarioPorNIFResponse" message="tns:IMSDNVideoServices_Usuarios_ObtenerUsuarioPorNIF_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_ObtenerMiUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Usuarios_ObtenerMiUsuario" message="tns:IMSDNVideoServices_Usuarios_ObtenerMiUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Usuarios_ObtenerMiUsuarioResponse" message="tns:IMSDNVideoServices_Usuarios_ObtenerMiUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_ObtenerSocioPorNIF">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Usuarios_ObtenerSocioPorNIF" message="tns:IMSDNVideoServices_Usuarios_ObtenerSocioPorNIF_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Usuarios_ObtenerSocioPorNIFResponse" message="tns:IMSDNVideoServices_Usuarios_ObtenerSocioPorNIF_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_ActualizarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Usuarios_ActualizarUsuario" message="tns:IMSDNVideoServices_Usuarios_ActualizarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Usuarios_ActualizarUsuarioResponse" message="tns:IMSDNVideoServices_Usuarios_ActualizarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_EliminarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Usuarios_EliminarUsuario" message="tns:IMSDNVideoServices_Usuarios_EliminarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Usuarios_EliminarUsuarioResponse" message="tns:IMSDNVideoServices_Usuarios_EliminarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_AgregarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Usuarios_AgregarUsuario" message="tns:IMSDNVideoServices_Usuarios_AgregarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Usuarios_AgregarUsuarioResponse" message="tns:IMSDNVideoServices_Usuarios_AgregarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_EstablecerClave">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Usuarios_EstablecerClave" message="tns:IMSDNVideoServices_Usuarios_EstablecerClave_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Usuarios_EstablecerClaveResponse" message="tns:IMSDNVideoServices_Usuarios_EstablecerClave_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_ValidarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Usuarios_ValidarUsuario" message="tns:IMSDNVideoServices_Usuarios_ValidarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Usuarios_ValidarUsuarioResponse" message="tns:IMSDNVideoServices_Usuarios_ValidarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actores_ObtenerActores">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Actores_ObtenerActores" message="tns:IMSDNVideoServices_Actores_ObtenerActores_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Actores_ObtenerActoresResponse" message="tns:IMSDNVideoServices_Actores_ObtenerActores_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actores_ObtenerActoresPorNombre">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Actores_ObtenerActoresPorNombre" message="tns:IMSDNVideoServices_Actores_ObtenerActoresPorNombre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Actores_ObtenerActoresPorNombreResponse" message="tns:IMSDNVideoServices_Actores_ObtenerActoresPorNombre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ComprarPelicula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/ComprarPelicula" message="tns:IMSDNVideoServices_ComprarPelicula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/ComprarPeliculaResponse" message="tns:IMSDNVideoServices_ComprarPelicula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ComprarMiPelicula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/ComprarMiPelicula" message="tns:IMSDNVideoServices_ComprarMiPelicula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/ComprarMiPeliculaResponse" message="tns:IMSDNVideoServices_ComprarMiPelicula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AlquilarPelicula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/AlquilarPelicula" message="tns:IMSDNVideoServices_AlquilarPelicula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/AlquilarPeliculaResponse" message="tns:IMSDNVideoServices_AlquilarPelicula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AlquilarMiPelicula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/AlquilarMiPelicula" message="tns:IMSDNVideoServices_AlquilarMiPelicula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/AlquilarMiPeliculaResponse" message="tns:IMSDNVideoServices_AlquilarMiPelicula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AlquilarPeliculaYRecoger">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/AlquilarPeliculaYRecoger" message="tns:IMSDNVideoServices_AlquilarPeliculaYRecoger_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/AlquilarPeliculaYRecogerResponse" message="tns:IMSDNVideoServices_AlquilarPeliculaYRecoger_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AlquilarMiPeliculaYRecoger">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/AlquilarMiPeliculaYRecoger" message="tns:IMSDNVideoServices_AlquilarMiPeliculaYRecoger_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/AlquilarMiPeliculaYRecogerResponse" message="tns:IMSDNVideoServices_AlquilarMiPeliculaYRecoger_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalcularPrecioAlquiler">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/CalcularPrecioAlquiler" message="tns:IMSDNVideoServices_CalcularPrecioAlquiler_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/CalcularPrecioAlquilerResponse" message="tns:IMSDNVideoServices_CalcularPrecioAlquiler_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalcularMiPrecioAlquiler">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/CalcularMiPrecioAlquiler" message="tns:IMSDNVideoServices_CalcularMiPrecioAlquiler_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/CalcularMiPrecioAlquilerResponse" message="tns:IMSDNVideoServices_CalcularMiPrecioAlquiler_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecogerPelicula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/RecogerPelicula" message="tns:IMSDNVideoServices_RecogerPelicula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/RecogerPeliculaResponse" message="tns:IMSDNVideoServices_RecogerPelicula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecogerMiPelicula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/RecogerMiPelicula" message="tns:IMSDNVideoServices_RecogerMiPelicula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/RecogerMiPeliculaResponse" message="tns:IMSDNVideoServices_RecogerMiPelicula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverPelicula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/DevolverPelicula" message="tns:IMSDNVideoServices_DevolverPelicula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/DevolverPeliculaResponse" message="tns:IMSDNVideoServices_DevolverPelicula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverMiPelicula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/DevolverMiPelicula" message="tns:IMSDNVideoServices_DevolverMiPelicula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/DevolverMiPeliculaResponse" message="tns:IMSDNVideoServices_DevolverMiPelicula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAlquileresSinDevolver">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/ObtenerAlquileresSinDevolver" message="tns:IMSDNVideoServices_ObtenerAlquileresSinDevolver_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/ObtenerAlquileresSinDevolverResponse" message="tns:IMSDNVideoServices_ObtenerAlquileresSinDevolver_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAlquileresSinRecoger">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/ObtenerAlquileresSinRecoger" message="tns:IMSDNVideoServices_ObtenerAlquileresSinRecoger_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/ObtenerAlquileresSinRecogerResponse" message="tns:IMSDNVideoServices_ObtenerAlquileresSinRecoger_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Notificaciones_ObtenerNotificaciones">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Notificaciones_ObtenerNotificaciones" message="tns:IMSDNVideoServices_Notificaciones_ObtenerNotificaciones_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Notificaciones_ObtenerNotificacionesResponse" message="tns:IMSDNVideoServices_Notificaciones_ObtenerNotificaciones_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Informes_ObtenerInformeSaldos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Informes_ObtenerInformeSaldos" message="tns:IMSDNVideoServices_Informes_ObtenerInformeSaldos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Informes_ObtenerInformeSaldosResponse" message="tns:IMSDNVideoServices_Informes_ObtenerInformeSaldos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Informes_ObtenerInformeVentas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Informes_ObtenerInformeVentas" message="tns:IMSDNVideoServices_Informes_ObtenerInformeVentas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Informes_ObtenerInformeVentasResponse" message="tns:IMSDNVideoServices_Informes_ObtenerInformeVentas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Informes_ObtenerInformeStock">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Informes_ObtenerInformeStock" message="tns:IMSDNVideoServices_Informes_ObtenerInformeStock_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Informes_ObtenerInformeStockResponse" message="tns:IMSDNVideoServices_Informes_ObtenerInformeStock_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ws" type="tns:IMSDNVideoServices">
+    <wsp:PolicyReference URI="#ws_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Peliculas_ObtenerPeliculas">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerPeliculas" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Peliculas_ObtenerPeliculas_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Peliculas_ObtenerPeliculas_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerPeliculasPorFiltro">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerPeliculasPorFiltro" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Peliculas_ObtenerPeliculasPorFiltro_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Peliculas_ObtenerPeliculasPorFiltro_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerPeliculaPorCodBarras">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerPeliculaPorCodBarras" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Peliculas_ObtenerPeliculaPorCodBarras_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Peliculas_ObtenerPeliculaPorCodBarras_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerPeliculasPendienteDevolver">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerPeliculasPendienteDevolver" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Peliculas_ObtenerPeliculasPendienteDevolver_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Peliculas_ObtenerPeliculasPendienteDevolver_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerMisPeliculasPendienteDevolver">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerMisPeliculasPendienteDevolver" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Peliculas_ObtenerMisPeliculasPendienteDevolver_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Peliculas_ObtenerMisPeliculasPendienteDevolver_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerPeliculasPendienteRecoger">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerPeliculasPendienteRecoger" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Peliculas_ObtenerPeliculasPendienteRecoger_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Peliculas_ObtenerPeliculasPendienteRecoger_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerMisPeliculasPendienteRecoger">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerMisPeliculasPendienteRecoger" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Peliculas_ObtenerMisPeliculasPendienteRecoger_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Peliculas_ObtenerMisPeliculasPendienteRecoger_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerTopPeliculasAlquiler">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerTopPeliculasAlquiler" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Peliculas_ObtenerTopPeliculasAlquiler_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Peliculas_ObtenerTopPeliculasAlquiler_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerTopPeliculasVentas">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerTopPeliculasVentas" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Peliculas_ObtenerTopPeliculasVentas_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Peliculas_ObtenerTopPeliculasVentas_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerTopPeliculasPuntuacion">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerTopPeliculasPuntuacion" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Peliculas_ObtenerTopPeliculasPuntuacion_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Peliculas_ObtenerTopPeliculasPuntuacion_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ActualizarPelicula">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ActualizarPelicula" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Peliculas_ActualizarPelicula_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Peliculas_ActualizarPelicula_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_EliminarPelicula">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_EliminarPelicula" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Peliculas_EliminarPelicula_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Peliculas_EliminarPelicula_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_AgregarPelicula">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_AgregarPelicula" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Peliculas_AgregarPelicula_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Peliculas_AgregarPelicula_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerCaratula">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerCaratula" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Peliculas_ObtenerCaratula_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Peliculas_ObtenerCaratula_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ModificarCaratula">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ModificarCaratula" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Peliculas_ModificarCaratula_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Peliculas_ModificarCaratula_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeSet_ActualizarChangeSet">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/ChangeSet_ActualizarChangeSet" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_ChangeSet_ActualizarChangeSet_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_ChangeSet_ActualizarChangeSet_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_ObtenerUsuarios">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Usuarios_ObtenerUsuarios" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Usuarios_ObtenerUsuarios_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Usuarios_ObtenerUsuarios_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_ObtenerSocios">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Usuarios_ObtenerSocios" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Usuarios_ObtenerSocios_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Usuarios_ObtenerSocios_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_ObtenerSociosPorNombre">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Usuarios_ObtenerSociosPorNombre" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Usuarios_ObtenerSociosPorNombre_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Usuarios_ObtenerSociosPorNombre_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_ObtenerUsuarioPorNIF">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Usuarios_ObtenerUsuarioPorNIF" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Usuarios_ObtenerUsuarioPorNIF_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Usuarios_ObtenerUsuarioPorNIF_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_ObtenerMiUsuario">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Usuarios_ObtenerMiUsuario" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Usuarios_ObtenerMiUsuario_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Usuarios_ObtenerMiUsuario_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_ObtenerSocioPorNIF">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Usuarios_ObtenerSocioPorNIF" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Usuarios_ObtenerSocioPorNIF_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Usuarios_ObtenerSocioPorNIF_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_ActualizarUsuario">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Usuarios_ActualizarUsuario" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Usuarios_ActualizarUsuario_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Usuarios_ActualizarUsuario_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_EliminarUsuario">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Usuarios_EliminarUsuario" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Usuarios_EliminarUsuario_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Usuarios_EliminarUsuario_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_AgregarUsuario">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Usuarios_AgregarUsuario" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Usuarios_AgregarUsuario_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Usuarios_AgregarUsuario_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_EstablecerClave">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Usuarios_EstablecerClave" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Usuarios_EstablecerClave_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Usuarios_EstablecerClave_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_ValidarUsuario">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Usuarios_ValidarUsuario" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Usuarios_ValidarUsuario_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Usuarios_ValidarUsuario_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actores_ObtenerActores">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Actores_ObtenerActores" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Actores_ObtenerActores_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Actores_ObtenerActores_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actores_ObtenerActoresPorNombre">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Actores_ObtenerActoresPorNombre" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Actores_ObtenerActoresPorNombre_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Actores_ObtenerActoresPorNombre_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComprarPelicula">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/ComprarPelicula" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_ComprarPelicula_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_ComprarPelicula_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComprarMiPelicula">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/ComprarMiPelicula" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_ComprarMiPelicula_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_ComprarMiPelicula_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlquilarPelicula">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/AlquilarPelicula" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_AlquilarPelicula_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_AlquilarPelicula_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlquilarMiPelicula">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/AlquilarMiPelicula" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_AlquilarMiPelicula_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_AlquilarMiPelicula_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlquilarPeliculaYRecoger">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/AlquilarPeliculaYRecoger" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_AlquilarPeliculaYRecoger_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_AlquilarPeliculaYRecoger_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlquilarMiPeliculaYRecoger">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/AlquilarMiPeliculaYRecoger" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_AlquilarMiPeliculaYRecoger_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_AlquilarMiPeliculaYRecoger_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalcularPrecioAlquiler">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/CalcularPrecioAlquiler" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_CalcularPrecioAlquiler_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_CalcularPrecioAlquiler_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalcularMiPrecioAlquiler">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/CalcularMiPrecioAlquiler" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_CalcularMiPrecioAlquiler_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_CalcularMiPrecioAlquiler_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecogerPelicula">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/RecogerPelicula" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_RecogerPelicula_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_RecogerPelicula_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecogerMiPelicula">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/RecogerMiPelicula" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_RecogerMiPelicula_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_RecogerMiPelicula_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverPelicula">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/DevolverPelicula" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_DevolverPelicula_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_DevolverPelicula_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverMiPelicula">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/DevolverMiPelicula" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_DevolverMiPelicula_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_DevolverMiPelicula_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAlquileresSinDevolver">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/ObtenerAlquileresSinDevolver" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_ObtenerAlquileresSinDevolver_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_ObtenerAlquileresSinDevolver_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAlquileresSinRecoger">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/ObtenerAlquileresSinRecoger" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_ObtenerAlquileresSinRecoger_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_ObtenerAlquileresSinRecoger_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Notificaciones_ObtenerNotificaciones">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Notificaciones_ObtenerNotificaciones" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Notificaciones_ObtenerNotificaciones_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Notificaciones_ObtenerNotificaciones_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Informes_ObtenerInformeSaldos">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Informes_ObtenerInformeSaldos" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Informes_ObtenerInformeSaldos_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Informes_ObtenerInformeSaldos_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Informes_ObtenerInformeVentas">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Informes_ObtenerInformeVentas" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Informes_ObtenerInformeVentas_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Informes_ObtenerInformeVentas_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Informes_ObtenerInformeStock">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Informes_ObtenerInformeStock" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Informes_ObtenerInformeStock_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Informes_ObtenerInformeStock_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsi" type="tns:IMSDNVideoServices">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Peliculas_ObtenerPeliculas">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerPeliculas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerPeliculasPorFiltro">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerPeliculasPorFiltro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerPeliculaPorCodBarras">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerPeliculaPorCodBarras" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerPeliculasPendienteDevolver">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerPeliculasPendienteDevolver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerMisPeliculasPendienteDevolver">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerMisPeliculasPendienteDevolver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerPeliculasPendienteRecoger">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerPeliculasPendienteRecoger" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerMisPeliculasPendienteRecoger">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerMisPeliculasPendienteRecoger" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerTopPeliculasAlquiler">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerTopPeliculasAlquiler" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerTopPeliculasVentas">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerTopPeliculasVentas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerTopPeliculasPuntuacion">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerTopPeliculasPuntuacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ActualizarPelicula">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ActualizarPelicula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_EliminarPelicula">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_EliminarPelicula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_AgregarPelicula">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_AgregarPelicula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerCaratula">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerCaratula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ModificarCaratula">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ModificarCaratula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeSet_ActualizarChangeSet">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/ChangeSet_ActualizarChangeSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_ObtenerUsuarios">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Usuarios_ObtenerUsuarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_ObtenerSocios">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Usuarios_ObtenerSocios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_ObtenerSociosPorNombre">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Usuarios_ObtenerSociosPorNombre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_ObtenerUsuarioPorNIF">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Usuarios_ObtenerUsuarioPorNIF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_ObtenerMiUsuario">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Usuarios_ObtenerMiUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_ObtenerSocioPorNIF">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Usuarios_ObtenerSocioPorNIF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_ActualizarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Usuarios_ActualizarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_EliminarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Usuarios_EliminarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_AgregarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Usuarios_AgregarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_EstablecerClave">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Usuarios_EstablecerClave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuarios_ValidarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Usuarios_ValidarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actores_ObtenerActores">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Actores_ObtenerActores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actores_ObtenerActoresPorNombre">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Actores_ObtenerActoresPorNombre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComprarPelicula">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/ComprarPelicula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComprarMiPelicula">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/ComprarMiPelicula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlquilarPelicula">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/AlquilarPelicula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlquilarMiPelicula">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/AlquilarMiPelicula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlquilarPeliculaYRecoger">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/AlquilarPeliculaYRecoger" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlquilarMiPeliculaYRecoger">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/AlquilarMiPeliculaYRecoger" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalcularPrecioAlquiler">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/CalcularPrecioAlquiler" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalcularMiPrecioAlquiler">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/CalcularMiPrecioAlquiler" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecogerPelicula">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/RecogerPelicula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecogerMiPelicula">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/RecogerMiPelicula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverPelicula">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/DevolverPelicula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverMiPelicula">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/DevolverMiPelicula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAlquileresSinDevolver">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/ObtenerAlquileresSinDevolver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAlquileresSinRecoger">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/ObtenerAlquileresSinRecoger" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Notificaciones_ObtenerNotificaciones">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Notificaciones_ObtenerNotificaciones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Informes_ObtenerInformeSaldos">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Informes_ObtenerInformeSaldos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Informes_ObtenerInformeVentas">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Informes_ObtenerInformeVentas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Informes_ObtenerInformeStock">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Informes_ObtenerInformeStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MSDNVideoServices">
+    <wsdl:port name="ws" binding="tns:ws">
+      <soap12:address location="http://localhost:52442/MSDNVideoServices.svc/ws" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://localhost:52442/MSDNVideoServices.svc/ws</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+            <X509Data>
+              <X509Certificate>MIICAjCCAWugAwIBAgIQOJPK9ixbepNHhxuhtW0gMjANBgkqhkiG9w0BAQQFADAYMRYwFAYDVQQDEw1NU0ROVmlkZW9DZXJ0MB4XDTA3MDgyMDE1MTgyOFoXDTM5MTIzMTIzNTk1OVowGDEWMBQGA1UEAxMNTVNETlZpZGVvQ2VydDCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA3DuSr/mRaGarPJuJlzvL7lHBYvMopqKPTO3WQF8a4PqJjyaNMGRQbP/SnBa1AcUjgl10OY5Sfhayo+2firj1ZED7jEETuGKHzl14o50mIOgeZV3hveXKC+d6AHYC4+snsDBSRJSw00lgt4P7x9+LjJsMawIW792zbgbJQUwTn+ECAwEAAaNNMEswSQYDVR0BBEIwQIAQNKR4J/hGc51WRPFnRXy1z6EaMBgxFjAUBgNVBAMTDU1TRE5WaWRlb0NlcnSCEDiTyvYsW3qTR4cbobVtIDIwDQYJKoZIhvcNAQEEBQADgYEAQ99uBtE96TI/AR/PpILLqvVL50c5HtvUdGKd8hxGWwQfsZ5jQbdb8TPrxa24xd3GrOvL7AC3OSUV/6PaZn9gJtOP8rFc3VvCtaZWWJ9i/oDQNEAqchAvTBGomO+fB2ISExKU1shO/mqSeUiHdd+ZPM3Ah3lis4TM0h7k/WaOdGE=</X509Certificate>
+            </X509Data>
+          </KeyInfo>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="wsi" binding="tns:wsi">
+      <soap:address location="http://localhost:52442/MSDNVideoServices.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

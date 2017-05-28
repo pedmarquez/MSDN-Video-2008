@@ -1,0 +1,167 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2006" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+    x:Class="MSDNVideo.Cajero.FiltrarPeliculas"
+    Title="Filtrar películas" Width="Auto" Height="Auto" MinHeight="400" MinWidth="550"
+    Loaded="Page_Loaded">
+    <Grid Margin="0,20,0,0">
+    	<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="0.03*"/>
+    		<ColumnDefinition Width="0.44*"/>
+    		<ColumnDefinition Width="0.06*"/>
+    		<ColumnDefinition Width="0.44*"/>
+			<ColumnDefinition Width="0.03*"/>
+    	</Grid.ColumnDefinitions>
+    	<StackPanel Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="Auto" Height="Auto" Margin="0,0,0,0" Grid.ColumnSpan="1" Grid.Column="1">
+    		<GroupBox Style="{DynamicResource FrameStyle}" Header="Búsqueda Rápida" Height="167.389" Margin="0,0,0,0" Width="Auto">
+    			<StackPanel>
+    				<Button Click="btnTodas_Click" Width="253.614" Template="{StaticResource BotonMenuTemplate}" x:Name="btnTodas" Margin="0,6,0,0" Height="Auto" Grid.RowSpan="1" ClipToBounds="False">
+    					<StackPanel x:Name="stackPanel" Height="Auto" Orientation="Horizontal">
+    						<Image Margin="0,4,0,1" Width="60" Height="57.341" Source="Images\Todas.png"/>
+    						<TextBlock Width="Auto" Height="Auto" FontSize="18" FontWeight="Bold" Foreground="#FFFFFFFF" Text="Todas las películas" TextAlignment="Center" TextWrapping="Wrap" Margin="28,0,0,0" VerticalAlignment="Center">
+    							<TextBlock.BitmapEffect>
+    								<DropShadowBitmapEffect Color="#FF000000" Direction="327" Opacity="0.665" ShadowDepth="1" Softness="0.07"/>
+    							</TextBlock.BitmapEffect>
+    						</TextBlock>
+    					</StackPanel>
+    				</Button>
+
+    				<Button Click="btnEstrenos_Click" Width="253.614" Template="{StaticResource BotonMenuTemplate}" x:Name="btnEstrenos" Margin="0,0,0,0" Grid.Row="1" Grid.RowSpan="1" ClipToBounds="False">
+    					<StackPanel x:Name="stackPanel1" Height="Auto" Orientation="Horizontal">
+    						<Image Margin="0,4,0,1" Width="60" Height="57.341" Source="Images\Estrenos.png"/>
+    						<TextBlock Width="Auto" Height="Auto" FontSize="18" FontWeight="Bold" Foreground="#FFFFFFFF" Text="Estrenos" TextAlignment="Center" TextWrapping="Wrap" Margin="28,0,0,0" VerticalAlignment="Center">
+    							<TextBlock.BitmapEffect>
+    								<DropShadowBitmapEffect Color="#FF000000" Direction="327" Opacity="0.665" ShadowDepth="1" Softness="0.07"/>
+    							</TextBlock.BitmapEffect>
+    						</TextBlock>
+    					</StackPanel>
+    				</Button>
+
+    			</StackPanel>
+    		</GroupBox>
+
+    		<GroupBox Style="{DynamicResource FrameStyle}" Header="Clasificación" Height="289.069" Margin="0,26,0,0" Width="Auto">
+    			<StackPanel>
+    				<Button Click="btnApta_Click" Width="253.614" Template="{StaticResource BotonMenuTemplate}" x:Name="btnApta" Margin="0,6,0,0" Height="Auto" Grid.RowSpan="1" ClipToBounds="False">
+    					<StackPanel Height="Auto" Orientation="Horizontal">
+    						<Image Margin="0,4,0,1" Width="60" Height="57.341" Source="Images\Apta.png"/>
+    						<TextBlock Width="Auto" Height="Auto" FontSize="18" FontWeight="Bold" Foreground="#FFFFFFFF" Text="Apta" TextAlignment="Center" TextWrapping="Wrap" Margin="28,0,0,0" VerticalAlignment="Center">
+    							<TextBlock.BitmapEffect>
+    								<DropShadowBitmapEffect Color="#FF000000" Direction="327" Opacity="0.665" ShadowDepth="1" Softness="0.07"/>
+    							</TextBlock.BitmapEffect>
+    						</TextBlock>
+    					</StackPanel>
+    				</Button>
+
+    				<Button Click="btnNR7_Click" Width="253.614" Template="{StaticResource BotonMenuTemplate}" x:Name="btnNR7" Margin="0,0,0,0" Grid.Row="1" Grid.RowSpan="1" ClipToBounds="False">
+    					<StackPanel Height="Auto" Orientation="Horizontal">
+    						<Image Margin="0,4,0,1" Width="60" Height="57.341" Source="Images\NR7.png"/>
+    						<TextBlock Width="Auto" Height="Auto" FontSize="18" FontWeight="Bold" Foreground="#FFFFFFFF" Text="NR -7" TextAlignment="Center" TextWrapping="Wrap" Margin="28,0,0,0" VerticalAlignment="Center">
+    							<TextBlock.BitmapEffect>
+    								<DropShadowBitmapEffect Color="#FF000000" Direction="327" Opacity="0.665" ShadowDepth="1" Softness="0.07"/>
+    							</TextBlock.BitmapEffect>
+    						</TextBlock>
+    					</StackPanel>
+    				</Button>
+
+    				<Button Click="btnNR13_Click" Width="253.614" Template="{StaticResource BotonMenuTemplate}" x:Name="btnNR13" Margin="0,0,0,0" Grid.Row="1" Grid.RowSpan="1" ClipToBounds="False">
+    					<StackPanel Height="Auto" Orientation="Horizontal">
+    						<Image Margin="0,4,0,1" Width="60" Height="57.341" Source="Images\NR13.png"/>
+    						<TextBlock Width="Auto" Height="Auto" FontSize="18" FontWeight="Bold" Foreground="#FFFFFFFF" Text="NR -13" TextAlignment="Center" TextWrapping="Wrap" Margin="28,0,0,0" VerticalAlignment="Center">
+    							<TextBlock.BitmapEffect>
+    								<DropShadowBitmapEffect Color="#FF000000" Direction="327" Opacity="0.665" ShadowDepth="1" Softness="0.07"/>
+    							</TextBlock.BitmapEffect>
+    						</TextBlock>
+    					</StackPanel>
+    				</Button>
+
+    				<Button Click="btnNR18_Click" Width="253.614" Template="{StaticResource BotonMenuTemplate}" x:Name="btnNR18" Margin="0,0,0,0" Grid.Row="1" Grid.RowSpan="1" ClipToBounds="False">
+    					<StackPanel Height="Auto" Orientation="Horizontal">
+    						<Image Margin="0,4,0,1" Width="60" Height="57.341" Source="Images\NR18.png"/>
+    						<TextBlock Width="Auto" Height="Auto" FontSize="18" FontWeight="Bold" Foreground="#FFFFFFFF" Text="NR -18" TextAlignment="Center" TextWrapping="Wrap" Margin="28,0,0,0" VerticalAlignment="Center">
+    							<TextBlock.BitmapEffect>
+    								<DropShadowBitmapEffect Color="#FF000000" Direction="327" Opacity="0.665" ShadowDepth="1" Softness="0.07"/>
+    							</TextBlock.BitmapEffect>
+    						</TextBlock>
+    					</StackPanel>
+    				</Button>
+
+    			</StackPanel>
+    		</GroupBox>
+
+    	</StackPanel>
+		
+		<GroupBox Style="{DynamicResource FrameStyle}" Header="Género" Width="Auto" Grid.Column="3" VerticalAlignment="Top" Height="482.458">
+    			<StackPanel>
+    				<Button Click="btnRomantica_Click" Width="253.614" Template="{StaticResource BotonMenuTemplate}" x:Name="btnRomantica" Margin="0,6,0,14" Height="Auto" Grid.RowSpan="1" ClipToBounds="False">
+    					<StackPanel Height="Auto" Orientation="Horizontal">
+    						<Image Margin="0,4,0,1" Width="60" Height="57.341" Source="Images\Romantica.png"/>
+    						<TextBlock Width="Auto" Height="Auto" FontSize="18" FontWeight="Bold" Foreground="#FFFFFFFF" Text="Romántica" TextAlignment="Center" TextWrapping="Wrap" Margin="28,0,0,0" VerticalAlignment="Center">
+    							<TextBlock.BitmapEffect>
+    								<DropShadowBitmapEffect Color="#FF000000" Direction="327" Opacity="0.665" ShadowDepth="1" Softness="0.07"/>
+    							</TextBlock.BitmapEffect>
+    						</TextBlock>
+    					</StackPanel>
+    				</Button>
+
+    				<Button Click="btnDrama_Click" Width="253.614" Template="{StaticResource BotonMenuTemplate}" x:Name="btnDrama" Margin="0,0,0,14" Grid.Row="1" Grid.RowSpan="1" ClipToBounds="False">
+    					<StackPanel Height="Auto" Orientation="Horizontal">
+    						<Image Margin="0,4,0,1" Width="60" Height="57.341" Source="Images\Drama.png"/>
+    						<TextBlock Width="Auto" Height="Auto" FontSize="18" FontWeight="Bold" Foreground="#FFFFFFFF" Text="Drama" TextAlignment="Center" TextWrapping="Wrap" Margin="28,0,0,0" VerticalAlignment="Center">
+    							<TextBlock.BitmapEffect>
+    								<DropShadowBitmapEffect Color="#FF000000" Direction="327" Opacity="0.665" ShadowDepth="1" Softness="0.07"/>
+    							</TextBlock.BitmapEffect>
+    						</TextBlock>
+    					</StackPanel>
+    				</Button>
+
+    				<Button Click="btnComedia_Click" Width="253.614" Template="{StaticResource BotonMenuTemplate}" x:Name="btnComedia" Margin="0,0,0,14" Grid.Row="1" Grid.RowSpan="1" ClipToBounds="False">
+    					<StackPanel Height="Auto" Orientation="Horizontal">
+    						<Image Margin="0,4,0,1" Width="60" Height="57.341" Source="Images\Comedia.png"/>
+    						<TextBlock Width="Auto" Height="Auto" FontSize="18" FontWeight="Bold" Foreground="#FFFFFFFF" Text="Comedia" TextAlignment="Center" TextWrapping="Wrap" Margin="28,0,0,0" VerticalAlignment="Center">
+    							<TextBlock.BitmapEffect>
+    								<DropShadowBitmapEffect Color="#FF000000" Direction="327" Opacity="0.665" ShadowDepth="1" Softness="0.07"/>
+    							</TextBlock.BitmapEffect>
+    						</TextBlock>
+    					</StackPanel>
+    				</Button>
+
+    				<Button Click="btnThriller_Click" Width="253.614" Template="{StaticResource BotonMenuTemplate}" x:Name="btnThriller" Margin="0,0,0,14" Grid.Row="1" Grid.RowSpan="1" ClipToBounds="False">
+    					<StackPanel Height="Auto" Orientation="Horizontal">
+    						<Image Margin="0,4,0,1" Width="60" Height="57.341" Source="Images\Thriller.png"/>
+    						<TextBlock Width="Auto" Height="Auto" FontSize="18" FontWeight="Bold" Foreground="#FFFFFFFF" Text="Thriller" TextAlignment="Center" TextWrapping="Wrap" Margin="28,0,0,0" VerticalAlignment="Center">
+    							<TextBlock.BitmapEffect>
+    								<DropShadowBitmapEffect Color="#FF000000" Direction="327" Opacity="0.665" ShadowDepth="1" Softness="0.07"/>
+    							</TextBlock.BitmapEffect>
+    						</TextBlock>
+    					</StackPanel>
+    				</Button>
+
+    				<Button Click="btnTerror_Click" Width="253.614" Template="{StaticResource BotonMenuTemplate}" x:Name="btnTerror" Margin="0,0,0,14" Grid.Row="1" Grid.RowSpan="1" ClipToBounds="False">
+    					<StackPanel Height="Auto" Orientation="Horizontal">
+    						<Image Margin="0,4,0,1" Width="60" Height="57.341" Source="Images\Terror.png"/>
+    						<TextBlock Width="Auto" Height="Auto" FontSize="18" FontWeight="Bold" Foreground="#FFFFFFFF" Text="Terror" TextAlignment="Center" TextWrapping="Wrap" Margin="28,0,0,0" VerticalAlignment="Center">
+    							<TextBlock.BitmapEffect>
+    								<DropShadowBitmapEffect Color="#FF000000" Direction="327" Opacity="0.665" ShadowDepth="1" Softness="0.07"/>
+    							</TextBlock.BitmapEffect>
+    						</TextBlock>
+    					</StackPanel>
+    				</Button>
+
+    				<Button Click="btnAccion_Click" Width="253.614" Template="{StaticResource BotonMenuTemplate}" x:Name="btnAccion" Margin="0,0,0,14" Grid.Row="1" Grid.RowSpan="1" ClipToBounds="False">
+    					<StackPanel Height="Auto" Orientation="Horizontal">
+    						<Image Margin="0,4,0,1" Width="60" Height="57.341" Source="Images\Accion.png"/>
+    						<TextBlock Width="Auto" Height="Auto" FontSize="18" FontWeight="Bold" Foreground="#FFFFFFFF" Text="Acción" TextAlignment="Center" TextWrapping="Wrap" Margin="28,0,0,0" VerticalAlignment="Center">
+    							<TextBlock.BitmapEffect>
+    								<DropShadowBitmapEffect Color="#FF000000" Direction="327" Opacity="0.665" ShadowDepth="1" Softness="0.07"/>
+    							</TextBlock.BitmapEffect>
+    						</TextBlock>
+    					</StackPanel>
+    				</Button>
+
+    			</StackPanel>
+    		</GroupBox>
+
+    </Grid>
+</Page>

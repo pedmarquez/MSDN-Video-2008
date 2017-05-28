@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0749c57a-1711-4d24-8c47-56addc5528a2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.ComponentModel.BindingList`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:52442/MSDNVideoServices.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MSDNVideoServices.disco" MetadataType="Disco" ID="e8d5e28f-c870-44a3-bc00-f5faed1c9092" SourceId="1" SourceUrl="http://localhost:52442/MSDNVideoServices.svc?disco" />
+    <MetadataFile FileName="MSDNVideoServices.xsd" MetadataType="Schema" ID="b5440063-7ddf-4415-940a-66e8ade187f8" SourceId="1" SourceUrl="http://localhost:52442/MSDNVideoServices.svc?xsd=xsd2" />
+    <MetadataFile FileName="MSDNVideoServices1.xsd" MetadataType="Schema" ID="b02e1afb-57c3-48a1-91ea-e963c37f37e5" SourceId="1" SourceUrl="http://localhost:52442/MSDNVideoServices.svc?xsd=xsd3" />
+    <MetadataFile FileName="MSDNVideoServices2.xsd" MetadataType="Schema" ID="8450eae2-ece8-4539-ac93-2e4d108624cf" SourceId="1" SourceUrl="http://localhost:52442/MSDNVideoServices.svc?xsd=xsd0" />
+    <MetadataFile FileName="MSDNVideoServices3.xsd" MetadataType="Schema" ID="52dbb03a-2b5b-4717-9d99-c151a9bee9ff" SourceId="1" SourceUrl="http://localhost:52442/MSDNVideoServices.svc?xsd=xsd1" />
+    <MetadataFile FileName="MSDNVideoServices.wsdl" MetadataType="Wsdl" ID="ea52bd92-f8d6-40b4-80e0-873a33353ed4" SourceId="1" SourceUrl="http://localhost:52442/MSDNVideoServices.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

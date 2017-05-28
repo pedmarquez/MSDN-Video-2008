@@ -1,0 +1,243 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <BorderGapMaskConverter x:Key="BorderGapMaskConverter"/>
+    
+    <Style x:Key="FrameStyle" TargetType="{x:Type GroupBox}">
+        <Setter Property="BorderBrush" Value="#D5DFE5"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type GroupBox}">
+                    <Grid SnapsToDevicePixels="true" Background="#FFCEDEF7">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Border x:Name="Header" Grid.Column="1" Grid.Row="0" Grid.RowSpan="1" Padding="3,1,3,0">
+                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" ContentSource="Header" RecognizesAccessKey="True"/>
+                        </Border>
+                    	<Rectangle Width="Auto" Fill="#FFCEDEF7" Grid.RowSpan="2">
+							<Rectangle.BitmapEffect>
+                            	<DropShadowBitmapEffect Opacity="0.53" ShadowDepth="3"/>
+                        	</Rectangle.BitmapEffect>
+						</Rectangle>
+                        <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Margin="{TemplateBinding Padding}" Grid.Row="1"/>
+                        <Rectangle HorizontalAlignment="Stretch" Margin="0,0,0,0" Width="Auto" Grid.Row="0">
+                            <Rectangle.Fill>
+                                <LinearGradientBrush EndPoint="1,0" StartPoint="1,1">
+                                    <GradientStop Color="#FF97B7E8" Offset="0"/>
+                                    <GradientStop Color="#FF7B97C3" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <Image HorizontalAlignment="Right" Margin="0,0,0,0" Width="80" Height="25" Source="..\Images\MarcoR.jpg"/>
+                    	<TextBlock Margin="9,3,84,0" Grid.RowSpan="1" FontSize="14" FontStyle="Italic" FontWeight="Bold" Foreground="#FFFFFFFF" Text="{TemplateBinding Header}" TextWrapping="NoWrap"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <LinearGradientBrush x:Key="TextBoxBorder" EndPoint="0,20" StartPoint="0,0" MappingMode="Absolute">
+        <GradientStop Color="#ABADB3" Offset="0.05"/>
+        <GradientStop Color="#E2E3EA" Offset="0.07"/>
+        <GradientStop Color="#E3E9EF" Offset="1"/>
+    </LinearGradientBrush>
+
+    <Style x:Key="TextBoxFlat" BasedOn="{x:Null}" TargetType="{x:Type TextBox}">
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource TextBoxBorder}"/>
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="#FF3B4960"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="AllowDrop" Value="true"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border Width="Auto" Height="Auto" Background="#FFCED8E7" BorderBrush="#FF7F9CC9" BorderThickness="2,2,2,2" CornerRadius="3,3,3,3" Padding="2,0,2,0">
+                        <ScrollViewer SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" x:Name="PART_ContentHost" Width="242.938" Height="46"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="Texto" BasedOn="{x:Null}" TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontFamily" Value="Segoe UI"/>
+    </Style>
+
+    <Style x:Key="TextoMini" BasedOn="{x:Null}" TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontFamily" Value="Segoe UI"/>
+    </Style>
+    
+	<Style x:Key="TextoSinopsis" BasedOn="{x:Null}" TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="FontFamily" Value="Segoe UI"/>
+		<Setter Property="FontStyle" Value="Italic"/>
+    </Style>
+	
+    <Style x:Key="TextoSuperMini" BasedOn="{x:Null}" TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontFamily" Value="Segoe UI"/>
+    </Style>
+
+    <Style x:Key="PasswordBoxFlat" BasedOn="{x:Null}" TargetType="{x:Type PasswordBox}">
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource TextBoxBorder}"/>
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="#FF3B4960"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="AllowDrop" Value="true"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type PasswordBox}">
+                    <Border Width="Auto" Height="Auto" Background="#FFCED8E7" BorderBrush="#FF7F9CC9" BorderThickness="2,2,2,2" CornerRadius="3,3,3,3" Padding="2,0,2,0">
+                        <ScrollViewer SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" x:Name="PART_ContentHost" Width="242.938" Height="46"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ButtonFocusVisual">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Rectangle SnapsToDevicePixels="true" Stroke="Black" StrokeDashArray="1 2" StrokeThickness="1" Margin="2"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <LinearGradientBrush x:Key="ButtonNormalBackground" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#F3F3F3" Offset="0"/>
+        <GradientStop Color="#EBEBEB" Offset="0.5"/>
+        <GradientStop Color="#DDDDDD" Offset="0.5"/>
+        <GradientStop Color="#CDCDCD" Offset="1"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="ButtonNormalBorder" Color="#FF707070"/>
+
+    <Style x:Key="ButtonFlat" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.543*"/>
+                            <RowDefinition Height="0.457*"/>
+                        </Grid.RowDefinitions>
+                        <Rectangle Fill="#FF839ECB" Stroke="#FF3C4C64" RadiusX="6" RadiusY="6" StrokeThickness="1" Grid.RowSpan="2"/>
+                        <Rectangle RadiusX="6" RadiusY="6" Height="Auto" Margin="0,0,0,0" Grid.RowSpan="1">
+                            <Rectangle.Fill>
+                                <LinearGradientBrush EndPoint="0.492,1.02" StartPoint="0.492,0">
+                                    <GradientStop Color="#99FFFFFF" Offset="0"/>
+                                    <GradientStop Color="#33FFFFFF" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <Rectangle x:Name="ClickHighlight" RadiusX="6" RadiusY="6" Opacity="0" Stroke="#FFFFFFFF" StrokeThickness="2" Grid.RowSpan="2">
+                            <Rectangle.Fill>
+                                <RadialGradientBrush GradientOrigin="0.5,1.177">
+                                    <RadialGradientBrush.RelativeTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.396" ScaleY="1.396"/>
+                                            <SkewTransform AngleX="0" AngleY="0" CenterX="0.5" CenterY="0.5"/>
+                                            <RotateTransform Angle="0" CenterX="0.5" CenterY="0.5"/>
+                                            <TranslateTransform X="0" Y="0"/>
+                                        </TransformGroup>
+                                    </RadialGradientBrush.RelativeTransform>
+                                    <GradientStop Color="#B2ABB1BB" Offset="0.058"/>
+                                    <GradientStop Color="#B2ADB1B7" Offset="1"/>
+                                </RadialGradientBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <Rectangle x:Name="Highlight" RadiusX="6" RadiusY="6" Opacity="0.5" Grid.RowSpan="2">
+                            <Rectangle.Fill>
+                                <RadialGradientBrush GradientOrigin="0.5,1.177">
+                                    <RadialGradientBrush.RelativeTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.396" ScaleY="1.396"/>
+                                            <SkewTransform AngleX="0" AngleY="0" CenterX="0.5" CenterY="0.5"/>
+                                            <RotateTransform Angle="0" CenterX="0.5" CenterY="0.5"/>
+                                            <TranslateTransform X="0" Y="0"/>
+                                        </TransformGroup>
+                                    </RadialGradientBrush.RelativeTransform>
+                                    <GradientStop Color="#CCDBE0E8" Offset="0.231"/>
+                                    <GradientStop Color="#00839ECB" Offset="1"/>
+                                </RadialGradientBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
+
+                        <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="0,0,0,0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True" Grid.RowSpan="2"/>
+
+                    </Grid>
+
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="Highlight" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:.4"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="Highlight" Storyboard.TargetProperty="Opacity" To=".5" Duration="0:0:.4"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+
+                        <Trigger Property="IsPressed" Value="true">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="ClickHighlight" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:.4"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="ClickHighlight" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:.4"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

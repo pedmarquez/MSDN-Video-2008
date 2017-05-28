@@ -1,0 +1,896 @@
+﻿<Canvas
+	xmlns="http://schemas.microsoft.com/client/2007"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	Width="954" Height="160"
+	x:Name="Page"
+	Opacity="1"
+	>
+	<Canvas.Resources>
+		<Storyboard x:Name="MouseEnterCaratula">
+			<DoubleAnimationUsingKeyFrames x:Name="MouseEnterCaratula_key0" BeginTime="00:00:00" Storyboard.TargetName="caratula0" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+				<SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+				<SplineDoubleKeyFrame KeyTime="00:00:00.1" Value="1.15"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames x:Name="MouseEnterCaratula_key1" BeginTime="00:00:00" Storyboard.TargetName="caratula0" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+				<SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+				<SplineDoubleKeyFrame KeyTime="00:00:00.1" Value="1.15"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Name="MouseLeaveCaratula">
+			<DoubleAnimationUsingKeyFrames x:Name="MouseLeaveCaratula_key0" BeginTime="00:00:00" Storyboard.TargetName="caratula0" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+				<SplineDoubleKeyFrame KeyTime="00:00:00" Value="1.15"/>
+				<SplineDoubleKeyFrame KeyTime="00:00:00.1" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames x:Name="MouseLeaveCaratula_key1" BeginTime="00:00:00" Storyboard.TargetName="caratula0" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+				<SplineDoubleKeyFrame KeyTime="00:00:00" Value="1.15"/>
+				<SplineDoubleKeyFrame KeyTime="00:00:00.1" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Name="MostrarDetallePelicula">
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="PanelDetalles" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+				<SplineDoubleKeyFrame KeyTime="00:00:01" Value="222.037" KeySpline="0.63,0,0.625,1"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Name="OcultarDetallePelicula">
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="PanelDetalles" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+				<SplineDoubleKeyFrame KeyTime="00:00:00" Value="222.037"/>
+				<SplineDoubleKeyFrame KeyTime="00:00:01" Value="0" KeySpline="0.375,0,0.625,1"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		
+		<Storyboard x:Name="MouseEnterBoton">
+			<DoubleAnimationUsingKeyFrames Name="MouseEnterBoton_key0" BeginTime="00:00:00" Storyboard.TargetName="btnVerTrailerHighlight" Storyboard.TargetProperty="(UIElement.Opacity)">
+				<SplineDoubleKeyFrame KeyTime="00:00:00" Value=".5"/>
+				<SplineDoubleKeyFrame KeyTime="00:00:00.2" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Name="MouseLeaveBoton">
+			<DoubleAnimationUsingKeyFrames Name="MouseLeaveBoton_key0" BeginTime="00:00:00" Storyboard.TargetName="btnVerTrailerHighlight" Storyboard.TargetProperty="(UIElement.Opacity)">
+				<SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+				<SplineDoubleKeyFrame KeyTime="00:00:00.2" Value=".5"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		
+		<Storyboard x:Name="MostrarTrailer">
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="InteriorPanel" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+				<SplineDoubleKeyFrame KeyTime="00:00:00.0000000" Value="0"/>
+				<SplineDoubleKeyFrame KeyTime="00:00:00.5000000" Value="-461.715" KeySpline="0.5,0.5,0.5,1"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Name="MostrarSinopsis">
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="InteriorPanel" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+				<SplineDoubleKeyFrame KeyTime="00:00:00.0000000" Value="-461.715"/>
+				<SplineDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0" KeySpline="0.5,0.5,0.5,1"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		
+	</Canvas.Resources>
+	<Canvas x:Name="PanelDetalles" Width="450.031" Height="250.618" Canvas.Left="265.907" Canvas.Top="-61.971" RenderTransformOrigin="0.5,0.5">
+		<Canvas.RenderTransform>
+			<TransformGroup>
+				<ScaleTransform ScaleX="1" ScaleY="1"/>
+				<SkewTransform AngleX="0" AngleY="0"/>
+				<RotateTransform Angle="0"/>
+				<TranslateTransform X="0" Y="0"/>
+			</TransformGroup>
+		</Canvas.RenderTransform>
+		<Path Width="450.481" Height="16.45" Stretch="Fill" Stroke="#FF9AB8E8" Data="F1 M0.50000209,222.27499 L449.98099,222.27499 449.98099,226.821 C449.98099,234.92798 443.409,241.5 435.302,241.5 L15.178994,241.5 C7.0720105,241.5 0.49999842,234.92798 0.50000209,226.821 L0.50000209,222.27499 z" x:Name="Handle" Canvas.Top="221.09">
+			<Path.Fill>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FFBCD3F6" Offset="0"/>
+					<GradientStop Color="#FFE1E4E8" Offset="1"/>
+				</LinearGradientBrush>
+			</Path.Fill>
+		</Path>
+		<Canvas Width="3.563" Height="3.501" Canvas.Left="213.212" Canvas.Top="228.506">
+			<Rectangle Width="2.625" Height="2.688" Fill="#FFFFFFFF" Stroke="#FF000000" StrokeThickness="0" Canvas.Left="0.938" Canvas.Top="0.813"/>
+			<Rectangle Width="2.625" Height="2.688" Fill="#FFACC0DB" Stroke="#FF000000" StrokeThickness="0"/>
+			<Rectangle Width="2.625" Height="1.126" Fill="#FF7B8A9F" Stroke="#FF000000" StrokeThickness="0"/>
+			<Rectangle Width="1.375" Height="1.564" Fill="#FF7B8A9F" Stroke="#FF000000" StrokeThickness="0" Canvas.Top="1.125"/>
+		</Canvas>
+		<Canvas Width="3.563" Height="3.501" Canvas.Left="218.54" Canvas.Top="228.506">
+			<Rectangle Width="2.625" Height="2.688" Fill="#FFFFFFFF" Stroke="#FF000000" StrokeThickness="0" Canvas.Left="0.938" Canvas.Top="0.813"/>
+			<Rectangle Width="2.625" Height="2.688" Fill="#FFACC0DB" Stroke="#FF000000" StrokeThickness="0"/>
+			<Rectangle Width="2.625" Height="1.126" Fill="#FF7B8A9F" Stroke="#FF000000" StrokeThickness="0"/>
+			<Rectangle Width="1.375" Height="1.564" Fill="#FF7B8A9F" Stroke="#FF000000" StrokeThickness="0" Canvas.Top="1.125"/>
+		</Canvas>
+		<Canvas Width="3.563" Height="3.501" Canvas.Left="223.797" Canvas.Top="228.506">
+			<Rectangle Width="2.625" Height="2.688" Fill="#FFFFFFFF" Stroke="#FF000000" StrokeThickness="0" Canvas.Left="0.938" Canvas.Top="0.813"/>
+			<Rectangle Width="2.625" Height="2.688" Fill="#FFACC0DB" Stroke="#FF000000" StrokeThickness="0"/>
+			<Rectangle Width="2.625" Height="1.126" Fill="#FF7B8A9F" Stroke="#FF000000" StrokeThickness="0"/>
+			<Rectangle Width="1.375" Height="1.564" Fill="#FF7B8A9F" Stroke="#FF000000" StrokeThickness="0" Canvas.Top="1.125"/>
+		</Canvas>
+		<Canvas Width="3.563" Height="3.501" Canvas.Left="229.196" Canvas.Top="228.506">
+			<Rectangle Width="2.625" Height="2.688" Fill="#FFFFFFFF" Stroke="#FF000000" StrokeThickness="0" Canvas.Left="0.938" Canvas.Top="0.813"/>
+			<Rectangle Width="2.625" Height="2.688" Fill="#FFACC0DB" Stroke="#FF000000" StrokeThickness="0"/>
+			<Rectangle Width="2.625" Height="1.126" Fill="#FF7B8A9F" Stroke="#FF000000" StrokeThickness="0"/>
+			<Rectangle Width="1.375" Height="1.564" Fill="#FF7B8A9F" Stroke="#FF000000" StrokeThickness="0" Canvas.Top="1.125"/>
+		</Canvas>
+		<Canvas Width="3.563" Height="3.501" Canvas.Left="234.808" Canvas.Top="228.506">
+			<Rectangle Width="2.625" Height="2.688" Fill="#FFFFFFFF" Stroke="#FF000000" StrokeThickness="0" Canvas.Left="0.938" Canvas.Top="0.813"/>
+			<Rectangle Width="2.625" Height="2.688" Fill="#FFACC0DB" Stroke="#FF000000" StrokeThickness="0"/>
+			<Rectangle Width="2.625" Height="1.126" Fill="#FF7B8A9F" Stroke="#FF000000" StrokeThickness="0"/>
+			<Rectangle Width="1.375" Height="1.564" Fill="#FF7B8A9F" Stroke="#FF000000" StrokeThickness="0" Canvas.Top="1.125"/>
+		</Canvas>
+		<Canvas Width="3.563" Height="3.501" Canvas.Left="240.065" Canvas.Top="228.506">
+			<Rectangle Width="2.625" Height="2.688" Fill="#FFFFFFFF" Stroke="#FF000000" StrokeThickness="0" Canvas.Left="0.938" Canvas.Top="0.813"/>
+			<Rectangle Width="2.625" Height="2.688" Fill="#FFACC0DB" Stroke="#FF000000" StrokeThickness="0"/>
+			<Rectangle Width="2.625" Height="1.126" Fill="#FF7B8A9F" Stroke="#FF000000" StrokeThickness="0"/>
+			<Rectangle Width="1.375" Height="1.564" Fill="#FF7B8A9F" Stroke="#FF000000" StrokeThickness="0" Canvas.Top="1.125"/>
+		</Canvas>
+		<Rectangle Width="450.481" Height="222.353" Fill="#FFBCD3F6" Stroke="#FF9AB8E8"/>
+		<Canvas x:Name="ContainerInterior" Width="439.953" Height="218.971" Canvas.Left="4.391">
+			<Canvas.Clip>
+				<RectangleGeometry Rect="0.679, 2.368, 439.953, 218.133"/>
+			</Canvas.Clip>
+			<Canvas x:Name="InteriorPanel" Width="439.953" Height="218.971" Canvas.Left="-6.814" RenderTransformOrigin="0.5,0.5">
+	
+				<Canvas.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform ScaleX="1" ScaleY="1"/>
+						<SkewTransform AngleX="0" AngleY="0"/>
+						<RotateTransform Angle="0"/>
+						<TranslateTransform x:Name="TransformPanelDetalles" X="0" Y="0"/>
+					</TransformGroup>
+				</Canvas.RenderTransform>
+	
+				<Canvas x:Name="Trailer" Width="426.741" Height="210.971" Canvas.Left="470.84">
+	
+					<!-- Start player -->
+					<Canvas x:Name="CanvasPlayer" Width="856" Height="648" Background="#FF000000" RenderTransformOrigin="0.5,0.5" Canvas.Left="-213.967" Canvas.Top="-236.614">
+
+						<Canvas.Resources>
+
+							<Storyboard x:Name="PlayPauseButton_MouseEnter"/>
+
+							<Storyboard x:Name="PlayPauseButton_MouseLeave"/>
+
+							<Storyboard x:Name="PlayPauseButton_MouseDown"/>
+
+							<Storyboard x:Name="PlayPauseButton_MouseUp"/>
+
+							<Storyboard x:Name="StopButton_MouseEnter"/>
+
+							<Storyboard x:Name="StopButton_MouseLeave"/>
+
+							<Storyboard x:Name="StopButton_MouseDown"/>
+
+
+							<Storyboard x:Name="StopButton_MouseUp"/>
+
+
+							<Storyboard x:Name="PreviousButton_MouseEnter"/>
+
+
+							<Storyboard x:Name="PreviousButton_MouseLeave"/>
+
+
+							<Storyboard x:Name="PreviousButton_MouseDown"/>
+
+
+							<Storyboard x:Name="PreviousButton_MouseUp"/>
+
+
+
+
+							<Storyboard x:Name="MuteButton_MouseEnter">
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetName="MuteButton" Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+
+
+							<Storyboard x:Name="MuteButton_MouseLeave">
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetName="MuteButton" Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0.5"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+
+
+							<Storyboard x:Name="MuteButton_MouseDown">
+								<DoubleAnimationUsingKeyFrames  Storyboard.TargetName="MuteButton" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetName="MuteButton" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+
+
+							<Storyboard x:Name="MuteButton_MouseUp">
+								<DoubleAnimationUsingKeyFrames  Storyboard.TargetName="MuteButton" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetName="MuteButton" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+
+
+
+							<Storyboard x:Name="PlaySymbol_Show">
+								<DoubleAnimation Storyboard.TargetName='PlaySymbol' Storyboard.TargetProperty='opacity' To='1.0' Duration='0:0:0.3' />
+							</Storyboard>
+							<Storyboard x:Name="PlaySymbol_Hide">
+								<DoubleAnimation Storyboard.TargetName='PlaySymbol' Storyboard.TargetProperty='opacity' To='0.0' Duration='0:0:0.3' />
+							</Storyboard>
+							<Storyboard x:Name="PauseSymbol_Show">
+								<DoubleAnimation Storyboard.TargetName='PauseSymbol' Storyboard.TargetProperty='opacity' To='1.0' Duration='0:0:0.3' />
+							</Storyboard>
+							<Storyboard x:Name="PauseSymbol_Hide">
+								<DoubleAnimation Storyboard.TargetName='PauseSymbol' Storyboard.TargetProperty='opacity' To='0.0' Duration='0:0:0.3' />
+							</Storyboard>
+							<Storyboard x:Name="MuteOffSymbol_Show">
+								<DoubleAnimation Storyboard.TargetName='MuteOffSymbol' Storyboard.TargetProperty='opacity' To='1.0' Duration='0:0:0.3' />
+							</Storyboard>
+							<Storyboard x:Name="MuteOffSymbol_Hide">
+								<DoubleAnimation Storyboard.TargetName='MuteOffSymbol' Storyboard.TargetProperty='opacity' To='0.0' Duration='0:0:0.3' />
+							</Storyboard>
+
+
+							<Storyboard x:Name="VolumeControl_MouseEnter"  >
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetName="VolumeControl" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.185"/>
+									<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0.977"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetName="VolumeControl" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00" Value="86.839"/>
+									<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="2.212"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="VolumeControl" Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.5"/>
+									<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+
+
+							<Storyboard x:Name="VolumeControl_MouseLeave" >
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetName="VolumeControl" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+									<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0.175"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetName="VolumeControl" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+									<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="89.523"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="VolumeControl" Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+									<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0.5"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+
+
+							<Storyboard x:Name="ChapterArea_ScrollNext_MouseEnter" >
+								<ColorAnimationUsingKeyFrames Storyboard.TargetName="Path_98" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+									<SplineColorKeyFrame KeyTime="00:00:00" Value="#FF888888"/>
+									<SplineColorKeyFrame KeyTime="00:00:00.2000000" Value="#FFFFFFFF"/>
+								</ColorAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard x:Name="ChapterArea_ScrollNext_MouseLeave" >
+								<ColorAnimationUsingKeyFrames Storyboard.TargetName="Path_98" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+									<SplineColorKeyFrame KeyTime="00:00:00" Value="#FFFFFFFF"/>
+									<SplineColorKeyFrame KeyTime="00:00:00.2000000" Value="#FF888888"/>
+								</ColorAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard x:Name="ChapterArea_ScrollNext_MouseDown" >
+								<ColorAnimationUsingKeyFrames Storyboard.TargetName="Path_98" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+									<SplineColorKeyFrame KeyTime="00:00:00" Value="#FFFFFFFF"/>
+									<SplineColorKeyFrame KeyTime="00:00:00.1000000" Value="#FF999999"/>
+								</ColorAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard x:Name="ChapterArea_ScrollNext_MouseUp" >
+								<ColorAnimationUsingKeyFrames Storyboard.TargetName="Path_98" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+									<SplineColorKeyFrame KeyTime="00:00:00" Value="#FF999999"/>
+									<SplineColorKeyFrame KeyTime="00:00:00.1000000" Value="#FFFFFFFF"/>
+								</ColorAnimationUsingKeyFrames>
+							</Storyboard>
+
+
+							<Storyboard x:Name="ChapterArea_ScrollPrevious_MouseEnter">
+								<ColorAnimationUsingKeyFrames Storyboard.TargetName="Path_96" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+									<SplineColorKeyFrame KeyTime="00:00:00" Value="#FF888888"/>
+									<SplineColorKeyFrame KeyTime="00:00:00.2000000" Value="#FFFFFFFF"/>
+								</ColorAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard x:Name="ChapterArea_ScrollPrevious_MouseLeave" >
+								<ColorAnimationUsingKeyFrames Storyboard.TargetName="Path_96" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+									<SplineColorKeyFrame KeyTime="00:00:00" Value="#FFFFFFFF"/>
+									<SplineColorKeyFrame KeyTime="00:00:00.2000000" Value="#FF888888"/>
+								</ColorAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard x:Name="ChapterArea_ScrollPrevious_MouseDown" >
+								<ColorAnimationUsingKeyFrames Storyboard.TargetName="Path_96" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+									<SplineColorKeyFrame KeyTime="00:00:00" Value="#FFFFFFFF"/>
+									<SplineColorKeyFrame KeyTime="00:00:00.1000000" Value="#FF999999"/>
+								</ColorAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard x:Name="ChapterArea_ScrollPrevious_MouseUp" >
+								<ColorAnimationUsingKeyFrames Storyboard.TargetName="Path_96" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+									<SplineColorKeyFrame KeyTime="00:00:00" Value="#FF999999"/>
+									<SplineColorKeyFrame KeyTime="00:00:00.1000000" Value="#FFFFFFFF"/>
+								</ColorAnimationUsingKeyFrames>
+							</Storyboard>
+
+							<Storyboard x:Name="BufferingArea_Buffering" BeginTime="0" RepeatBehavior="Forever">
+								<DoubleAnimation Storyboard.TargetName="BufferingArea" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" To="360" Duration="0:0:02" />
+							</Storyboard>
+
+
+							<Storyboard x:Name="ChapterArea_ScrollAnimationStoryboard">
+								<DoubleAnimation x:Name="ChapterArea_ScrollAnimation" Storyboard.TargetName="ChapterArea_Scroll" Storyboard.TargetProperty="(Canvas.Left)" Duration="0:0:0.3" />
+							</Storyboard>
+
+							<Storyboard x:Name="ChapterArea_ScrollItem1_MouseDown">
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChapterArea_ScrollItem1" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChapterArea_ScrollItem1" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard x:Name="ChapterArea_ScrollItem1_MouseUp">
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChapterArea_ScrollItem1" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChapterArea_ScrollItem1" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+
+							<Storyboard x:Name="ChapterArea_ScrollItem2_MouseDown">
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChapterArea_ScrollItem2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChapterArea_ScrollItem2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard x:Name="ChapterArea_ScrollItem2_MouseUp">
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChapterArea_ScrollItem2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChapterArea_ScrollItem2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+
+							<Storyboard x:Name="ChapterArea_ScrollItem3_MouseDown">
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChapterArea_ScrollItem3" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChapterArea_ScrollItem3" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard x:Name="ChapterArea_ScrollItem3_MouseUp">
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChapterArea_ScrollItem3" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChapterArea_ScrollItem3" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+
+							<Storyboard x:Name="ChapterArea_ScrollItem4_MouseDown">
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChapterArea_ScrollItem4" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChapterArea_ScrollItem4" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard x:Name="ChapterArea_ScrollItem4_MouseUp">
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChapterArea_ScrollItem4" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChapterArea_ScrollItem4" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+
+							<Storyboard x:Name="ChapterArea_ScrollItem5_MouseDown">
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChapterArea_ScrollItem5" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChapterArea_ScrollItem5" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard x:Name="ChapterArea_ScrollItem5_MouseUp">
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChapterArea_ScrollItem5" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChapterArea_ScrollItem5" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+
+							<Storyboard x:Name="PlaceholderImage_Show">
+								<DoubleAnimation Storyboard.TargetName="PlaceholderImage" Storyboard.TargetProperty="(UIElement.Opacity)" To="1" Duration="0:0:0.3" />
+							</Storyboard>
+							<Storyboard x:Name="PlaceholderImage_Hide">
+								<DoubleAnimation Storyboard.TargetName="PlaceholderImage" Storyboard.TargetProperty="(UIElement.Opacity)" To="0" Duration="0:0:0.3" />
+							</Storyboard>
+
+
+
+
+							<Storyboard x:Name="ChapterArea_MouseEnter">
+								<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ChapterArea" Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+									<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard x:Name="ChapterArea_MouseLeave">
+								<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ChapterArea" Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+									<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+
+
+
+
+						</Canvas.Resources>
+
+
+
+						<Canvas.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform ScaleX="0.25" ScaleY="0.25"/>
+								<SkewTransform AngleX="0" AngleY="0"/>
+								<RotateTransform Angle="0"/>
+								<TranslateTransform X="0" Y="0"/>
+							</TransformGroup>
+						</Canvas.RenderTransform>
+
+
+
+						<Canvas Width="856" Height="648" Canvas.Top="0">
+
+
+
+							<MediaElement x:Name="VideoWindow"  Width="1707.44" Height="855.41" Canvas.Left="-425.546" Canvas.Top="-9.536" Source="resources/0045907014545.wmv" Stretch="UniformToFill"/>
+							<Image x:Name="PlaceholderImage" Width="856" Height="647" IsHitTestVisible="false" Opacity="0" />
+
+							<Rectangle Fill="#00020202" x:Name="alpha" Width="638.971" Height="391.949" IsHitTestVisible="false"/>
+
+							<Canvas x:Name="CaptionArea" Width="747" Height="76.287" Background="#FF000000" Opacity="0.52" Visibility="Collapsed" Canvas.Left="72" Canvas.Top="487">
+								<TextBlock x:Name="CaptionText" Width="747" Height="76.287" FontSize="20" TextWrapping="Wrap" Foreground="#FFFFFFFF"><Run Text="ClosedCaptionArea"/></TextBlock>
+							</Canvas>
+
+							<TextBlock x:Name="BufferingText" Foreground="#E6FFFFFF" Text="00" TextWrapping="Wrap" FontFamily="Arial" FontSize="9" IsHitTestVisible="False" Visibility="Collapsed" Cursor="Wait" RenderTransformOrigin="0.5,0.5" Canvas.Left="420" Canvas.Top="316">
+								<TextBlock.RenderTransform>
+									<TransformGroup>
+										<ScaleTransform ScaleX="2" ScaleY="2"/>
+										<SkewTransform AngleX="0" AngleY="0"/>
+										<RotateTransform Angle="0"/>
+										<TranslateTransform X="0" Y="0"/>
+									</TransformGroup>
+								</TextBlock.RenderTransform>
+							</TextBlock>
+
+
+
+							<Canvas x:Name="BufferingArea" Width="31.177" Height="31.363" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed" IsHitTestVisible="False" Canvas.Left="409" Canvas.Top="304">
+								<Canvas.RenderTransform>
+									<TransformGroup>
+										<ScaleTransform ScaleX="2" ScaleY="2"/>
+										<SkewTransform AngleX="0" AngleY="0"/>
+										<RotateTransform Angle="0"/>
+										<TranslateTransform X="0" Y="0"/>
+									</TransformGroup>
+								</Canvas.RenderTransform>
+								<Path x:Name="Path_180" Width="4.47101" Height="4.47101" Canvas.Left="6.62399" Canvas.Top="1.81999" Stretch="Fill" Fill="#E6FFFFFF" Data="F1 M 11.095,4.05699C 11.095,5.291 10.093,6.291 8.85901,6.291C 7.625,6.291 6.62399,5.291 6.62399,4.05699C 6.62399,2.82097 7.625,1.81999 8.85901,1.81999C 10.093,1.81999 11.095,2.82097 11.095,4.05699 Z "/>
+								<Path x:Name="Path_176" Width="4.47202" Height="4.47197" Canvas.Left="13.351" Canvas.Top="0" Stretch="Fill" Fill="#FFFFFFFF" Data="F1 M 17.823,2.23601C 17.823,3.47099 16.822,4.47197 15.588,4.47197C 14.353,4.47197 13.351,3.47099 13.351,2.23601C 13.351,1.002 14.353,0 15.588,0C 16.822,0 17.823,1.002 17.823,2.23601 Z "/>
+								<Path x:Name="Path_177" Width="4.47" Height="4.47101" Canvas.Left="20.08" Canvas.Top="1.81999" Stretch="Fill" Fill="#E6FFFFFF" Data="F1 M 24.55,4.05699C 24.55,5.291 23.549,6.291 22.315,6.291C 21.08,6.291 20.08,5.291 20.08,4.05699C 20.08,2.82097 21.08,1.81999 22.315,1.81999C 23.549,1.81999 24.55,2.82097 24.55,4.05699 Z "/>
+								<Path x:Name="Path_178" Width="4.47098" Height="4.46997" Canvas.Left="24.966" Canvas.Top="6.76604" Stretch="Fill" Fill="#CDFFFFFF" Data="F1 M 29.437,9.00102C 29.437,10.235 28.436,11.236 27.201,11.236C 25.966,11.236 24.966,10.235 24.966,9.00102C 24.966,7.76701 25.966,6.76604 27.201,6.76604C 28.436,6.76604 29.437,7.76701 29.437,9.00102 Z "/>
+								<Path x:Name="Path_179" Width="4.47" Height="4.47095" Canvas.Left="26.707" Canvas.Top="13.355" Stretch="Fill" Fill="#B3FFFFFF" Data="F1 M 31.177,15.591C 31.177,16.826 30.177,17.826 28.943,17.826C 27.708,17.826 26.707,16.826 26.707,15.591C 26.707,14.356 27.708,13.355 28.943,13.355C 30.177,13.355 31.177,14.356 31.177,15.591 Z "/>
+								<Path x:Name="Path_184" Width="4.47098" Height="4.47101" Canvas.Left="24.966" Canvas.Top="20.127" Stretch="Fill" Fill="#9AFFFFFF" Data="F1 M 29.437,22.362C 29.437,21.128 28.436,20.127 27.201,20.127C 25.966,20.127 24.966,21.128 24.966,22.362C 24.966,23.598 25.966,24.598 27.201,24.598C 28.436,24.598 29.437,23.598 29.437,22.362 Z "/>
+								<Path x:Name="Path_183" Width="4.47" Height="4.47101" Canvas.Left="20.08" Canvas.Top="25.072" Stretch="Fill" Fill="#80FFFFFF" Data="F1 M 24.55,27.307C 24.55,26.072 23.549,25.072 22.315,25.072C 21.08,25.072 20.08,26.072 20.08,27.307C 20.08,28.542 21.08,29.543 22.315,29.543C 23.549,29.543 24.55,28.542 24.55,27.307 Z "/>
+								<Path x:Name="Path_182" Width="4.47202" Height="4.47003" Canvas.Left="13.351" Canvas.Top="26.893" Stretch="Fill" Fill="#67FFFFFF" Data="F1 M 17.823,29.127C 17.823,27.893 16.822,26.893 15.588,26.893C 14.353,26.893 13.351,27.893 13.351,29.127C 13.351,30.362 14.353,31.363 15.588,31.363C 16.822,31.363 17.823,30.362 17.823,29.127 Z "/>
+								<Path x:Name="Path_185" Width="4.47101" Height="4.47101" Canvas.Left="6.62399" Canvas.Top="25.072" Stretch="Fill" Fill="#4DFFFFFF" Data="F1 M 11.095,27.307C 11.095,26.072 10.093,25.072 8.85901,25.072C 7.625,25.072 6.62399,26.072 6.62399,27.307C 6.62399,28.542 7.625,29.543 8.85901,29.543C 10.093,29.543 11.095,28.542 11.095,27.307 Z "/>
+								<Path x:Name="Path_186" Width="4.47098" Height="4.47101" Canvas.Left="1.73801" Canvas.Top="20.127" Stretch="Fill" Fill="#34FFFFFF" Data="F1 M 6.20898,22.362C 6.20898,21.128 5.207,20.127 3.97198,20.127C 2.73801,20.127 1.73801,21.128 1.73801,22.362C 1.73801,23.598 2.73801,24.598 3.97198,24.598C 5.207,24.598 6.20898,23.598 6.20898,22.362 Z "/>
+								<Path x:Name="Path_187" Width="4.47" Height="4.47107" Canvas.Left="0" Canvas.Top="13.545" Stretch="Fill" Fill="#1AFFFFFF" Data="F1 M 4.47,15.781C 4.47,17.016 3.47,18.016 2.23499,18.016C 1,18.016 0,17.016 0,15.781C 0,14.546 1,13.545 2.23499,13.545C 3.47,13.545 4.47,14.546 4.47,15.781 Z "/>
+								<Path x:Name="Path_181" Width="4.47098" Height="4.46997" Canvas.Left="1.73801" Canvas.Top="6.76604" Stretch="Fill" Fill="#00FFFFFF" Data="F1 M 6.20898,9.00102C 6.20898,10.235 5.207,11.236 3.97198,11.236C 2.73801,11.236 1.73801,10.235 1.73801,9.00102C 1.73801,7.76701 2.73801,6.76604 3.97198,6.76604C 5.207,6.76604 6.20898,7.76701 6.20898,9.00102 Z "/>
+							</Canvas>
+
+							<Canvas x:Name="ChapterArea" Width="560.138" Height="87" Opacity="0" Visibility="Visible" Canvas.Left="148" Canvas.Top="21" IsHitTestVisible="true" Background="#FF8D8D8D">
+								<Canvas x:Name="ChapterArea_ScrollPrevious" Width="14.682" Height="26.234" Canvas.Left="0" Canvas.Top="29.885" RenderTransformOrigin="0.5,0.5">
+									<Canvas.RenderTransform>
+										<TransformGroup>
+											<ScaleTransform ScaleX="1" ScaleY="1"/>
+											<SkewTransform AngleX="0" AngleY="0"/>
+											<RotateTransform Angle="0"/>
+											<TranslateTransform X="0" Y="0"/>
+										</TransformGroup>
+									</Canvas.RenderTransform>
+									<Path x:Name="Path_96" Width="11.977" Height="23.419" Canvas.Left="1.297" Canvas.Top="1.40698" Stretch="Fill" Fill="#4DC3C3C3" Data="F1 M 10.958,1.40698L 1.297,13.142L 10.96,24.826L 13.272,22.914C 13.272,22.914 6.496,14.721 5.185,13.138C 6.493,11.551 13.274,3.31299 13.274,3.31299L 10.958,1.40698 Z "/>
+									<Path x:Name="Path_97" Width="14.682" Height="26.234" Canvas.Left="0" Canvas.Top="0" Stretch="Fill" Fill="#80000000" Data="F1 M 13.272,22.914L 10.96,24.826L 1.297,13.142L 10.958,1.40698L 13.274,3.31299C 13.274,3.31299 6.493,11.551 5.185,13.138C 6.496,14.721 13.272,22.914 13.272,22.914 Z M 10.821,0L 0,13.144L 10.826,26.234L 14.68,23.047C 14.68,23.047 7.402,14.249 6.482,13.136C 7.399,12.022 14.682,3.177 14.682,3.177L 10.821,0 Z "/>
+									<Rectangle Fill="#0099CC00" Width="61.854" Height="109" Canvas.Left="-24" Canvas.Top="-42"/>
+								</Canvas>
+								<Canvas x:Name="ChapterArea_ScrollNext" Width="14.6819" Height="26.234" Canvas.Left="545.456" Canvas.Top="29.881">
+									<Path x:Name="Path_98" Width="11.978" Height="23.419" Canvas.Left="1.40793" Canvas.Top="1.40802" Stretch="Fill" Fill="#4DC3C3C3" Data="F1 M 3.72293,1.40802L 1.40995,3.32001C 1.40995,3.32001 8.18595,11.513 9.49692,13.096C 8.18894,14.683 1.40793,22.921 1.40793,22.921L 3.72397,24.827L 13.386,13.092L 3.72293,1.40802 Z "/>
+									<Path x:Name="Path_99" Width="14.6819" Height="26.234" Canvas.Left="-2.67029e-005" Canvas.Top="0" Stretch="Fill" Fill="#80000000" Data="F1 M 3.72397,24.827L 1.40793,22.921C 1.40793,22.921 8.18894,14.683 9.49692,13.096C 8.18595,11.513 1.40995,3.32001 1.40995,3.32001L 3.72293,1.40802L 13.386,13.092M 3.85593,0L 0.00192642,3.18701C 0.00192642,3.18701 7.27994,11.985 8.19992,13.098C 7.28293,14.212 -2.67029e-005,23.057 -2.67029e-005,23.057L 3.86094,26.234L 14.6819,13.09L 3.85593,0 Z "/>
+									<Rectangle Fill="#0099CC00" Width="61.854" Height="109" Canvas.Left="-22" Canvas.Top="-41"/>
+								</Canvas>
+
+								<Canvas Width="488.597" Height="85" Canvas.Left="36.3174" Canvas.Top="1">
+									<Canvas.Clip>
+										<RectangleGeometry Rect="0,0,488.597,85" />
+									</Canvas.Clip>
+									<Canvas x:Name="ChapterArea_Scroll" Width="488.597" Height="85" Canvas.Left="0" Canvas.Top="0">
+										<Canvas x:Name="ChapterArea_ScrollItem1" Width="116" Height="85" Canvas.Left="3.07" Canvas.Top="0">
+											<Canvas.RenderTransform>
+												<TranslateTransform />
+											</Canvas.RenderTransform>
+											<Image x:Name="ChapterArea_ScrollItem1_Image" Width="116" Height="85" Canvas.Left="0" Canvas.Top="0" />
+										</Canvas>
+										<Canvas x:Name="ChapterArea_ScrollItem2" Width="116" Height="85" Canvas.Left="125.21925" Canvas.Top="0">
+											<Canvas.RenderTransform>
+												<TranslateTransform />
+											</Canvas.RenderTransform>
+											<Image x:Name="ChapterArea_ScrollItem2_Image" Width="116" Height="85" Canvas.Left="0" Canvas.Top="0" />
+										</Canvas>
+										<Canvas x:Name="ChapterArea_ScrollItem3" Width="116" Height="85" Canvas.Left="247.3685" Canvas.Top="0">
+											<Canvas.RenderTransform>
+												<TranslateTransform />
+											</Canvas.RenderTransform>
+											<Image x:Name="ChapterArea_ScrollItem3_Image" Width="116" Height="85" Canvas.Left="0" Canvas.Top="0" />
+										</Canvas>
+										<Canvas x:Name="ChapterArea_ScrollItem4" Width="116" Height="85" Canvas.Left="369.51775" Canvas.Top="0">
+											<Canvas.RenderTransform>
+												<TranslateTransform />
+											</Canvas.RenderTransform>
+											<Image x:Name="ChapterArea_ScrollItem4_Image" Width="116" Height="85" Canvas.Left="0" Canvas.Top="0" />
+										</Canvas>
+										<Canvas x:Name="ChapterArea_ScrollItem5" Width="116" Height="85" Canvas.Left="491.667" Canvas.Top="0">
+											<Canvas.RenderTransform>
+												<TranslateTransform />
+											</Canvas.RenderTransform>
+											<Image x:Name="ChapterArea_ScrollItem5_Image" Width="116" Height="85" Canvas.Left="0" Canvas.Top="0" />
+										</Canvas>
+									</Canvas>
+								</Canvas>
+							</Canvas>
+
+
+
+							<Canvas x:Name="PlayerControls" Width="848" Height="89.5" Canvas.Left="284.316" Canvas.Top="686.237" RenderTransformOrigin="0.5,0.5">
+								<Canvas.RenderTransform>
+									<TransformGroup>
+										<ScaleTransform ScaleX="1.7" ScaleY="1.7"/>
+										<SkewTransform AngleX="0" AngleY="0"/>
+										<RotateTransform Angle="0"/>
+										<TranslateTransform X="0" Y="0"/>
+									</TransformGroup>
+								</Canvas.RenderTransform>
+								<Rectangle Opacity="0" Fill="#FFFFFFFF" Stroke="#FF000000" Width="856" Height="91.27" Canvas.Left="-1" Canvas.Top="-1.77"/>
+								<Canvas x:Name="MuteButton" Width="24.163" Height="18.088" Canvas.Left="658.321" Canvas.Top="37.827" Opacity="0.5">
+									<Canvas.RenderTransform>
+										<TransformGroup>
+											<ScaleTransform ScaleX="2" ScaleY="2"/>
+											<SkewTransform AngleX="0" AngleY="0"/>
+											<RotateTransform Angle="0"/>
+											<TranslateTransform X="0" Y="0"/>
+										</TransformGroup>
+									</Canvas.RenderTransform>
+									<Path x:Name="PlayButton_5" Width="8.88593" Height="16.5998" Stretch="Fill" Fill="#FF505050" Data="F1 M 8.54144,0C 8.73169,0 8.88593,0.164246 8.88593,0.366882L 8.88593,16.2329C 8.88593,16.4355 8.73169,16.5998 8.54144,16.5998L 6.58026,16.5998C 6.39001,16.5998 6.23578,16.4355 6.23578,16.2329L 6.23578,15.7526L 2.92151,11.1219L 0.668823,11.1219C 0.299438,11.1219 0,10.803 0,10.4097L 0,6.35608C 0,5.96277 0.299438,5.64392 0.668823,5.64392L 2.71307,5.64392L 6.23578,0.842346L 6.23578,0.366882C 6.23578,0.164246 6.39001,0 6.58026,0L 8.54144,0 Z " Canvas.Left="1" Canvas.Top="1.25"/>
+									<Canvas x:Name="MuteOffSymbol" Width="19.9113" Height="17.6959" Canvas.Left="1.132" Canvas.Top="0.125">
+										<Path x:Name="Path" Width="7.91464" Height="17.6959" Canvas.Left="11.9966" Canvas.Top="1.52588e-005" Stretch="Fill" StrokeThickness="0.781219" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round" Stroke="#FF505050" Data="F1 M 12.3872,0.390625C 14.3295,0.390625 19.5206,2.17706 19.5206,9.4668C 19.5206,15.5565 14.8621,17.3053 12.5328,17.3053"/>
+										<Path x:Name="Path_6" Width="4.67728" Height="10.3631" Canvas.Left="10.3268" Canvas.Top="3.6833" Stretch="Fill" StrokeThickness="0.781219" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round" Stroke="#FF505050" Data="F1 M 10.7174,4.07391C 11.6186,4.07391 14.6135,5.08588 14.6135,9.21539C 14.6135,12.6651 11.8657,13.6558 10.7849,13.6558"/>
+									</Canvas>
+									<Rectangle Opacity="0" Fill="#FF000000" Stroke="#FF000000" x:Name="PlayPauseButtonBackground1" Width="24" Height="24"/>
+									<Canvas x:Name="MuteOnSymbol" Width="11.9575" Height="16.0748" Opacity="0" Canvas.Left="11.75" Canvas.Top="1.25">
+										<Path x:Name="Line" Width="11.9573" Height="16.0747" Canvas.Left="-1.053" Stretch="Fill" StrokeThickness="0.781219" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round" Stroke="#FF505050" Data="F1 M 11.5667,0.390625L 0.390625,15.6841"/>
+										<Path x:Name="Line_4" Width="11.9574" Height="16.0747" Canvas.Left="-1.053" Stretch="Fill" StrokeThickness="0.781219" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round" Stroke="#FF505050" Data="F1 M 0.390686,0.390625L 11.5668,15.6841"/>
+									</Canvas>
+								</Canvas>
+								<Canvas RenderTransformOrigin="0.5,0.5" x:Name="VolumeControl" Width="228.535" Height="22.895" Canvas.Left="478.473" Canvas.Top="13.391" Opacity="0.5">
+									<Canvas.RenderTransform>
+										<TransformGroup>
+											<ScaleTransform ScaleX="0.175" ScaleY="1"/>
+											<SkewTransform AngleX="0" AngleY="0"/>
+											<RotateTransform Angle="0"/>
+											<TranslateTransform X="89.523" Y="0"/>
+										</TransformGroup>
+									</Canvas.RenderTransform>
+									<Rectangle Opacity="0" Fill="#FF575757" RadiusX="5" RadiusY="5" Width="228.535" Height="22.895"/>
+									<Path Fill="#FF949494" Stretch="Fill" Width="224.378" Height="2.4577" Canvas.Left="2" Canvas.Top="10" Data="M0,0 L224.378,0 L224.378,2.4577 L0,2.4577 z"/>
+									<Rectangle Opacity="0.025" Fill="#FF575757" RadiusX="0" RadiusY="0" x:Name="VolumeSlider" Width="222.913" Height="16.228" Canvas.Left="3.465" Canvas.Top="3.5"/>
+									<Ellipse x:Name="VolumeThumb" Width="11.667" Height="11.667" Stretch="Fill" StrokeLineJoin="Round" Canvas.Left="2" Canvas.Top="5.006">
+										<Ellipse.Stroke>
+											<LinearGradientBrush StartPoint="0.5,1.09849" EndPoint="0.5,-0.390715">
+												<GradientStop Color="#FF000000" Offset="0"/>
+												<GradientStop Color="#FFFFFFFF" Offset="0.771689"/>
+											</LinearGradientBrush>
+										</Ellipse.Stroke>
+										<Ellipse.Fill>
+											<RadialGradientBrush RadiusX="1.4892" RadiusY="1.4892" Center="0.5,1.09849" GradientOrigin="0.5,1.09849">
+												<RadialGradientBrush.RelativeTransform>
+													<TransformGroup>
+														<RotateTransform CenterX="0.5" CenterY="1.09849" Angle="-90"/>
+													</TransformGroup>
+												</RadialGradientBrush.RelativeTransform>
+												<GradientStop Color="#FF000000" Offset="0"/>
+												<GradientStop Color="#FFFFFFFF" Offset="1"/>
+											</RadialGradientBrush>
+										</Ellipse.Fill>
+									</Ellipse>
+								</Canvas>
+
+
+								<Canvas x:Name="Timeline" Width="616" Height="18.7" Canvas.Left="22.473" Canvas.Top="48.527">
+									<Rectangle Width="614.668" Height="2.4577" Stretch="Fill" Fill="#FF949494" Canvas.Left="1.332" Canvas.Top="8.35" x:Name="DownloadProgressSilder"/>
+									<Rectangle Opacity="0" Fill="#FFFFFFFF" x:Name="TimeSlider" Width="616" Height="18.7"/>
+									<Ellipse x:Name="TimeThumb" Width="18.7" Height="18.7" Stretch="Fill" StrokeLineJoin="Round" Canvas.Left="38.83">
+										<Ellipse.Stroke>
+											<LinearGradientBrush StartPoint="0.5,1.09849" EndPoint="0.5,-0.390715">
+												<GradientStop Color="#FF000000" Offset="0"/>
+												<GradientStop Color="#FFFFFFFF" Offset="0.771689"/>
+											</LinearGradientBrush>
+										</Ellipse.Stroke>
+										<Ellipse.Fill>
+											<RadialGradientBrush RadiusX="1.4892" RadiusY="1.4892" Center="0.5,1.09849" GradientOrigin="0.5,1.09849">
+												<RadialGradientBrush.RelativeTransform>
+													<TransformGroup>
+														<RotateTransform CenterX="0.5" CenterY="1.09849" Angle="-90"/>
+													</TransformGroup>
+												</RadialGradientBrush.RelativeTransform>
+												<GradientStop Color="#FF000000" Offset="0"/>
+												<GradientStop Color="#FFFFFFFF" Offset="1"/>
+											</RadialGradientBrush>
+										</Ellipse.Fill>
+									</Ellipse>
+								</Canvas>
+							</Canvas>
+						</Canvas>
+
+
+						<Canvas x:Name="FullScreenArea" Width="1770" Height="862" Canvas.Left="-2286" Canvas.Top="-12" Visibility="Collapsed" Background="#FF000000">
+							<Canvas x:Name="FullScreenVideoWindow" Width="640" Height="480" Canvas.Left="0" Canvas.Top="0">
+								<Canvas.Background>
+									<VideoBrush SourceName="VideoWindow" Stretch="Uniform" />
+								</Canvas.Background>
+
+								<Canvas x:Name="FullScreenCaptionArea" Width="544" Height="76.287" Background="#FF000000" Opacity="0.52" Canvas.Left="50.494" Canvas.Top="384.667" Visibility="Collapsed">
+									<TextBlock x:Name="FullScreenCaptionText" Width="544" Height="76.287" FontSize="14" TextWrapping="Wrap" Foreground="#FFFFFFFF"><Run Text="ClosedCaptionArea"/></TextBlock>
+								</Canvas>
+							</Canvas>
+						</Canvas>
+
+					</Canvas>
+
+					<!-- End player -->
+	
+					<Canvas x:Name="btnVerSinopsis" Width="181" Height="48" Cursor="Hand" RenderTransformOrigin="0.5,0.5" Canvas.Left="-33.151" Canvas.Top="171.911" Opacity="0.8">
+					
+						<Canvas.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform ScaleX="0.5" ScaleY="0.5"/>
+								<SkewTransform AngleX="0" AngleY="0"/>
+								<RotateTransform Angle="0"/>
+								<TranslateTransform X="0" Y="0"/>
+							</TransformGroup>
+						</Canvas.RenderTransform>
+					
+						<Rectangle Stroke="#9CE5E5E5" RadiusX="4" RadiusY="4" Width="181" Height="48" StrokeThickness="1"/>
+						<Rectangle RadiusX="4" RadiusY="4" Width="181" Height="25.5">
+							<Rectangle.Fill>
+								<LinearGradientBrush EndPoint="0.492,1.02" StartPoint="0.492,0">
+									<GradientStop Color="#99FFFFFF" Offset="0"/>
+									<GradientStop Color="#33FFFFFF" Offset="1"/>
+								</LinearGradientBrush>
+							</Rectangle.Fill>
+						</Rectangle>
+						<Rectangle x:Name="btnVerSinopsisClickHighlight" RadiusX="4" RadiusY="4" Width="181" Height="48" Canvas.Top="0.333" Opacity="0" Stroke="#FFFFFFFF" StrokeThickness="2">
+							<Rectangle.Fill>
+								<RadialGradientBrush GradientOrigin="0.5,1.177">
+									<RadialGradientBrush.RelativeTransform>
+										<TransformGroup>
+											<ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.396" ScaleY="1.396"/>
+											<SkewTransform AngleX="0" AngleY="0" CenterX="0.5" CenterY="0.5"/>
+											<RotateTransform Angle="0" CenterX="0.5" CenterY="0.5"/>
+											<TranslateTransform X="0" Y="0"/>
+										</TransformGroup>
+									</RadialGradientBrush.RelativeTransform>
+									<GradientStop Color="#B2ABB1BB" Offset="0.058"/>
+									<GradientStop Color="#B2ADB1B7" Offset="1"/>
+								</RadialGradientBrush>
+							</Rectangle.Fill>
+						</Rectangle>
+						<Rectangle x:Name="btnVerSinopsisHighlight" RadiusX="4" RadiusY="4" Width="181" Height="48" Opacity="0.5">
+							<Rectangle.Fill>
+								<RadialGradientBrush GradientOrigin="0.5,1.177">
+									<RadialGradientBrush.RelativeTransform>
+										<TransformGroup>
+											<ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.396" ScaleY="1.396"/>
+											<SkewTransform AngleX="0" AngleY="0" CenterX="0.5" CenterY="0.5"/>
+											<RotateTransform Angle="0" CenterX="0.5" CenterY="0.5"/>
+											<TranslateTransform X="0" Y="0"/>
+										</TransformGroup>
+									</RadialGradientBrush.RelativeTransform>
+									<GradientStop Color="#CCDBE0E8" Offset="0.231"/>
+									<GradientStop Color="#00839ECB" Offset="1"/>
+								</RadialGradientBrush>
+							</Rectangle.Fill>
+						</Rectangle>
+
+						<Image Width="44.409" Height="37.752" Canvas.Left="3.727" Canvas.Top="5.028" Source="resources/Peliculas.png" Stretch="Uniform"/>
+
+						<Canvas Width="24.059" Height="18.106" Canvas.Left="49.823" Canvas.Top="14.661" RenderTransformOrigin="0.5,0.5">
+							<Canvas.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform ScaleX="-1" ScaleY="1"/>
+									<SkewTransform AngleX="0" AngleY="0"/>
+									<RotateTransform Angle="0"/>
+									<TranslateTransform X="0" Y="0"/>
+								</TransformGroup>
+							</Canvas.RenderTransform>
+							<Path Width="12.539" Height="16.842" Stretch="Fill" Stroke="#FFFFFFFF" StrokeEndLineCap="Round" StrokeStartLineCap="Round" StrokeThickness="3" Data="M688,128 C696,131.9581 696,131.9581 696,131.9581 688,136.0002 688,136.0002 688,136.0002" Canvas.Left="10.112"/>
+							<Path Width="12.539" Height="16.842" Stretch="Fill" Stroke="#FFFFFFFF" StrokeEndLineCap="Round" StrokeStartLineCap="Round" StrokeThickness="3" Data="M688,128 C696,131.9581 696,131.9581 696,131.9581 688,136.0002 688,136.0002 688,136.0002"/>
+						</Canvas>
+
+						<TextBlock Height="28.279" Canvas.Left="78.13" Canvas.Top="6.545" Foreground="#FFFFFFFF" Width="99.209" FontSize="24" Text="Sinopsis"/>
+					</Canvas>
+	
+				</Canvas>
+	
+				<Canvas x:Name="Sinopsis" Width="426.741" Height="210.971" Canvas.Left="13.212" Canvas.Top="8">
+					<Image x:Name="FondoTitulo" Width="427" Height="21" Source="resources/FondoTituloSL.jpg"/>
+					<TextBlock x:Name="TituloPelicula" Width="346.669" Height="16.104" FontFamily="Trebuchet MS" FontSize="14.666666666" FontWeight="Bold" Foreground="#FFFFFFFF" Text="El motorista fantasma" TextWrapping="Wrap" Canvas.Left="4.633" Canvas.Top="1.75"/>
+					<Image RenderTransformOrigin="0.5,0.5" x:Name="CaratulaDetalle" Width="100" Height="133" Source="resources/CaratulaTest.jpg" Canvas.Left="326.682" Canvas.Top="28.336">
+						<Image.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform ScaleX="1" ScaleY="1"/>
+								<SkewTransform AngleX="0" AngleY="0"/>
+								<RotateTransform Angle="0"/>
+								<TranslateTransform X="0" Y="0"/>
+							</TransformGroup>
+						</Image.RenderTransform>
+					</Image>
+	
+					<Canvas x:Name="btnVerTrailer" Width="181" Height="48" Cursor="Hand" RenderTransformOrigin="0.5,0.5" Canvas.Left="289.881" Canvas.Top="162.971">
+					
+						<Canvas.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform ScaleX="0.5" ScaleY="0.5"/>
+								<SkewTransform AngleX="0" AngleY="0"/>
+								<RotateTransform Angle="0"/>
+								<TranslateTransform X="0" Y="0"/>
+							</TransformGroup>
+						</Canvas.RenderTransform>
+					
+						<Rectangle Fill="#FF839ECB" Stroke="#FF3C4C64" RadiusX="4" RadiusY="4" Width="181" Height="48" StrokeThickness="3"/>
+						<Rectangle RadiusX="4" RadiusY="4" Width="181" Height="25.5">
+							<Rectangle.Fill>
+								<LinearGradientBrush EndPoint="0.492,1.02" StartPoint="0.492,0">
+									<GradientStop Color="#99FFFFFF" Offset="0"/>
+									<GradientStop Color="#33FFFFFF" Offset="1"/>
+								</LinearGradientBrush>
+							</Rectangle.Fill>
+						</Rectangle>
+						<Rectangle x:Name="btnVerTrailerClickHighlight" RadiusX="4" RadiusY="4" Width="181" Height="48" Canvas.Top="0.333" Opacity="0" Stroke="#FFFFFFFF" StrokeThickness="3">
+							<Rectangle.Fill>
+								<RadialGradientBrush GradientOrigin="0.5,1.177">
+									<RadialGradientBrush.RelativeTransform>
+										<TransformGroup>
+											<ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.396" ScaleY="1.396"/>
+											<SkewTransform AngleX="0" AngleY="0" CenterX="0.5" CenterY="0.5"/>
+											<RotateTransform Angle="0" CenterX="0.5" CenterY="0.5"/>
+											<TranslateTransform X="0" Y="0"/>
+										</TransformGroup>
+									</RadialGradientBrush.RelativeTransform>
+									<GradientStop Color="#FFB1C3E1" Offset="0.062"/>
+									<GradientStop Color="#FF5E759C" Offset="1"/>
+								</RadialGradientBrush>
+							</Rectangle.Fill>
+						</Rectangle>
+						<Rectangle x:Name="btnVerTrailerHighlight" RadiusX="4" RadiusY="4" Width="181" Height="48" Opacity=".5">
+							<Rectangle.Fill>
+								<RadialGradientBrush GradientOrigin="0.5,1.177">
+									<RadialGradientBrush.RelativeTransform>
+										<TransformGroup>
+											<ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.396" ScaleY="1.396"/>
+											<SkewTransform AngleX="0" AngleY="0" CenterX="0.5" CenterY="0.5"/>
+											<RotateTransform Angle="0" CenterX="0.5" CenterY="0.5"/>
+											<TranslateTransform X="0" Y="0"/>
+										</TransformGroup>
+									</RadialGradientBrush.RelativeTransform>
+									<GradientStop Color="#FFDBE0E8" Offset="0.231"/>
+									<GradientStop Color="#19839ECB" Offset="1"/>
+								</RadialGradientBrush>
+							</Rectangle.Fill>
+						</Rectangle>
+
+						<Image Width="44.409" Height="37.752" Canvas.Left="8.641" Canvas.Top="5.028" Source="resources/Peliculas.png" Stretch="Uniform"/>
+
+						<Canvas Width="24.059" Height="18.106" Canvas.Left="143.323" Canvas.Top="14.661">
+							<Path Width="12.539" Height="16.842" Stretch="Fill" Stroke="#FFFFFFFF" StrokeEndLineCap="Round" StrokeStartLineCap="Round" StrokeThickness="3" Data="M688,128 C696,131.9581 696,131.9581 696,131.9581 688,136.0002 688,136.0002 688,136.0002" Canvas.Left="10.112"/>
+							<Path Width="12.539" Height="16.842" Stretch="Fill" Stroke="#FFFFFFFF" StrokeEndLineCap="Round" StrokeStartLineCap="Round" StrokeThickness="3" Data="M688,128 C696,131.9581 696,131.9581 696,131.9581 688,136.0002 688,136.0002 688,136.0002"/>
+						</Canvas>
+
+						<TextBlock Height="28.279" Canvas.Left="55.378" Canvas.Top="6.545" Foreground="#FFFFFFFF" Width="78.48" FontSize="24" Text="Trailer"/>
+					</Canvas>
+	
+					<TextBlock x:Name="SinopsisPelicula" Width="315.67" Height="182.635" FontFamily="Verdana" FontSize="12" Foreground="#FF4C4371" Text="Hace mucho tiempo, la superestrella de las acrobacias en moto, Johnny Blaze (Nicolas Cage) hizo un trato con el diablo para proteger a los que más quería: su padre y su novia de la juventud, Roxanne (Eva Mendes). Ahora, el diablo ha venido a cobrar su deuda. De día, Johnny es un motero acróbata temerario... pero de noche, en presencia del diablo, se convierte en Ghost Rider, un cazarecompensas de demonios deshonestos." TextWrapping="Wrap" Canvas.Top="28.336"/>
+					<Rectangle Width="322.682" Height="20.635" Fill="#FFBCD3F6" Canvas.Top="202.336"/>
+				</Canvas>
+			</Canvas>
+		</Canvas>
+	</Canvas>
+	<Canvas x:Name="ListaPeliculas" Width="954" Height="160">
+		<Rectangle x:Name="FondoListaPeliculas" Width="954" Height="160" Fill="#FFBCD3F6" Stroke="#FF9AB8E8"/>
+		<Image RenderTransformOrigin="0.5,0.5" x:Name="caratula0" Width="100" Height="133" Canvas.Left="28.461" Canvas.Top="8">
+			<Image.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Image.RenderTransform>
+		</Image>
+		<Image RenderTransformOrigin="0.5,0.5" x:Name="caratula1" Width="100" Height="133" Canvas.Left="165.589" Canvas.Top="8">
+			<Image.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Image.RenderTransform>
+		</Image>
+		<Image RenderTransformOrigin="0.5,0.5" x:Name="caratula2" Width="100" Height="133" Canvas.Left="300.916" Canvas.Top="8">
+			<Image.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Image.RenderTransform>
+		</Image>
+		<Image RenderTransformOrigin="0.5,0.5" x:Name="caratula3" Width="100" Height="133" Canvas.Left="434.67" Canvas.Top="8">
+			<Image.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Image.RenderTransform>
+		</Image>
+		<Image RenderTransformOrigin="0.5,0.5" x:Name="caratula4" Width="100" Height="133" Canvas.Left="573.091" Canvas.Top="8">
+			<Image.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Image.RenderTransform>
+		</Image>
+		<Image RenderTransformOrigin="0.5,0.5" x:Name="caratula5" Width="100" Height="133" Canvas.Left="703.751" Canvas.Top="8">
+			<Image.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Image.RenderTransform>
+		</Image>
+		<Image RenderTransformOrigin="0.5,0.5" x:Name="caratula6" Width="100" Height="133" Canvas.Left="833.063" Canvas.Top="8">	
+			<Image.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Image.RenderTransform>
+		</Image>
+	</Canvas>
+	
+</Canvas>

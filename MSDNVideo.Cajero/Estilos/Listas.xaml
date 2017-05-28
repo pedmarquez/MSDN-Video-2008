@@ -1,0 +1,199 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MSDNVideo.Cajero">
+	
+	<SolidColorBrush x:Key="ListBorder" Color="#828790"/>
+    
+	<Style x:Key="ListaPeliculas" TargetType="{x:Type ListBox}">
+		<Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+		<Setter Property="BorderBrush" Value="{StaticResource ListBorder}"/>
+		<Setter Property="BorderThickness" Value="1"/>
+		<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+		<Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+		<Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+		<Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+		<Setter Property="VerticalContentAlignment" Value="Center"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ListBox}">
+					<Border SnapsToDevicePixels="true" x:Name="Bd" BorderThickness="{TemplateBinding BorderThickness}" Padding="1">
+						<ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Width="Auto" Height="Auto"/>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsEnabled" Value="false">
+							<Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+						</Trigger>
+						<Trigger Property="IsGrouping" Value="true">
+							<Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+    <Style x:Key="ListBoxItemImpar" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="Background" Value="#99E4E9F5" />
+    	<Setter Property="Margin" Value="0,0,0,4"/>
+    	<Setter Property="BorderBrush" Value="#FF82A1D0"/>
+    	<Setter Property="BorderThickness" Value="1,1,1,1"/>
+    </Style>
+
+    <Style x:Key="ListBoxItemPar" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="Background" Value="#99B8C7DE" />
+    	<Setter Property="Margin" Value="0,0,0,4"/>
+    	<Setter Property="BorderBrush" Value="#FF82A1D0"/>
+    	<Setter Property="BorderThickness" Value="1,1,1,1"/>
+    	<Setter Property="BitmapEffect">
+    		<Setter.Value>
+    			<OuterGlowBitmapEffect GlowColor="#FFFFFFFF" GlowSize="10" Opacity="0"/>
+    		</Setter.Value>
+    	</Setter>
+    </Style>
+
+    <local:ListBoxAlternateStyleSelector x:Key="ListBoxAlternateStyleSelector" />
+
+	<Style x:Key="ListaPaginacion" TargetType="{x:Type ListBox}">
+		<Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+		<Setter Property="BorderBrush" Value="{StaticResource ListBorder}"/>
+		<Setter Property="BorderThickness" Value="1"/>
+		<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+		<Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+		<Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+		<Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+		<Setter Property="VerticalContentAlignment" Value="Center"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ListBox}">
+					<Border SnapsToDevicePixels="true" x:Name="Bd" BorderThickness="{TemplateBinding BorderThickness}" Padding="1">
+						<ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Width="Auto" Height="Auto"/>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsEnabled" Value="false">
+							<Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+						</Trigger>
+						<Trigger Property="IsGrouping" Value="true">
+							<Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<ItemsPanelTemplate x:Key="ListaPaginacionLayout">
+		<VirtualizingStackPanel IsItemsHost="True" Orientation="Horizontal"/>
+	</ItemsPanelTemplate>
+	
+    <DataTemplate x:Key="ListaPaginacionItemTemplate">
+        <Grid Width="20" Height="20" Margin="0,0,8,0">
+            <Rectangle>
+            	<Rectangle.Fill>
+            		<RadialGradientBrush>
+            			<RadialGradientBrush.RelativeTransform>
+            				<TransformGroup>
+            					<ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.224" ScaleY="1.224"/>
+            					<SkewTransform AngleX="0" AngleY="0" CenterX="0.5" CenterY="0.5"/>
+            					<RotateTransform Angle="0" CenterX="0.5" CenterY="0.5"/>
+            					<TranslateTransform X="-0.19" Y="-0.155"/>
+            				</TransformGroup>
+            			</RadialGradientBrush.RelativeTransform>
+            			<GradientStop Color="#FFAAC5EF" Offset="0"/>
+            			<GradientStop Color="#FF8AAADD" Offset="1"/>
+            		</RadialGradientBrush>
+            	</Rectangle.Fill>
+            	<Rectangle.Stroke>
+            		<LinearGradientBrush EndPoint="0.855,0.852" StartPoint="0.145,0.148">
+            			<GradientStop Color="#FF28487B" Offset="0"/>
+            			<GradientStop Color="#FF4C6792" Offset="1"/>
+            		</LinearGradientBrush>
+            	</Rectangle.Stroke>
+            </Rectangle>
+            <TextBlock Text="{Binding}" Style="{DynamicResource TextoMini}" Width="Auto" Height="Auto" Foreground="#FF345486" TextAlignment="Center"/>
+			</Grid>
+    	<DataTemplate.Triggers>
+    		<EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
+    	</DataTemplate.Triggers>
+    </DataTemplate>
+
+    <Style x:Key="ListaPaginacionItemStyle" TargetType="{x:Type ListBoxItem}">
+    	<Style.Resources>
+    		<Storyboard x:Key="OnMouseEnter1">
+    			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="{x:Null}" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+    				<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="2"/>
+    			</DoubleAnimationUsingKeyFrames>
+    			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="{x:Null}" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+    				<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="2"/>
+    			</DoubleAnimationUsingKeyFrames>
+    		</Storyboard>
+    		<Storyboard x:Key="OnMouseLeave">
+    			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="{x:Null}" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+    				<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1"/>
+    			</DoubleAnimationUsingKeyFrames>
+    			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="{x:Null}" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+    				<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1"/>
+    			</DoubleAnimationUsingKeyFrames>
+    		</Storyboard>
+    	</Style.Resources>
+    	<Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+    	<Setter Property="RenderTransform">
+    		<Setter.Value>
+    			<TransformGroup>
+    				<ScaleTransform ScaleX="1" ScaleY="1"/>
+    				<SkewTransform AngleX="0" AngleY="0"/>
+    				<RotateTransform Angle="0"/>
+    				<TranslateTransform X="0" Y="0"/>
+    			</TransformGroup>
+    		</Setter.Value>
+    	</Setter>
+    	<Style.Triggers>
+    		<EventTrigger RoutedEvent="Mouse.MouseLeave">
+    			<BeginStoryboard x:Name="OnMouseLeave_BeginStoryboard" Storyboard="{StaticResource OnMouseLeave}"/>
+    		</EventTrigger>
+    		<EventTrigger RoutedEvent="Mouse.MouseEnter">
+    			<BeginStoryboard Storyboard="{StaticResource OnMouseEnter1}"/>
+    		</EventTrigger>
+    		<Trigger Property="Selector.IsSelected" Value="True">
+    			<Setter Property="BitmapEffect">
+    				<Setter.Value>
+    					<OuterGlowBitmapEffect GlowColor="#FFFFFFFF" GlowSize="15"/>
+    				</Setter.Value>
+    			</Setter>
+    		</Trigger>
+    	</Style.Triggers>
+    </Style>
+
+
+	<Style x:Key="ListaActores" TargetType="{x:Type ListBox}">
+		<Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+		<Setter Property="BorderBrush" Value="{StaticResource ListBorder}"/>
+		<Setter Property="BorderThickness" Value="1"/>
+		<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+		<Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+		<Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+		<Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+		<Setter Property="VerticalContentAlignment" Value="Center"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ListBox}">
+					<Border SnapsToDevicePixels="true" x:Name="Bd" BorderThickness="{TemplateBinding BorderThickness}" Padding="1">
+						<ScrollViewer Focusable="false" Padding="{TemplateBinding Padding}">
+							<ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+						</ScrollViewer>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsEnabled" Value="false">
+							<Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+						</Trigger>
+						<Trigger Property="IsGrouping" Value="true">
+							<Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+
+</ResourceDictionary>
