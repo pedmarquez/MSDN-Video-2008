@@ -1,21 +1,29 @@
-
 # ¡Bienvenido!
-MSDN Video 2008 es una iniciativa de MSDN España con la que puedes aprender las últimas tecnologías de .NET aplicadas a un desarrollo real de una implementación ficticia de un videoclub.
+MSDN Video 2008 es una iniciativa de MSDN España con la que puedes aprender las últimas tecnologías de .NET aplicadas a un desarrollo real. El principal objetivo es compartir las mejores prácticas para la creación de aplicaciones empresariales con .NET, siempre desde un punto de vista práctico y orientado a escenarios reales.
 
-Su funcionalidad, aunque básica, es muy común con otras aplicaciones empresariales:
-- Gestión de usuarios (socios, administradores) y permisos. 
-- Gestión de artículos (catálogo de películas) 
-- Gestión de lógica de negocio (stocks, ventas y alquileres) 
+El eje central será MSDN Video, una implementación ficticia de un videoclub. Usaremos esta aplicación para repasar cómo se han utilizado las tecnologías para crear una solución empresarial, multi capa y con los últimos paradigmas de arquitectura. Su funcionalidad, aunque básica, es muy común con otras aplicaciones empresariales:
+- **Gestión de usuarios** (socios, administradores) y permisos. 
+- **Gestión de artículos** (catálogo de películas) 
+- **Gestión de lógica de negocio** (stocks, ventas y alquileres) 
 
-Utiliza las últimas tecnologías de .NET 3.5 aplicadas de forma integrada en la misma solución:
+MSDN VIDEO 2008 se renueva y se adapta a Visual Studio 2008. Con esta nueva versión de MSDN Video podremos aprender las últimas tecnologías de .NET 3.5:
 - **LINQ:** acceso a datos y la creación de entidades. 
 - **Windows Communication Foundation:** exposición de los servicios. 
 - **ASP.NET 3.5, AJAX, Silverlight:** creación del sitio web del videoclub. 
 - **Windows Forms 3.5:** herramienta de administración para gerentes de tienda. 
 - **Windows Presentation Foundation:** cajero automático en tiendas. 
 
-En este [video](https://channel9.msdn.com/blogs/eliseta/msdn-video-2008), presentamos un paseo por la funcionalidad de la aplicación. 
+MSDN Video 2008 implementa una arquitectura multi capa orientada a servicios. Durante la implementación exploraremos los siguientes módulos:
+- **Módulo de acceso a datos:** basado en LINQ, se encarga de almacenar las entidades de negocio en la base de datos. 
+- **Módulo de negocio:** implementa las operaciones de negocio sobre las entidades como las búsquedas, alquileres, gestión de stocks, etc. 
+- **Fachada de servicios:** expone la funcionalidad del sistema por medio de servicios web basándose en WCF. 
 
+Además explicaremos los siguientes clientes creados para interactuar con el sistema:
+- **Tienda online:** cliente web implementado con ASP.NET 3.5, AJAX y Silverlight que permite comprar y alquilar películas por Internet. 
+- **Administrador de tienda:** aplicación Windows Forms y WPF para administrar la tienda por el gerente. 
+- **Cajero automático:** interfaz WPF para la instalación en los cajeros automáticos de la tienda. 
+
+En este [video](https://channel9.msdn.com/blogs/eliseta/msdn-video-2008), presentamos un paseo por la funcionalidad de la aplicación. 
 
 # Instalación manual de MSDN VIDEO 2008
 ## Crear base de datos
