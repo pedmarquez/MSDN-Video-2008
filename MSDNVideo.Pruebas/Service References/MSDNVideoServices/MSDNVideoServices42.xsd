@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:52442/MSDNVideo.Servicios/MSDNVideoServices.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" />
+  <xs:import schemaLocation="http://localhost:52442/MSDNVideoServices.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" />
   <xs:element name="Peliculas_ObtenerPeliculas">
     <xs:complexType>
       <xs:sequence>
@@ -62,6 +62,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="Peliculas_ObtenerMisPeliculasPendienteDevolver">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Peliculas_ObtenerMisPeliculasPendienteDevolverResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Peliculas_ObtenerMisPeliculasPendienteDevolverResult" nillable="true" type="q6:ArrayOfPelicula" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Peliculas_ObtenerPeliculasPendienteRecoger">
     <xs:complexType>
       <xs:sequence>
@@ -72,7 +84,19 @@
   <xs:element name="Peliculas_ObtenerPeliculasPendienteRecogerResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Peliculas_ObtenerPeliculasPendienteRecogerResult" nillable="true" type="q6:ArrayOfPelicula" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Peliculas_ObtenerPeliculasPendienteRecogerResult" nillable="true" type="q7:ArrayOfPelicula" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Peliculas_ObtenerMisPeliculasPendienteRecoger">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Peliculas_ObtenerMisPeliculasPendienteRecogerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Peliculas_ObtenerMisPeliculasPendienteRecogerResult" nillable="true" type="q8:ArrayOfPelicula" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -84,7 +108,7 @@
   <xs:element name="Peliculas_ObtenerTopPeliculasAlquilerResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Peliculas_ObtenerTopPeliculasAlquilerResult" nillable="true" type="q7:ArrayOfPelicula" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Peliculas_ObtenerTopPeliculasAlquilerResult" nillable="true" type="q9:ArrayOfPelicula" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -96,7 +120,7 @@
   <xs:element name="Peliculas_ObtenerTopPeliculasVentasResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Peliculas_ObtenerTopPeliculasVentasResult" nillable="true" type="q8:ArrayOfPelicula" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Peliculas_ObtenerTopPeliculasVentasResult" nillable="true" type="q10:ArrayOfPelicula" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -108,15 +132,15 @@
   <xs:element name="Peliculas_ObtenerTopPeliculasPuntuacionResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Peliculas_ObtenerTopPeliculasPuntuacionResult" nillable="true" type="q9:ArrayOfPelicula" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Peliculas_ObtenerTopPeliculasPuntuacionResult" nillable="true" type="q11:ArrayOfPelicula" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Peliculas_ActualizarPelicula">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="pelicula" nillable="true" type="q10:Pelicula" />
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="original" nillable="true" type="q11:Pelicula" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="pelicula" nillable="true" type="q12:Pelicula" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="original" nillable="true" type="q13:Pelicula" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -128,7 +152,7 @@
   <xs:element name="Peliculas_EliminarPelicula">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="pelicula" nillable="true" type="q12:Pelicula" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="pelicula" nillable="true" type="q14:Pelicula" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -140,7 +164,7 @@
   <xs:element name="Peliculas_AgregarPelicula">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="pelicula" nillable="true" type="q13:Pelicula" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="pelicula" nillable="true" type="q15:Pelicula" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -181,7 +205,7 @@
   <xs:element name="ChangeSet_ActualizarChangeSet">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="changeSet" nillable="true" type="q14:DisconnectedChangeSet" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="changeSet" nillable="true" type="q16:DisconnectedChangeSet" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -198,7 +222,7 @@
   <xs:element name="Usuarios_ObtenerUsuariosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Usuarios_ObtenerUsuariosResult" nillable="true" type="q15:ArrayOfUsuario" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Usuarios_ObtenerUsuariosResult" nillable="true" type="q17:ArrayOfUsuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -210,7 +234,7 @@
   <xs:element name="Usuarios_ObtenerSociosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Usuarios_ObtenerSociosResult" nillable="true" type="q16:ArrayOfSocio" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Usuarios_ObtenerSociosResult" nillable="true" type="q18:ArrayOfSocio" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -224,7 +248,7 @@
   <xs:element name="Usuarios_ObtenerSociosPorNombreResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Usuarios_ObtenerSociosPorNombreResult" nillable="true" type="q17:ArrayOfSocio" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Usuarios_ObtenerSociosPorNombreResult" nillable="true" type="q19:ArrayOfSocio" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -238,7 +262,7 @@
   <xs:element name="Usuarios_ObtenerUsuarioPorNIFResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Usuarios_ObtenerUsuarioPorNIFResult" nillable="true" type="q18:Usuario" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Usuarios_ObtenerUsuarioPorNIFResult" nillable="true" type="q20:Usuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -250,7 +274,7 @@
   <xs:element name="Usuarios_ObtenerMiUsuarioResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Usuarios_ObtenerMiUsuarioResult" nillable="true" type="q19:Usuario" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Usuarios_ObtenerMiUsuarioResult" nillable="true" type="q21:Usuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -264,15 +288,15 @@
   <xs:element name="Usuarios_ObtenerSocioPorNIFResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Usuarios_ObtenerSocioPorNIFResult" nillable="true" type="q20:Socio" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Usuarios_ObtenerSocioPorNIFResult" nillable="true" type="q22:Socio" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Usuarios_ActualizarUsuario">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="usuario" nillable="true" type="q21:Usuario" />
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="original" nillable="true" type="q22:Usuario" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="usuario" nillable="true" type="q23:Usuario" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="original" nillable="true" type="q24:Usuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -284,7 +308,7 @@
   <xs:element name="Usuarios_EliminarUsuario">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="usuario" nillable="true" type="q23:Usuario" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="usuario" nillable="true" type="q25:Usuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -296,7 +320,7 @@
   <xs:element name="Usuarios_AgregarUsuario">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="usuario" nillable="true" type="q24:Usuario" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="usuario" nillable="true" type="q26:Usuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -329,7 +353,7 @@
   <xs:element name="Usuarios_ValidarUsuarioResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Usuarios_ValidarUsuarioResult" nillable="true" type="q25:Usuario" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Usuarios_ValidarUsuarioResult" nillable="true" type="q27:Usuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -341,7 +365,7 @@
   <xs:element name="Actores_ObtenerActoresResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Actores_ObtenerActoresResult" nillable="true" type="q26:ArrayOfActor" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Actores_ObtenerActoresResult" nillable="true" type="q28:ArrayOfActor" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -355,7 +379,7 @@
   <xs:element name="Actores_ObtenerActoresPorNombreResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Actores_ObtenerActoresPorNombreResult" nillable="true" type="q27:ArrayOfActor" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Actores_ObtenerActoresPorNombreResult" nillable="true" type="q29:ArrayOfActor" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -370,7 +394,21 @@
   <xs:element name="ComprarPeliculaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="ComprarPeliculaResult" type="q28:EstadoPedido" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="ComprarPeliculaResult" type="q30:EstadoPedido" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ComprarMiPelicula">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="peliculaCodBarras" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ComprarMiPeliculaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="ComprarMiPeliculaResult" type="q31:EstadoPedido" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -385,7 +423,21 @@
   <xs:element name="AlquilarPeliculaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="AlquilarPeliculaResult" type="q29:EstadoPedido" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="AlquilarPeliculaResult" type="q32:EstadoPedido" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AlquilarMiPelicula">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="peliculaCodBarras" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AlquilarMiPeliculaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="AlquilarMiPeliculaResult" type="q33:EstadoPedido" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -400,7 +452,21 @@
   <xs:element name="AlquilarPeliculaYRecogerResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="AlquilarPeliculaYRecogerResult" type="q30:EstadoPedido" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="AlquilarPeliculaYRecogerResult" type="q34:EstadoPedido" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AlquilarMiPeliculaYRecoger">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="peliculaCodBarras" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AlquilarMiPeliculaYRecogerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="AlquilarMiPeliculaYRecogerResult" type="q35:EstadoPedido" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -419,6 +485,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="CalcularMiPrecioAlquiler">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="peliculaCodBarras" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalcularMiPrecioAlquilerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CalcularMiPrecioAlquilerResult" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="RecogerPelicula">
     <xs:complexType>
       <xs:sequence>
@@ -428,6 +508,18 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="RecogerPeliculaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecogerMiPelicula">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="peliculaCodBarras" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecogerMiPeliculaResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -443,8 +535,23 @@
   <xs:element name="DevolverPeliculaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="DevolverPeliculaResult" type="q31:EstadoPedido" />
-        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="historico" nillable="true" type="q32:Historico" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="DevolverPeliculaResult" type="q36:EstadoPedido" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="historico" nillable="true" type="q37:Historico" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DevolverMiPelicula">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="peliculaCodBarras" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DevolverMiPeliculaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="DevolverMiPeliculaResult" type="q38:EstadoPedido" />
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="historico" nillable="true" type="q39:Historico" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -459,7 +566,7 @@
   <xs:element name="ObtenerAlquileresSinDevolverResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="ObtenerAlquileresSinDevolverResult" nillable="true" type="q33:ArrayOfAlquiler" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="ObtenerAlquileresSinDevolverResult" nillable="true" type="q40:ArrayOfAlquiler" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -474,7 +581,7 @@
   <xs:element name="ObtenerAlquileresSinRecogerResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="ObtenerAlquileresSinRecogerResult" nillable="true" type="q34:ArrayOfAlquiler" />
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="ObtenerAlquileresSinRecogerResult" nillable="true" type="q41:ArrayOfAlquiler" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -489,7 +596,7 @@
   <xs:element name="Notificaciones_ObtenerNotificacionesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Notificaciones_ObtenerNotificacionesResult" nillable="true" type="q35:ArrayOfNotificacion" />
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Notificaciones_ObtenerNotificacionesResult" nillable="true" type="q42:ArrayOfNotificacion" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -501,8 +608,8 @@
   <xs:element name="Informes_ObtenerInformeSaldosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Informes_ObtenerInformeSaldosResult" nillable="true" type="q36:ArrayOfInformeSaldos" />
-        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="saludInforme" type="q37:SaludInforme" />
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Informes_ObtenerInformeSaldosResult" nillable="true" type="q43:ArrayOfInformeSaldos" />
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="saludInforme" type="q44:SaludInforme" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -514,8 +621,8 @@
   <xs:element name="Informes_ObtenerInformeVentasResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Informes_ObtenerInformeVentasResult" nillable="true" type="q38:ArrayOfInformeVentas" />
-        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="saludInforme" type="q39:SaludInforme" />
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Informes_ObtenerInformeVentasResult" nillable="true" type="q45:ArrayOfInformeVentas" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="saludInforme" type="q46:SaludInforme" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -527,8 +634,8 @@
   <xs:element name="Informes_ObtenerInformeStockResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Informes_ObtenerInformeStockResult" nillable="true" type="q40:ArrayOfInformeStock" />
-        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="saludInforme" type="q41:SaludInforme" />
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="Informes_ObtenerInformeStockResult" nillable="true" type="q47:ArrayOfInformeStock" />
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" minOccurs="0" name="saludInforme" type="q48:SaludInforme" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

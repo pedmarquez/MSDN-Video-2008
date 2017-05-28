@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:tns="http://tempuri.org/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" name="MSDNVideoServices" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MSDNVideoServices" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsp:Policy wsu:Id="ws_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -61,12 +61,7 @@
                           </wsp:Policy>
                         </sp:SignedSupportingTokens>
                         <sp:Wss11>
-                          <wsp:Policy>
-                            <sp:MustSupportRefKeyIdentifier />
-                            <sp:MustSupportRefIssuerSerial />
-                            <sp:MustSupportRefThumbprint />
-                            <sp:MustSupportRefEncryptedKey />
-                          </wsp:Policy>
+                          <wsp:Policy />
                         </sp:Wss11>
                         <sp:Trust10>
                           <wsp:Policy>
@@ -97,12 +92,7 @@
           </wsp:Policy>
         </sp:SymmetricBinding>
         <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <wsp:Policy>
-            <sp:MustSupportRefKeyIdentifier />
-            <sp:MustSupportRefIssuerSerial />
-            <sp:MustSupportRefThumbprint />
-            <sp:MustSupportRefEncryptedKey />
-          </wsp:Policy>
+          <wsp:Policy />
         </sp:Wss11>
         <sp:Trust10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
           <wsp:Policy>
@@ -267,6 +257,44 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ObtenerMisPeliculasPendienteDevolver_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ObtenerMisPeliculasPendienteDevolver_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsp:Policy wsu:Id="ws_Peliculas_ObtenerPeliculasPendienteRecoger_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -287,6 +315,44 @@
     </wsp:ExactlyOne>
   </wsp:Policy>
   <wsp:Policy wsu:Id="ws_Peliculas_ObtenerPeliculasPendienteRecoger_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ObtenerMisPeliculasPendienteRecoger_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_Peliculas_ObtenerMisPeliculasPendienteRecoger_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -1179,6 +1245,44 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_ComprarMiPelicula_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_ComprarMiPelicula_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsp:Policy wsu:Id="ws_AlquilarPelicula_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -1199,6 +1303,44 @@
     </wsp:ExactlyOne>
   </wsp:Policy>
   <wsp:Policy wsu:Id="ws_AlquilarPelicula_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_AlquilarMiPelicula_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_AlquilarMiPelicula_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -1255,6 +1397,44 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_AlquilarMiPeliculaYRecoger_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_AlquilarMiPeliculaYRecoger_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsp:Policy wsu:Id="ws_CalcularPrecioAlquiler_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -1275,6 +1455,44 @@
     </wsp:ExactlyOne>
   </wsp:Policy>
   <wsp:Policy wsu:Id="ws_CalcularPrecioAlquiler_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_CalcularMiPrecioAlquiler_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_CalcularMiPrecioAlquiler_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -1331,6 +1549,44 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_RecogerMiPelicula_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_RecogerMiPelicula_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsp:Policy wsu:Id="ws_DevolverPelicula_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -1351,6 +1607,44 @@
     </wsp:ExactlyOne>
   </wsp:Policy>
   <wsp:Policy wsu:Id="ws_DevolverPelicula_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_DevolverMiPelicula_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ws_DevolverMiPelicula_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -1599,10 +1893,10 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://localhost:52442/MSDNVideo.Servicios/MSDNVideoServices.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:52442/MSDNVideo.Servicios/MSDNVideoServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:52442/MSDNVideo.Servicios/MSDNVideoServices.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" />
-      <xsd:import schemaLocation="http://localhost:52442/MSDNVideo.Servicios/MSDNVideoServices.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:52442/MSDNVideoServices.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:52442/MSDNVideoServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:52442/MSDNVideoServices.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MSDNVideo.Comun" />
+      <xsd:import schemaLocation="http://localhost:52442/MSDNVideoServices.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerPeliculas_InputMessage">
@@ -1629,11 +1923,23 @@
   <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerPeliculasPendienteDevolver_OutputMessage">
     <wsdl:part name="parameters" element="tns:Peliculas_ObtenerPeliculasPendienteDevolverResponse" />
   </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerMisPeliculasPendienteDevolver_InputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ObtenerMisPeliculasPendienteDevolver" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerMisPeliculasPendienteDevolver_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ObtenerMisPeliculasPendienteDevolverResponse" />
+  </wsdl:message>
   <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerPeliculasPendienteRecoger_InputMessage">
     <wsdl:part name="parameters" element="tns:Peliculas_ObtenerPeliculasPendienteRecoger" />
   </wsdl:message>
   <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerPeliculasPendienteRecoger_OutputMessage">
     <wsdl:part name="parameters" element="tns:Peliculas_ObtenerPeliculasPendienteRecogerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerMisPeliculasPendienteRecoger_InputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ObtenerMisPeliculasPendienteRecoger" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerMisPeliculasPendienteRecoger_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Peliculas_ObtenerMisPeliculasPendienteRecogerResponse" />
   </wsdl:message>
   <wsdl:message name="IMSDNVideoServices_Peliculas_ObtenerTopPeliculasAlquiler_InputMessage">
     <wsdl:part name="parameters" element="tns:Peliculas_ObtenerTopPeliculasAlquiler" />
@@ -1773,11 +2079,23 @@
   <wsdl:message name="IMSDNVideoServices_ComprarPelicula_OutputMessage">
     <wsdl:part name="parameters" element="tns:ComprarPeliculaResponse" />
   </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_ComprarMiPelicula_InputMessage">
+    <wsdl:part name="parameters" element="tns:ComprarMiPelicula" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_ComprarMiPelicula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ComprarMiPeliculaResponse" />
+  </wsdl:message>
   <wsdl:message name="IMSDNVideoServices_AlquilarPelicula_InputMessage">
     <wsdl:part name="parameters" element="tns:AlquilarPelicula" />
   </wsdl:message>
   <wsdl:message name="IMSDNVideoServices_AlquilarPelicula_OutputMessage">
     <wsdl:part name="parameters" element="tns:AlquilarPeliculaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_AlquilarMiPelicula_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlquilarMiPelicula" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_AlquilarMiPelicula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlquilarMiPeliculaResponse" />
   </wsdl:message>
   <wsdl:message name="IMSDNVideoServices_AlquilarPeliculaYRecoger_InputMessage">
     <wsdl:part name="parameters" element="tns:AlquilarPeliculaYRecoger" />
@@ -1785,11 +2103,23 @@
   <wsdl:message name="IMSDNVideoServices_AlquilarPeliculaYRecoger_OutputMessage">
     <wsdl:part name="parameters" element="tns:AlquilarPeliculaYRecogerResponse" />
   </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_AlquilarMiPeliculaYRecoger_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlquilarMiPeliculaYRecoger" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_AlquilarMiPeliculaYRecoger_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlquilarMiPeliculaYRecogerResponse" />
+  </wsdl:message>
   <wsdl:message name="IMSDNVideoServices_CalcularPrecioAlquiler_InputMessage">
     <wsdl:part name="parameters" element="tns:CalcularPrecioAlquiler" />
   </wsdl:message>
   <wsdl:message name="IMSDNVideoServices_CalcularPrecioAlquiler_OutputMessage">
     <wsdl:part name="parameters" element="tns:CalcularPrecioAlquilerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_CalcularMiPrecioAlquiler_InputMessage">
+    <wsdl:part name="parameters" element="tns:CalcularMiPrecioAlquiler" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_CalcularMiPrecioAlquiler_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CalcularMiPrecioAlquilerResponse" />
   </wsdl:message>
   <wsdl:message name="IMSDNVideoServices_RecogerPelicula_InputMessage">
     <wsdl:part name="parameters" element="tns:RecogerPelicula" />
@@ -1797,11 +2127,23 @@
   <wsdl:message name="IMSDNVideoServices_RecogerPelicula_OutputMessage">
     <wsdl:part name="parameters" element="tns:RecogerPeliculaResponse" />
   </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_RecogerMiPelicula_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecogerMiPelicula" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_RecogerMiPelicula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecogerMiPeliculaResponse" />
+  </wsdl:message>
   <wsdl:message name="IMSDNVideoServices_DevolverPelicula_InputMessage">
     <wsdl:part name="parameters" element="tns:DevolverPelicula" />
   </wsdl:message>
   <wsdl:message name="IMSDNVideoServices_DevolverPelicula_OutputMessage">
     <wsdl:part name="parameters" element="tns:DevolverPeliculaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_DevolverMiPelicula_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverMiPelicula" />
+  </wsdl:message>
+  <wsdl:message name="IMSDNVideoServices_DevolverMiPelicula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverMiPeliculaResponse" />
   </wsdl:message>
   <wsdl:message name="IMSDNVideoServices_ObtenerAlquileresSinDevolver_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerAlquileresSinDevolver" />
@@ -1856,9 +2198,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerPeliculasPendienteDevolver" message="tns:IMSDNVideoServices_Peliculas_ObtenerPeliculasPendienteDevolver_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerPeliculasPendienteDevolverResponse" message="tns:IMSDNVideoServices_Peliculas_ObtenerPeliculasPendienteDevolver_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerMisPeliculasPendienteDevolver">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerMisPeliculasPendienteDevolver" message="tns:IMSDNVideoServices_Peliculas_ObtenerMisPeliculasPendienteDevolver_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerMisPeliculasPendienteDevolverResponse" message="tns:IMSDNVideoServices_Peliculas_ObtenerMisPeliculasPendienteDevolver_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Peliculas_ObtenerPeliculasPendienteRecoger">
       <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerPeliculasPendienteRecoger" message="tns:IMSDNVideoServices_Peliculas_ObtenerPeliculasPendienteRecoger_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerPeliculasPendienteRecogerResponse" message="tns:IMSDNVideoServices_Peliculas_ObtenerPeliculasPendienteRecoger_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerMisPeliculasPendienteRecoger">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerMisPeliculasPendienteRecoger" message="tns:IMSDNVideoServices_Peliculas_ObtenerMisPeliculasPendienteRecoger_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerMisPeliculasPendienteRecogerResponse" message="tns:IMSDNVideoServices_Peliculas_ObtenerMisPeliculasPendienteRecoger_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Peliculas_ObtenerTopPeliculasAlquiler">
       <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerTopPeliculasAlquiler" message="tns:IMSDNVideoServices_Peliculas_ObtenerTopPeliculasAlquiler_InputMessage" />
@@ -1952,25 +2302,49 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/ComprarPelicula" message="tns:IMSDNVideoServices_ComprarPelicula_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/ComprarPeliculaResponse" message="tns:IMSDNVideoServices_ComprarPelicula_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ComprarMiPelicula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/ComprarMiPelicula" message="tns:IMSDNVideoServices_ComprarMiPelicula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/ComprarMiPeliculaResponse" message="tns:IMSDNVideoServices_ComprarMiPelicula_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="AlquilarPelicula">
       <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/AlquilarPelicula" message="tns:IMSDNVideoServices_AlquilarPelicula_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/AlquilarPeliculaResponse" message="tns:IMSDNVideoServices_AlquilarPelicula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AlquilarMiPelicula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/AlquilarMiPelicula" message="tns:IMSDNVideoServices_AlquilarMiPelicula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/AlquilarMiPeliculaResponse" message="tns:IMSDNVideoServices_AlquilarMiPelicula_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AlquilarPeliculaYRecoger">
       <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/AlquilarPeliculaYRecoger" message="tns:IMSDNVideoServices_AlquilarPeliculaYRecoger_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/AlquilarPeliculaYRecogerResponse" message="tns:IMSDNVideoServices_AlquilarPeliculaYRecoger_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="AlquilarMiPeliculaYRecoger">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/AlquilarMiPeliculaYRecoger" message="tns:IMSDNVideoServices_AlquilarMiPeliculaYRecoger_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/AlquilarMiPeliculaYRecogerResponse" message="tns:IMSDNVideoServices_AlquilarMiPeliculaYRecoger_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="CalcularPrecioAlquiler">
       <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/CalcularPrecioAlquiler" message="tns:IMSDNVideoServices_CalcularPrecioAlquiler_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/CalcularPrecioAlquilerResponse" message="tns:IMSDNVideoServices_CalcularPrecioAlquiler_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalcularMiPrecioAlquiler">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/CalcularMiPrecioAlquiler" message="tns:IMSDNVideoServices_CalcularMiPrecioAlquiler_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/CalcularMiPrecioAlquilerResponse" message="tns:IMSDNVideoServices_CalcularMiPrecioAlquiler_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="RecogerPelicula">
       <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/RecogerPelicula" message="tns:IMSDNVideoServices_RecogerPelicula_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/RecogerPeliculaResponse" message="tns:IMSDNVideoServices_RecogerPelicula_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="RecogerMiPelicula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/RecogerMiPelicula" message="tns:IMSDNVideoServices_RecogerMiPelicula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/RecogerMiPeliculaResponse" message="tns:IMSDNVideoServices_RecogerMiPelicula_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="DevolverPelicula">
       <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/DevolverPelicula" message="tns:IMSDNVideoServices_DevolverPelicula_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/DevolverPeliculaResponse" message="tns:IMSDNVideoServices_DevolverPelicula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverMiPelicula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/DevolverMiPelicula" message="tns:IMSDNVideoServices_DevolverMiPelicula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMSDNVideoServices/DevolverMiPeliculaResponse" message="tns:IMSDNVideoServices_DevolverMiPelicula_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ObtenerAlquileresSinDevolver">
       <wsdl:input wsaw:Action="http://tempuri.org/IMSDNVideoServices/ObtenerAlquileresSinDevolver" message="tns:IMSDNVideoServices_ObtenerAlquileresSinDevolver_InputMessage" />
@@ -2044,6 +2418,17 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerMisPeliculasPendienteDevolver">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerMisPeliculasPendienteDevolver" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Peliculas_ObtenerMisPeliculasPendienteDevolver_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Peliculas_ObtenerMisPeliculasPendienteDevolver_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Peliculas_ObtenerPeliculasPendienteRecoger">
       <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerPeliculasPendienteRecoger" style="document" />
       <wsdl:input>
@@ -2052,6 +2437,17 @@
       </wsdl:input>
       <wsdl:output>
         <wsp:PolicyReference URI="#ws_Peliculas_ObtenerPeliculasPendienteRecoger_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerMisPeliculasPendienteRecoger">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerMisPeliculasPendienteRecoger" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_Peliculas_ObtenerMisPeliculasPendienteRecoger_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_Peliculas_ObtenerMisPeliculasPendienteRecoger_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -2308,6 +2704,17 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ComprarMiPelicula">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/ComprarMiPelicula" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_ComprarMiPelicula_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_ComprarMiPelicula_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AlquilarPelicula">
       <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/AlquilarPelicula" style="document" />
       <wsdl:input>
@@ -2316,6 +2723,17 @@
       </wsdl:input>
       <wsdl:output>
         <wsp:PolicyReference URI="#ws_AlquilarPelicula_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlquilarMiPelicula">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/AlquilarMiPelicula" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_AlquilarMiPelicula_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_AlquilarMiPelicula_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -2330,6 +2748,17 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="AlquilarMiPeliculaYRecoger">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/AlquilarMiPeliculaYRecoger" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_AlquilarMiPeliculaYRecoger_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_AlquilarMiPeliculaYRecoger_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="CalcularPrecioAlquiler">
       <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/CalcularPrecioAlquiler" style="document" />
       <wsdl:input>
@@ -2338,6 +2767,17 @@
       </wsdl:input>
       <wsdl:output>
         <wsp:PolicyReference URI="#ws_CalcularPrecioAlquiler_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalcularMiPrecioAlquiler">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/CalcularMiPrecioAlquiler" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_CalcularMiPrecioAlquiler_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_CalcularMiPrecioAlquiler_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -2352,6 +2792,17 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="RecogerMiPelicula">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/RecogerMiPelicula" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_RecogerMiPelicula_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_RecogerMiPelicula_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="DevolverPelicula">
       <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/DevolverPelicula" style="document" />
       <wsdl:input>
@@ -2360,6 +2811,17 @@
       </wsdl:input>
       <wsdl:output>
         <wsp:PolicyReference URI="#ws_DevolverPelicula_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverMiPelicula">
+      <soap12:operation soapAction="http://tempuri.org/IMSDNVideoServices/DevolverMiPelicula" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#ws_DevolverMiPelicula_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#ws_DevolverMiPelicula_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -2468,8 +2930,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerMisPeliculasPendienteDevolver">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerMisPeliculasPendienteDevolver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Peliculas_ObtenerPeliculasPendienteRecoger">
       <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerPeliculasPendienteRecoger" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Peliculas_ObtenerMisPeliculasPendienteRecoger">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerMisPeliculasPendienteRecoger" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2684,8 +3164,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ComprarMiPelicula">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/ComprarMiPelicula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AlquilarPelicula">
       <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/AlquilarPelicula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlquilarMiPelicula">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/AlquilarMiPelicula" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2702,8 +3200,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="AlquilarMiPeliculaYRecoger">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/AlquilarMiPeliculaYRecoger" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="CalcularPrecioAlquiler">
       <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/CalcularPrecioAlquiler" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalcularMiPrecioAlquiler">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/CalcularMiPrecioAlquiler" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2720,8 +3236,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="RecogerMiPelicula">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/RecogerMiPelicula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="DevolverPelicula">
       <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/DevolverPelicula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverMiPelicula">
+      <soap:operation soapAction="http://tempuri.org/IMSDNVideoServices/DevolverMiPelicula" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2786,9 +3320,9 @@
   </wsdl:binding>
   <wsdl:service name="MSDNVideoServices">
     <wsdl:port name="ws" binding="tns:ws">
-      <soap12:address location="http://localhost:52442/MSDNVideo.Servicios/MSDNVideoServices.svc/ws" />
+      <soap12:address location="http://localhost:52442/MSDNVideoServices.svc/ws" />
       <wsa10:EndpointReference>
-        <wsa10:Address>http://localhost:52442/MSDNVideo.Servicios/MSDNVideoServices.svc/ws</wsa10:Address>
+        <wsa10:Address>http://localhost:52442/MSDNVideoServices.svc/ws</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
           <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
             <X509Data>
@@ -2799,7 +3333,7 @@
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="wsi" binding="tns:wsi">
-      <soap:address location="http://localhost:52442/MSDNVideo.Servicios/MSDNVideoServices.svc" />
+      <soap:address location="http://localhost:52442/MSDNVideoServices.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

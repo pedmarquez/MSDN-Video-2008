@@ -1,4 +1,5 @@
-﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -9,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MSDNVideo.Pruebas</RootNamespace>
     <AssemblyName>MSDNVideo.Pruebas</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <FileUpgradeFlags>
@@ -17,6 +18,7 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -26,6 +28,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -34,9 +37,10 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -157,6 +161,19 @@
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\MSDNVideoServices\MSDNVideoServices1.wsdl" />
+    <None Include="Service References\MSDNVideoServices\MSDNVideoServices4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MSDNVideoServices\MSDNVideoServices41.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MSDNVideoServices\MSDNVideoServices42.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MSDNVideoServices\MSDNVideoServices43.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web References\MSDNVideoServicesInterop\Actor.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
@@ -208,14 +225,6 @@
     <WCFMetadataStorage Include="Service References\MSDNVideoServices\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\MSDNVideoServices\MSDNVideoServices.disco" />
-    <None Include="Service References\MSDNVideoServices\MSDNVideoServices.wsdl" />
-    <None Include="Service References\MSDNVideoServices\MSDNVideoServices.xsd" />
-    <None Include="Service References\MSDNVideoServices\MSDNVideoServices1.xsd" />
-    <None Include="Service References\MSDNVideoServices\MSDNVideoServices2.xsd" />
-    <None Include="Service References\MSDNVideoServices\MSDNVideoServices3.xsd" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\MSDNVideoServices\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -223,6 +232,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MSDNVideoServices\MSDNVideoServices1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MSDNVideoServices\configuration91.svcinfo" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

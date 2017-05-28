@@ -31,9 +31,19 @@ namespace MSDNVideo.Pruebas.MSDNVideoServices {
             "Response")]
         MSDNVideo.Comun.Pelicula[] Peliculas_ObtenerPeliculasPendienteDevolver(string nifUsuario);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerMisPeliculasPendienteDevol" +
+            "ver", ReplyAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerMisPeliculasPendienteDevol" +
+            "verResponse")]
+        MSDNVideo.Comun.Pelicula[] Peliculas_ObtenerMisPeliculasPendienteDevolver();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerPeliculasPendienteRecoger", ReplyAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerPeliculasPendienteRecogerR" +
             "esponse")]
         MSDNVideo.Comun.Pelicula[] Peliculas_ObtenerPeliculasPendienteRecoger(string nifUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerMisPeliculasPendienteRecog" +
+            "er", ReplyAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerMisPeliculasPendienteRecog" +
+            "erResponse")]
+        MSDNVideo.Comun.Pelicula[] Peliculas_ObtenerMisPeliculasPendienteRecoger();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerTopPeliculasAlquiler", ReplyAction="http://tempuri.org/IMSDNVideoServices/Peliculas_ObtenerTopPeliculasAlquilerRespon" +
             "se")]
@@ -154,20 +164,38 @@ namespace MSDNVideo.Pruebas.MSDNVideoServices {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMSDNVideoServices/ComprarPelicula", ReplyAction="http://tempuri.org/IMSDNVideoServices/ComprarPeliculaResponse")]
         MSDNVideo.Comun.EstadoPedido ComprarPelicula(string nifSocio, string peliculaCodBarras);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMSDNVideoServices/ComprarMiPelicula", ReplyAction="http://tempuri.org/IMSDNVideoServices/ComprarMiPeliculaResponse")]
+        MSDNVideo.Comun.EstadoPedido ComprarMiPelicula(string peliculaCodBarras);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMSDNVideoServices/AlquilarPelicula", ReplyAction="http://tempuri.org/IMSDNVideoServices/AlquilarPeliculaResponse")]
         MSDNVideo.Comun.EstadoPedido AlquilarPelicula(string nifSocio, string peliculaCodBarras);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMSDNVideoServices/AlquilarMiPelicula", ReplyAction="http://tempuri.org/IMSDNVideoServices/AlquilarMiPeliculaResponse")]
+        MSDNVideo.Comun.EstadoPedido AlquilarMiPelicula(string peliculaCodBarras);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMSDNVideoServices/AlquilarPeliculaYRecoger", ReplyAction="http://tempuri.org/IMSDNVideoServices/AlquilarPeliculaYRecogerResponse")]
         MSDNVideo.Comun.EstadoPedido AlquilarPeliculaYRecoger(string nifSocio, string peliculaCodBarras);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMSDNVideoServices/AlquilarMiPeliculaYRecoger", ReplyAction="http://tempuri.org/IMSDNVideoServices/AlquilarMiPeliculaYRecogerResponse")]
+        MSDNVideo.Comun.EstadoPedido AlquilarMiPeliculaYRecoger(string peliculaCodBarras);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMSDNVideoServices/CalcularPrecioAlquiler", ReplyAction="http://tempuri.org/IMSDNVideoServices/CalcularPrecioAlquilerResponse")]
         decimal CalcularPrecioAlquiler(string nifSocio, string peliculaCodBarras);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMSDNVideoServices/CalcularMiPrecioAlquiler", ReplyAction="http://tempuri.org/IMSDNVideoServices/CalcularMiPrecioAlquilerResponse")]
+        decimal CalcularMiPrecioAlquiler(string peliculaCodBarras);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMSDNVideoServices/RecogerPelicula", ReplyAction="http://tempuri.org/IMSDNVideoServices/RecogerPeliculaResponse")]
         void RecogerPelicula(string nifSocio, string peliculaCodBarras);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMSDNVideoServices/RecogerMiPelicula", ReplyAction="http://tempuri.org/IMSDNVideoServices/RecogerMiPeliculaResponse")]
+        void RecogerMiPelicula(string peliculaCodBarras);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMSDNVideoServices/DevolverPelicula", ReplyAction="http://tempuri.org/IMSDNVideoServices/DevolverPeliculaResponse")]
         MSDNVideo.Comun.EstadoPedido DevolverPelicula(out MSDNVideo.Comun.Historico historico, string nifSocio, string peliculaCodBarras);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMSDNVideoServices/DevolverMiPelicula", ReplyAction="http://tempuri.org/IMSDNVideoServices/DevolverMiPeliculaResponse")]
+        MSDNVideo.Comun.EstadoPedido DevolverMiPelicula(out MSDNVideo.Comun.Historico historico, string peliculaCodBarras);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMSDNVideoServices/ObtenerAlquileresSinDevolver", ReplyAction="http://tempuri.org/IMSDNVideoServices/ObtenerAlquileresSinDevolverResponse")]
         MSDNVideo.Comun.Alquiler[] ObtenerAlquileresSinDevolver(bool incluirSocio, bool incluirPelicula);
@@ -232,8 +260,16 @@ namespace MSDNVideo.Pruebas.MSDNVideoServices {
             return base.Channel.Peliculas_ObtenerPeliculasPendienteDevolver(nifUsuario);
         }
         
+        public MSDNVideo.Comun.Pelicula[] Peliculas_ObtenerMisPeliculasPendienteDevolver() {
+            return base.Channel.Peliculas_ObtenerMisPeliculasPendienteDevolver();
+        }
+        
         public MSDNVideo.Comun.Pelicula[] Peliculas_ObtenerPeliculasPendienteRecoger(string nifUsuario) {
             return base.Channel.Peliculas_ObtenerPeliculasPendienteRecoger(nifUsuario);
+        }
+        
+        public MSDNVideo.Comun.Pelicula[] Peliculas_ObtenerMisPeliculasPendienteRecoger() {
+            return base.Channel.Peliculas_ObtenerMisPeliculasPendienteRecoger();
         }
         
         public MSDNVideo.Comun.Pelicula[] Peliculas_ObtenerTopPeliculasAlquiler() {
@@ -328,24 +364,48 @@ namespace MSDNVideo.Pruebas.MSDNVideoServices {
             return base.Channel.ComprarPelicula(nifSocio, peliculaCodBarras);
         }
         
+        public MSDNVideo.Comun.EstadoPedido ComprarMiPelicula(string peliculaCodBarras) {
+            return base.Channel.ComprarMiPelicula(peliculaCodBarras);
+        }
+        
         public MSDNVideo.Comun.EstadoPedido AlquilarPelicula(string nifSocio, string peliculaCodBarras) {
             return base.Channel.AlquilarPelicula(nifSocio, peliculaCodBarras);
+        }
+        
+        public MSDNVideo.Comun.EstadoPedido AlquilarMiPelicula(string peliculaCodBarras) {
+            return base.Channel.AlquilarMiPelicula(peliculaCodBarras);
         }
         
         public MSDNVideo.Comun.EstadoPedido AlquilarPeliculaYRecoger(string nifSocio, string peliculaCodBarras) {
             return base.Channel.AlquilarPeliculaYRecoger(nifSocio, peliculaCodBarras);
         }
         
+        public MSDNVideo.Comun.EstadoPedido AlquilarMiPeliculaYRecoger(string peliculaCodBarras) {
+            return base.Channel.AlquilarMiPeliculaYRecoger(peliculaCodBarras);
+        }
+        
         public decimal CalcularPrecioAlquiler(string nifSocio, string peliculaCodBarras) {
             return base.Channel.CalcularPrecioAlquiler(nifSocio, peliculaCodBarras);
+        }
+        
+        public decimal CalcularMiPrecioAlquiler(string peliculaCodBarras) {
+            return base.Channel.CalcularMiPrecioAlquiler(peliculaCodBarras);
         }
         
         public void RecogerPelicula(string nifSocio, string peliculaCodBarras) {
             base.Channel.RecogerPelicula(nifSocio, peliculaCodBarras);
         }
         
+        public void RecogerMiPelicula(string peliculaCodBarras) {
+            base.Channel.RecogerMiPelicula(peliculaCodBarras);
+        }
+        
         public MSDNVideo.Comun.EstadoPedido DevolverPelicula(out MSDNVideo.Comun.Historico historico, string nifSocio, string peliculaCodBarras) {
             return base.Channel.DevolverPelicula(out historico, nifSocio, peliculaCodBarras);
+        }
+        
+        public MSDNVideo.Comun.EstadoPedido DevolverMiPelicula(out MSDNVideo.Comun.Historico historico, string peliculaCodBarras) {
+            return base.Channel.DevolverMiPelicula(out historico, peliculaCodBarras);
         }
         
         public MSDNVideo.Comun.Alquiler[] ObtenerAlquileresSinDevolver(bool incluirSocio, bool incluirPelicula) {
