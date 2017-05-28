@@ -1,3 +1,6 @@
+# Crear base de datos
+MSDN Video 2008 utiliza una base de datos que tiene que adjuntar a un servidor SQL Server. Para adjuntar la base de datos utilice la consola de administración de SQL Server.
+
 # Modificar cadenas de conexión
 MSDN Video 2008 buscará por defecto su base de datos en la instancia “(localdb)\mssqllocaldb” del servidor SQL Server local. Si la instancia de su servidor de datos es otra deberá cambiar los archivos de configuración siguientes:
 -	Archivo “MSDNVideo.Web\web.config”.
